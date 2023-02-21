@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String  @id @db.Uuid
+  userName    String
+  password    String
+  email       String  @unique
+  placeToLive String
+  img         String?
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+
+}
+
+model Post {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  description String
+  title       String
+  img         String
+  userId      String
+  placeFrom   String
+  likes       String[]
+}
+
+model Tweet {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  description String 
+  historicalPeriod String
+  title       String
+  userId      String
+  likes       String[] 
+}
+model PostComment {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  text      String 
+  userId    String 
+  userImg   String 
+  postId    String
+  userName  String
+  }
+model TweetComment {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  text      String 
+  userId    String 
+  tweetId   String
+  userName  String
+  }
