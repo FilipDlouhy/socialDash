@@ -14,6 +14,11 @@ interface modalTweet{
 }interface tweet{
   user: User, tweet: Tweet 
 }
+interface showCommentsOrLikesData {
+  id:string
+  type:string
+  LikesOrComments:boolean,
+}
 
 export type MainContext = {
     setShowModalPost: React.Dispatch<React.SetStateAction<boolean>>,
@@ -26,6 +31,11 @@ export type MainContext = {
     setPost:Dispatch<SetStateAction<post | undefined>>
     Tweet: modalTweet | undefined
     setTweet: Dispatch<SetStateAction<modalTweet | undefined>>
+    showModalLikesAndComments: boolean,
+    setShowModalLikesAndComments: Dispatch<SetStateAction<boolean>>,
+    showLikesAndCommentsData: showCommentsOrLikesData | undefined,
+    setShowModalLikesAndCommentsData:Dispatch<SetStateAction<showCommentsOrLikesData | undefined>>,
+    handleOpenShowLikesOrComments:(id: string, type: string, LikesOrComments: boolean) => void
   }
   export const mainContext = createContext<MainContext>({
     setShowModalPost:()=>{},
@@ -37,5 +47,10 @@ export type MainContext = {
     post:undefined,
     setPost:()=>{},
     Tweet:undefined,
-    setTweet:()=>{}
+    setTweet:()=>{},
+    showModalLikesAndComments:false,
+    setShowModalLikesAndComments:()=>{},
+    showLikesAndCommentsData:undefined,
+    setShowModalLikesAndCommentsData:()=>{},
+    handleOpenShowLikesOrComments:()=>{}
   })

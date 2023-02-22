@@ -20,6 +20,14 @@ interface tweet{
 interface modalTweet{
   tweet: tweet ,tweetComments:TweetComment[]
 }
+
+interface showCommentsOrLikesData {
+  id:string
+  type:string
+  LikesOrComments:boolean,
+}
+
+
 export default function RootLayout({
   children,
 }: {
@@ -28,6 +36,8 @@ export default function RootLayout({
 
   const [showModalPost, setShowModalPost] = useState<boolean>(false);
   const [showModalTweet, setShowModalTweet] = useState<boolean>(false);
+  const [showModalLikesAndComments, setShowModalLikesAndComments] = useState<boolean>(false);
+  const [showLikesAndCommentsData, setShowModalLikesAndCommentsData] = useState<showCommentsOrLikesData>();
   const [post, setPost] = useState<post>();
   const [Tweet,setTweet] = useState<modalTweet>()
   const handleOpenModalPost = (userId:string,id:string,commentLength:number) => {
@@ -61,36 +71,57 @@ export default function RootLayout({
     }
     setShowModalPost(true);
 };
-const handleOpenModalTweet = (userId:string,id:string, commentLength:number) => {
-  
-  if(Tweet)
-  {
-    if(Tweet?.tweet.tweet.id !== id)
+  const handleOpenModalTweet = (userId:string,id:string, commentLength:number) => {
+    
+    if(Tweet)
     {
-        axios.post("/api/getTweetModal",{userId:userId,tweetId:id}).then((res)=>{
+      if(Tweet?.tweet.tweet.id !== id)
+      {
+          axios.post("/api/getTweetModal",{userId:userId,tweetId:id}).then((res)=>{
+            console.log(res.data)
+            setTweet({tweet:{tweet:res.data.tweet.tweet,user:res.data.tweet.user},tweetComments:res.data.tweetComments})
+            })
+      
+      }
+      if(Tweet?.tweet.tweet.id === id && Tweet.tweetComments.length && Tweet.tweetComments.length < commentLength)
+      {
+        axios.post("/api/getTweetModalComments",{tweetId:id}).then((res)=>{
           console.log(res.data)
-          setTweet({tweet:{tweet:res.data.tweet.tweet,user:res.data.tweet.user},tweetComments:res.data.tweetComments})
+          setTweet({tweet:{tweet:Tweet.tweet.tweet,user:Tweet.tweet.user},tweetComments:res.data.tweetComments})
           })
-     
+      }
     }
-    if(Tweet?.tweet.tweet.id === id && Tweet.tweetComments.length && Tweet.tweetComments.length < commentLength)
+    else
     {
-      axios.post("/api/getTweetModalComments",{tweetId:id}).then((res)=>{
+
+      axios.post("/api/getTweetModal",{userId:userId,tweetId:id}).then((res)=>{
         console.log(res.data)
-        setTweet({tweet:{tweet:Tweet.tweet.tweet,user:Tweet.tweet.user},tweetComments:res.data.tweetComments})
+        setTweet({tweet:{tweet:res.data.tweet.tweet,user:res.data.tweet.user},tweetComments:res.data.tweetComments})
         })
     }
-  }
-  else
-  {
+    setShowModalTweet(true);
+  };
 
-    axios.post("/api/getTweetModal",{userId:userId,tweetId:id}).then((res)=>{
-      console.log(res.data)
-      setTweet({tweet:{tweet:res.data.tweet.tweet,user:res.data.tweet.user},tweetComments:res.data.tweetComments})
-      })
+
+  const handleOpenShowLikesOrComments = (id:string,type:string,LikesOrComments:boolean) =>
+  {
+    if( LikesOrComments !== showLikesAndCommentsData?.LikesOrComments ) 
+    {
+      setShowModalLikesAndComments(true)
+      setShowModalLikesAndCommentsData({id:id,type:type,LikesOrComments:LikesOrComments})
+
+    }
+    else if(showLikesAndCommentsData?.id === id)
+    {
+      setShowModalLikesAndComments(true)
+    }
+    else
+    {
+      setShowModalLikesAndComments(true)
+      setShowModalLikesAndCommentsData({id:id,type:type,LikesOrComments:LikesOrComments})
+    }
   }
-  setShowModalTweet(true);
-};
+
   return (
     <html lang="en">
       {/*
@@ -98,7 +129,7 @@ const handleOpenModalTweet = (userId:string,id:string, commentLength:number) => 
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <mainContext.Provider value={{Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
+      <mainContext.Provider value={{showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
         <SessionProvider>
           <body className='background'>
             {children}

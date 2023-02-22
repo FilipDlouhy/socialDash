@@ -53,7 +53,7 @@ function PostCreateComment({postId,comments,setComments,user,totalComments,setTo
     }
   return (
     <div className='w-full h-10 flex justify-around items-center'>
-        <input  value={comment} onChange={(e)=>{setComment(e.target.value)}} className='w-96 bg-transparent shadow-md text-white font-light text-center  hover:shadow-lg duration-200 focus:shadow-xl  focus:outline-none' placeholder='Send a comment....'></input>
+        <input maxLength={252} value={comment} onChange={(e)=>{setComment(e.target.value)}} className='w-96 bg-transparent shadow-md text-white font-light text-center  hover:shadow-lg duration-200 focus:shadow-xl  focus:outline-none' placeholder='Send a comment....'></input>
         <FontAwesomeIcon onClick={(e)=>{
           e.preventDefault()
           addComment()

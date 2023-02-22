@@ -56,7 +56,7 @@ function TweetCreateComment({comments,setComments,totalComments,setTotalComments
 
   return (
     <div>
-        <input value={text} onChange={(e)=>{setText(e.target.value)}} className='focus:outline-1 focus:outline-white  duration-200 text-center  h-6 w-60 bg-transparent mx-5 shadow-md text-white font-medium text-xs ' ></input>
+        <input maxLength={252}  value={text} onChange={(e)=>{setText(e.target.value)}} className='focus:outline-1 focus:outline-white  duration-200 text-center  h-6 w-60 bg-transparent mx-5 shadow-md text-white font-medium text-xs ' ></input>
         <FontAwesomeIcon onClick={()=>{addComment()}} className='w-5 h-8 text-blue-100 hvr-shrink cursor-pointer'  icon={faArrowRight} />
     </div> 
  )

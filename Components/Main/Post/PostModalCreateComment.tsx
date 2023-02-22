@@ -45,7 +45,7 @@ function PostModalCreateComment({user}:props) {
         }
   return (
     <div className='w-full h-1/2 flex items-center justify-around'>                
-        <input value={comment} onChange={(e)=>{
+        <input maxLength={252}  value={comment} onChange={(e)=>{
           console.log(user)
           setComment(e.target.value)}}  className='w-52 bg-transparent modalCommentShadow text-black font-light text-center  hover:shadow-lg duration-200 focus:shadow-xl  focus:outline-none' placeholder='Send a comment....'></input>
         <FontAwesomeIcon onClick={()=>{addComment()}} className='w-6 h-6 text-black mx-5 hvr-pop cursor-pointer'  icon={faArrowRight} />

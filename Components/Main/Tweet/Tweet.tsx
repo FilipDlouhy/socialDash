@@ -14,6 +14,7 @@ import TweetLikeAndShowComments from './TweetLikeAndShowComments';
 import TweetModal from './TweetModal';
 import { mainContext } from '@/models';
 import TweetDisplayComments from './TweetDisplayComments';
+import TweetShowLikesAndComments from './TweetShowLikesAndComments';
 
 interface props{
     tweet:tweet,
@@ -96,16 +97,7 @@ function Tweet({user,tweet}:props) {
 
             <h1  className='flex items-center justify-center ml-2 w-44 text-white font-bold text-2xl'>{tweet.tweet.title}</h1>
             
-            <div className='ml-1 w-52 flex h-full'>
-                <div className='hover:scale-90 duration-200 cursor-pointer shadow-md w-1/2 h-full flex flex-col items-center justify-around'>
-                    <p  className=' font-semibold text-white'>Likes</p>
-                    <p className=' font-semibold text-white'>{totalLikes}</p>
-                </div>
-                <div className='hover:scale-90 duration-200 cursor-pointer  shadow-md w-1/2 h-full flex flex-col items-center justify-around'>
-                    <p  className=' font-semibold text-white'>Comments</p>
-                    <p className=' font-semibold text-white'>{totalComments}</p>
-                </div>
-            </div>
+            <TweetShowLikesAndComments tweetId={tweet.tweet.id} totalComments={totalComments} totalLikes={totalLikes}/>
 
         </div>
 

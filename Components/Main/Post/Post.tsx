@@ -10,6 +10,7 @@ import PostLikeAndShowComments from './PostLikeAndShowComments';
 import PostModal from "./PostModal"
 import { mainContext } from '@/models';
 import PostDisplayComments from './PostDisplayComments';
+import PostShowLikesAndComments from './PostShowLikesAndComments';
 interface Comment
 {
     text:string,
@@ -114,17 +115,7 @@ function Post({Post,user}:props) {
 
             <PostLikeAndShowComments totalComments={totalComments} postId={Post.post.id} setLiked={setLiked} userId={Post.user.id} totalLikes ={totalLikes} setTotalLikes ={setTotalLikes} liked={liked} />
 
-            <div className='w-1/2 h-full flex  justify-around items-center'>
-                <div className='w-1/2  hover:scale-90 duration-200 cursor-pointer h-full flex shadow-lg flex-col justify-center items-center'>
-                    <p className=' text-xl text-white font-semibold'>Likes</p>
-                    <p className=' text-xl text-white font-semibold'>{totalLikes}</p>
-                </div>
-
-                <div className='w-1/2 hover:scale-90 duration-200 cursor-pointer  h-full flex shadow-lg  flex-col justify-center items-center'>
-                    <p className=' text-xl text-white font-semibold'>Comments</p>
-                    <p className=' text-xl text-white font-semibold'>{totalComments}</p>
-                </div>
-            </div>
+            <PostShowLikesAndComments postId={Post.post.id} totalComments={totalComments}  totalLikes={totalLikes}/>
 
         </div>
 

@@ -1,5 +1,6 @@
 import LeftSideOfMainPage from '@/Components/Main/LeftSideOfMainPage'
 import MiddleOfMain from '@/Components/Main/MiddleOfMain'
+import ModalShowCommentsOrLikes from '@/Components/Main/ModalShowCommentsOrLikes/ModalShowCommentsOrLikes'
 import PostModal from '@/Components/Main/Post/PostModal'
 import RightSideOfMain from '@/Components/Main/RightSideOfMain'
 import TopOfPage from '@/Components/Main/TopOfPage'
@@ -23,9 +24,6 @@ interface tweet{
 }
 
 
-interface DisplayDatat{
-  createdAt:Date,data:post |tweet,type:string
-}
 
 async function getUser(userId:string) {
  const user = await axios.get(`http://localhost:3000/api/getUser/${userId}`)
@@ -93,8 +91,9 @@ function getNumberUseTweets(tweets:tweet[],userId:string)
         </div>
         <PostModal user={user}/>
         <TweetModal  user={user}/>
+        <ModalShowCommentsOrLikes/> 
       </div>
   )
 }
 
-export default page
+export default page 
