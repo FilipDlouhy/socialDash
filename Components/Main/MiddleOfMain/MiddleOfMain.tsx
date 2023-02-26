@@ -1,5 +1,5 @@
 import React from 'react'
-import "../../lib/fontawsome"
+import "../../../lib/fontawsome"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -7,6 +7,7 @@ import { faArrowLeft,faThumbsUp,faLightbulb, faComment,faLandmark,faSearch,faHom
 import PostOnPage from './Post/Post';
 import TweetOnPage from './Tweet/Tweet';
 import { Post, Tweet, User } from '@prisma/client';
+import DisplayStories from '../Stories/DisplayStories';
 
 interface tweet{
     user: User, tweet: Tweet 
@@ -20,39 +21,25 @@ interface post{
  interface props{
     user:User,
     displayData: (tweet | post )[]
+    stories:storyData[]
  }   
 
 
-
- function MiddleOfMain({displayData,user}:props) {
+ interface storyData
+ {
+   type:string,
+   user:User,
+   id:string,
+   createdAt:Date
+ }
+ function MiddleOfMain({displayData,user,stories}:props) {
   return (
     <div className='w-2/4 h-full flex-col flex items-start justify-center'>
 
         <div className='w-full h-44 flex flex-col mt-10'>
-            <p className='text-center my-5 text-lg font-medium text-white'> Recent Posts</p>
+            <p className='text-center my-5 text-lg font-medium text-white'> Recent Posts and Tweets</p>
 
-            <div className='w-full flex px-32'>
-
-            <FontAwesomeIcon className='w-8 h-12 text-blue-100 mx-5 hvr-pop cursor-pointer'  icon={faArrowLeft} />
-
-
-                <div className='w-5/6 justify-around flex px-4'>
-                    <div className='h-24 w-24 rounded-full'>
-                        <img className='w-full h-full rounded-full'></img>
-                    </div>
-                    <div className='h-24 w-24 rounded-full'>
-                        <img className='w-full h-full rounded-full'></img>
-                    </div>
-                    <div className='h-24 w-24 rounded-full'>
-                        <img className='w-full h-full rounded-full'></img>
-                    </div>
-       
-                </div>
-
-            <FontAwesomeIcon  className='w-8 h-12 text-blue-100 mx-5 hvr-pop cursor-pointer'  icon={faArrowRight} />
-
-            </div>    
-
+            <DisplayStories stories={stories}/>
         </div>
 
 
@@ -60,11 +47,9 @@ interface post{
 
         {displayData.map((data) => {
         if ("post" in data) {
-          // This is a Post item
           return <PostOnPage key={data.post.id} Post={data} user={user}/>
 
         } else if ("tweet" in data) {
-          // This is a Tweet item
             return <TweetOnPage key={data.tweet.id} tweet={data} user={user} />
         }
       })}            

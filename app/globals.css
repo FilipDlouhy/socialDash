@@ -217,8 +217,8 @@
   .UserSmallProfile{
     position: fixed;
     margin-top: 50px;
-    width: 400px ;
-    height: 550px;
+    width: 500px ;
+    height:650px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     background: radial-gradient(circle at -0.8% 4.3%, rgb(55, 173, 236) 0%, rgb(76, 198, 250) 83.6%);
     border-radius: 10px;
@@ -243,9 +243,9 @@
     background:  radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
-.SuggestedFriend{
-  width: 500px;
-  height: 300px;
+.SuggestedFriends{
+  width: 400px;
+  height: 700px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 40px;
   border-radius: 5px;
@@ -431,6 +431,10 @@
   width: 60%;
   height: 80%;
 }
+.postModalHeight {
+  height: 98%;
+}
+
 .modalCommentScroll{
   overflow-x: hidden;
   overflow-y: auto;
@@ -446,13 +450,6 @@
     transform: scale(1);
   }
 }
-
-
-
-
-
-
-
 @keyframes close {
   from {
     transform: scale(1);
@@ -465,5 +462,186 @@
 }
 
 
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to { 
+      transform: rotate(360deg);
+  }
+}
 
 
+@-webkit-keyframes rotate {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to { 
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.load {
+
+border:solid 5px white;
+border-radius: 50%;
+border-right-color: transparent;
+border-bottom-color: transparent;
+  -webkit-animation-name:             rotate; 
+  -webkit-animation-duration:         1.0s; 
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-animation-timing-function: linear;
+    
+  animation-name:             rotate; 
+  animation-duration:         1.0s; 
+  animation-iteration-count:  infinite;
+  animation-timing-function: linear; 
+}
+
+.progress {
+  background: rgba(0, 0, 0, 0.729);
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 2%;
+
+}
+
+.progress-value {
+  animation: loadBar 10s normal forwards;
+  box-shadow: 0 10px 40px -10px #0699c9;
+  background: #09a3e0;
+  height: 10px;
+  width: 0;
+}
+
+@keyframes loadBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+.story-animation {
+  animation-name: open-story;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes open-story {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ModalFriend
+{
+  background-color: white;
+  animation: zoom-in 0.3s;
+  width: 60%;
+  height: 80%;
+}
+
+.hvr-radial-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background:#A2D2FF;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+.hvr-radial-out:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #79A8D1;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
+  color: white;
+}
+.hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+.friendProfileShadow{
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.hvr-radial-out2 {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background:lightcoral;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+.hvr-radial-out2:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: red;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-radial-out2:hover, .hvr-radial-out2:focus, .hvr-radial-out2:active {
+  color: white;
+}
+.hvr-radial-out2:hover:before, .hvr-radial-out2:focus:before, .hvr-radial-out2:active:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+.SearchResults{
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  position:  absolute;
+  top:3.3rem;
+  left:0;
+  z-index: 2000;
+}
+.searchReslutShadow
+{
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;}

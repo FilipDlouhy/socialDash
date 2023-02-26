@@ -1,21 +1,23 @@
 import React,{useEffect} from 'react'
-import "../../lib/fontawsome"
+import "../../../../lib/fontawsome"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faHome,faIdCard,faMapLocation,faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { User } from '@prisma/client'
+import UserSmallProfileFriend from './UserSmallProfileFriend';
 
 
 
 interface props{
     user:User,
     numberOfUserPosts:number,
-    numberOfUserTweets:number
+    numberOfUserTweets:number,
+    friends:User[]| undefined
   }
 
- function UserSmallProfile({numberOfUserTweets,user,numberOfUserPosts}:props) {
+ function UserSmallProfile({friends,numberOfUserTweets,user,numberOfUserPosts}:props) {
     const date = user?.created_at?.toString().slice(0,10)
   return (
     <div className='UserSmallProfile p-1'>
@@ -66,25 +68,16 @@ interface props{
       <p className='text-center text-xl font-bold text-white'>Recently added Friends</p>
 
 
-      <div className='w-full h-28 flex flex-wrap mb-3'> 
-          <div className='w-1/2 h-1/2 flex justify-around items-center  '>
-              <img className='w-12 h-12 rounded-full'></img>
-              <p className='text-white font-semibold text-sm'>SADAD</p>
-          </div>
+      <div className='w-full h-52 flex justify-around flex-wrap mb-4'> 
 
-          <div className='w-1/2 h-1/2 flex justify-around items-center  '>
-              <img className='w-12 h-12 rounded-full'></img>
-              <p className='text-white font-semibold text-sm'>SADAD</p>
-          </div>
+            {
+   
+                    friends?.map((friend)=>{
+                      if(friend.friends.includes(user.id) === true)
+                      {   return <UserSmallProfileFriend user={friend}/>}
+                    })
+                  }
 
-          <div className='w-1/2 h-1/2 flex justify-around items-center  '>
-              <img className='w-12 h-12 rounded-full'></img>
-              <p className='text-white font-semibold text-sm'>SADAD</p>
-          </div>
-          <div className='w-1/2 h-1/2 flex justify-around items-center  '>
-              <img className='w-12 h-12 rounded-full'></img>
-              <p className='text-white font-semibold text-sm'>SADAD</p>
-          </div>
 
       </div>
 

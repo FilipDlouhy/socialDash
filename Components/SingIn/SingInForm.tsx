@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import React, { use, useState,useEffect } from 'react'
 import uuid from 'react-uuid'
 
@@ -12,6 +13,7 @@ function SingInForm() {
   const[palcetoLive,setPlaceToLive] = useState<string>()
   const[pprofileImg,setProfileImg] = useState<any>()
   const[header,setHeader] =useState<string>()
+  const router = useRouter()
   async function Login(){
     try {
       const user = await signIn("credentials",{
@@ -52,6 +54,7 @@ function SingInForm() {
         }
       }).then(()=>{
         Login()
+        router.push("/Login")
       })
     }
   useEffect(()=>{

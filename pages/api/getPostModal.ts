@@ -14,6 +14,9 @@ export default async function handler(
 
   const user = await prisma.user.findUnique({where:{id:userId}})
   const post = await prisma.post.findUnique({where:{id:postId}})
+  console.log(user)
+  console.log(post)
+
   if(post&&user){
     const data:post = {user:user,post:post}
     const postComment = await prisma.postComment.findMany({where:{postId:postId}})

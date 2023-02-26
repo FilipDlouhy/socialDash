@@ -1,6 +1,6 @@
 "use client"
 import React, { use, useEffect, useState,useContext } from 'react'
-import "../../../lib/fontawsome"
+import "../../../../lib/fontawsome"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome,faIdCard,faMapLocation,faArrowRight, faThumbsUp, faComment,faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { Post, PostComment, User } from '@prisma/client';
@@ -95,7 +95,7 @@ function Post({Post,user}:props) {
                 
         <div className='h-20 w-full flex items-center '>
             <div className='flex items-center shadow-md hover:scale-105 hover:shadow-none duration-150 cursor-pointer h-full w-56 pl-4'>
-                {user.img && <img src={user.img} className=' cursor-pointer w-16 h-16 rounded-full'></img>}
+                {Post.user.img && <img src={Post.user.img} className=' cursor-pointer w-16 h-16 rounded-full'></img>}
                 <div className= ' pl-4 flex flex-col w-32 justify-start items-start'>
                     <p className='cursor-pointer text-sm  text-white font-semibold '>From {Post.user.userName}</p>
                     <p className='text-white text-xs font-medium'>Post From: {Post.post.placeFrom}</p>

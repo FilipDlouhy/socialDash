@@ -1,6 +1,5 @@
 "use client"
 
-import Modal from '@/Components/Main/Post/PostModal'
 import { Module } from 'module'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'

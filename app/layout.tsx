@@ -27,6 +27,10 @@ interface showCommentsOrLikesData {
   LikesOrComments:boolean,
 }
 
+interface friend
+{
+  userId:string
+}
 
 export default function RootLayout({
   children,
@@ -38,10 +42,13 @@ export default function RootLayout({
   const [showModalTweet, setShowModalTweet] = useState<boolean>(false);
   const [showModalLikesAndComments, setShowModalLikesAndComments] = useState<boolean>(false);
   const [showLikesAndCommentsData, setShowModalLikesAndCommentsData] = useState<showCommentsOrLikesData>();
+  const [showModalFriend,setShowModalFriend] = useState<boolean>(false)
   const [post, setPost] = useState<post>();
+  const [friend, setFriend] = useState<string>();
   const [Tweet,setTweet] = useState<modalTweet>()
-  const handleOpenModalPost = (userId:string,id:string,commentLength:number) => {
-    
+  const [story,setStory] = useState<boolean>(false)
+  const handleOpenModalPost = (story:boolean,userId:string,id:string,commentLength:number | undefined) => {
+
     if(post)
     {
       if(post.post.post.id !== id)
@@ -53,7 +60,7 @@ export default function RootLayout({
             })
        
       }
-      if(post.post.post.id === id &&  post.postComments?.length && post.postComments?.length < commentLength)
+      if(commentLength&& post.post.post.id === id &&  post.postComments?.length && post.postComments?.length < commentLength)
       {
         axios.post("/api/getPostModalComments",{postId:id}).then((res)=>{
 
@@ -63,16 +70,29 @@ export default function RootLayout({
     }
     else
     {
-
       axios.post("/api/getPostModal",{userId:userId,postId:id}).then((res)=>{
         setPost({post:res.data.post,postComments:res.data.postComment})
         })
-   
     }
+    if(story){
+      axios.post("/api/getPostModal",{userId:userId,postId:id}).then((res)=>{
+        setPost({post:res.data.post,postComments:res.data.postComment})
+        })
+    }
+
     setShowModalPost(true);
+
 };
-  const handleOpenModalTweet = (userId:string,id:string, commentLength:number) => {
+  const handleOpenModalTweet = (story:boolean,userId:string,id:string, commentLength:number  | undefined) => {
     
+    if(story){
+      axios.post("/api/getTweetModal",{userId:userId,tweetId:id}).then((res)=>{
+        console.log(res.data)
+        setTweet({tweet:{tweet:res.data.tweet.tweet,user:res.data.tweet.user},tweetComments:res.data.tweetComments})
+        })
+    }
+
+
     if(Tweet)
     {
       if(Tweet?.tweet.tweet.id !== id)
@@ -83,7 +103,7 @@ export default function RootLayout({
             })
       
       }
-      if(Tweet?.tweet.tweet.id === id && Tweet.tweetComments.length && Tweet.tweetComments.length < commentLength)
+      if(commentLength&& Tweet?.tweet.tweet.id === id && Tweet.tweetComments.length && Tweet.tweetComments.length < commentLength)
       {
         axios.post("/api/getTweetModalComments",{tweetId:id}).then((res)=>{
           console.log(res.data)
@@ -129,7 +149,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <mainContext.Provider value={{showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
+      <mainContext.Provider value={{friend,setFriend,showModalFriend,setShowModalFriend,story,setStory,showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
         <SessionProvider>
           <body className='background'>
             {children}

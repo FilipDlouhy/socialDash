@@ -1,4 +1,4 @@
-import TopOfPage from '@/Components/Main/TopOfPage'
+import TopOfPage from '@/Components/Main/TopOfPage/TopOfPage'
 import LeftSideOfProfilePage from '@/Components/ProfilePage/LeftSideOfProfilePage'
 import MiddleOfPRofilePage from '@/Components/ProfilePage/MiddleOfPRofilePage'
 import RightSideOfProfilePage from '@/Components/ProfilePage/RightSideOfProfilePage'

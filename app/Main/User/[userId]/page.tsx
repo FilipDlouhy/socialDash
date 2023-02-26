@@ -1,10 +1,12 @@
-import LeftSideOfMainPage from '@/Components/Main/LeftSideOfMainPage'
-import MiddleOfMain from '@/Components/Main/MiddleOfMain'
+import LeftSideOfMainPage from '@/Components/Main/LefSideOfMain/LeftSideOfMainPage'
+import MainContainer from '@/Components/Main/MainContainer'
+import MiddleOfMain from '@/Components/Main/MiddleOfMain/MiddleOfMain'
 import ModalShowCommentsOrLikes from '@/Components/Main/ModalShowCommentsOrLikes/ModalShowCommentsOrLikes'
-import PostModal from '@/Components/Main/Post/PostModal'
-import RightSideOfMain from '@/Components/Main/RightSideOfMain'
-import TopOfPage from '@/Components/Main/TopOfPage'
-import TweetModal from '@/Components/Main/Tweet/TweetModal'
+import PostModal from '@/Components/Main/MiddleOfMain/Post/PostModal'
+import RightSideOfMain from '@/Components/Main/RightSideOfMain/RightSideOfMain'
+import FriendModal from '@/Components/Main/ShowFriendModal/FriendModal'
+import TopOfPage from '@/Components/Main/TopOfPage/TopOfPage'
+import TweetModal from '@/Components/Main/MiddleOfMain/Tweet/TweetModal'
 import { Post, Tweet, User } from '@prisma/client'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
@@ -23,7 +25,13 @@ interface tweet{
   user: User, tweet: Tweet 
 }
 
-
+interface storyData
+{
+  type:string,
+  user:User,
+  id:string,
+  createdAt:Date
+}
 
 async function getUser(userId:string) {
  const user = await axios.get(`http://localhost:3000/api/getUser/${userId}`)
@@ -37,6 +45,11 @@ async function getPosts() {
  async function getTweets() {
   const tweets = await axios.get(`http://localhost:3000/api/getTweets`)
   return tweets.data
+ }
+
+ async function getUsers(userId:string) {
+  const users = await axios.post(`http://localhost:3000/api/getUsers`,{userId:userId})
+  return users.data
  }
 
 function getNumberUserPosts(posts:post[],userId:string)
@@ -62,15 +75,32 @@ function getNumberUseTweets(tweets:tweet[],userId:string)
   return count
 } 
 
+
+function getStoriesData(posts: post[], tweets: tweet[]) {
+  let stories: storyData[] = [];
+  posts.forEach(post => {
+    stories.push({ createdAt: post.post.created_at, id: post.post.id, type: "post", user: post.user });
+  });
+  tweets.forEach(tweet => {
+    stories.push({ createdAt: tweet.tweet.created_at, id: tweet.tweet.id, type: "tweet", user: tweet.user });
+  });
+  for (let i = stories.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [stories[i], stories[j]] = [stories[j], stories[i]];
+  }
+  return stories;
+}
+
   async function page(props:props) {
 
    const user:User =await getUser(props.params.userId)
+   const users:User[] = await getUsers(props.params.userId)
    const posts :post[] = await getPosts()
    const tweets:tweet[] = await getTweets()
    const numberOfUserPosts = getNumberUserPosts(posts,props.params.userId)
    const numberOfUserTweets = getNumberUseTweets(tweets,props.params.userId)
    const displayData:(tweet | post )[] =[] 
-
+   const stories:storyData[] = getStoriesData(posts,tweets)
    posts.map((post)=>{
     displayData.push(post)
    })
@@ -80,15 +110,11 @@ function getNumberUseTweets(tweets:tweet[],userId:string)
    displayData.sort((a, b) => { 
     return new Date('post' in b ? b.post.created_at: b.tweet.created_at).getTime()  -  new Date('post' in a ? a.post.created_at: a.tweet.created_at).getTime()
     });
+
     return (
       <div className='w-full h-full'>
-        <TopOfPage/>
 
-        <div className='w-full h-full flex'>
-          <LeftSideOfMainPage user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />
-          <MiddleOfMain displayData={displayData} user={user}  />
-          <RightSideOfMain/>
-        </div>
+        <MainContainer displayData={displayData} numberOfUserPosts={numberOfUserPosts} numberOfUserTweets={numberOfUserTweets} stories={stories} user={user} users={users}/>
         <PostModal user={user}/>
         <TweetModal  user={user}/>
         <ModalShowCommentsOrLikes/> 

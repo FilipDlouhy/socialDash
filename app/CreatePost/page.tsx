@@ -1,6 +1,6 @@
 import CreatePost from '@/Components/CreatePost/CreatePost'
 import CreatePostForm from '@/Components/CreatePost/CreatePostForm'
-import TopOfPage from '@/Components/Main/TopOfPage'
+import TopOfPage from '@/Components/Main/TopOfPage/TopOfPage'
 import React from 'react'
 
 function page() {

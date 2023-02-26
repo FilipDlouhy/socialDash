@@ -1,7 +1,7 @@
 
 "use client"
 import React,{useEffect, useState,useContext} from 'react'
-import "../../../lib/fontawsome"
+import "../../../../lib/fontawsome"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faHome,faIdCard,faMapLocation,faArrowRight, faThumbsUp, faComment, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
@@ -95,7 +95,7 @@ function Tweet({user,tweet}:props) {
                 </div>
             </div>
 
-            <h1  className='flex items-center justify-center ml-2 w-44 text-white font-bold text-2xl'>{tweet.tweet.title}</h1>
+            <h1  className='flex items-center justify-center ml-2 w-44 text-white font-bold text-xl'>{tweet.tweet.title}</h1>
             
             <TweetShowLikesAndComments tweetId={tweet.tweet.id} totalComments={totalComments} totalLikes={totalLikes}/>
 

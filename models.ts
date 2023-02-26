@@ -22,10 +22,10 @@ interface showCommentsOrLikesData {
 
 export type MainContext = {
     setShowModalPost: React.Dispatch<React.SetStateAction<boolean>>,
-    handleOpenModalPost:(userId: string, id: string, commentLength: number) => void
+    handleOpenModalPost: (story: boolean, userId: string, id: string, commentLength: number | undefined) => void
     showModalPost: boolean
     setShowModalTweet: React.Dispatch<React.SetStateAction<boolean>>,
-    handleOpenModalTweet: (userId: string, id: string, commentLength: number) => void
+    handleOpenModalTweet:  (story: boolean, userId: string, id: string, commentLength: number | undefined) => void
     showModalTweet: boolean,
     post:post |undefined,
     setPost:Dispatch<SetStateAction<post | undefined>>
@@ -35,7 +35,13 @@ export type MainContext = {
     setShowModalLikesAndComments: Dispatch<SetStateAction<boolean>>,
     showLikesAndCommentsData: showCommentsOrLikesData | undefined,
     setShowModalLikesAndCommentsData:Dispatch<SetStateAction<showCommentsOrLikesData | undefined>>,
-    handleOpenShowLikesOrComments:(id: string, type: string, LikesOrComments: boolean) => void
+    handleOpenShowLikesOrComments:(id: string, type: string, LikesOrComments: boolean) => void,
+    story:boolean,
+    setStory:Dispatch<SetStateAction<boolean>>,
+    showModalFriend: boolean
+    setShowModalFriend: React.Dispatch<React.SetStateAction<boolean>>,
+    friend:string | undefined
+    setFriend:Dispatch<SetStateAction<string | undefined>>
   }
   export const mainContext = createContext<MainContext>({
     setShowModalPost:()=>{},
@@ -52,5 +58,11 @@ export type MainContext = {
     setShowModalLikesAndComments:()=>{},
     showLikesAndCommentsData:undefined,
     setShowModalLikesAndCommentsData:()=>{},
-    handleOpenShowLikesOrComments:()=>{}
+    handleOpenShowLikesOrComments:()=>{},
+    story:false,
+    setStory:()=>{},
+    showModalFriend:false,
+    setShowModalFriend:()=>{},
+    friend:undefined,
+    setFriend:()=>{}
   })
