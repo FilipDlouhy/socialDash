@@ -271,6 +271,29 @@
   cursor: pointer;
   font-weight: 500;
 }
+
+
+.custom-file-input2 {
+  color: transparent;
+}
+.custom-file-input2::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input2::before {
+  content: 'Select prfile Img';
+  width: 320px;
+  color: black;
+  display: inline-block;
+  --tw-bg-opacity: 1;
+  background-color: white;
+  border-radius: 6px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 500;
+}
 .ProfilePageUserProfile{
   width:450px;
   height: 350px; 
@@ -289,7 +312,7 @@
 
 .ProfilePagePost{
   width: 400px;
-  height: 400px;
+  height: 500px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 .ProfilePageTweet{
@@ -396,8 +419,8 @@
 .TweetModal{
   background-color: white;
   animation: zoom-in 0.3s;
-  width:1000px;
-  height: 700px;
+  width: 60%;
+  height: 80%;
 }
 .ShowLikesComments{
   background-color: white;
@@ -425,11 +448,11 @@
   align-items: center;
   z-index: 999;
 }
-.modal-content {
+.PostModal {
   background-color: white;
   animation: zoom-in 0.3s;
-  width: 60%;
-  height: 80%;
+  width: 65%;
+  height: 90%;
 }
 .postModalHeight {
   height: 98%;
@@ -633,6 +656,48 @@ border-bottom-color: transparent;
   -webkit-transform: scale(2);
   transform: scale(2);
 }
+
+.hvr-radial-out3 {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  background:#0699c9;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+}
+.hvr-radial-out3:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #203ed1;
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.7s;
+  transition-duration: 0.7s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-radial-out3:hover, .hvr-radial-out3:focus, .hvr-radial-out3:active {
+  color: white;
+}
+.hvr-radial-out3:hover:before, .hvr-radial-out3:focus:before, .hvr-radial-out3:active:before {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
+
 .SearchResults{
   width: 300px;
   height: 400px;
@@ -742,4 +807,20 @@ border-bottom-color: transparent;
     transform: translateX(-100%);
     animation: slideIn 1s ease-in-out forwards;
     animation-delay: 1s;
+  }
+  .UpdateProfileForm{
+    width:25%;
+    height: 85%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+  .UpdateProfileUserProfile{
+    width:40%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    height: 95%;
+  }
+  .PostPagePost
+  {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 70%;
+    height: 80%;
   }

@@ -3,7 +3,6 @@ import './globals.css'
 import { useContext, useState,createContext } from 'react'
 import {SessionProvider} from "next-auth/react"
 import { mainContext } from '@/models'
-import Modal from '@/Components/Main/Post/PostModal'
 import { Post, PostComment, Tweet, TweetComment, User } from '@prisma/client'
 import axios from 'axios'
 

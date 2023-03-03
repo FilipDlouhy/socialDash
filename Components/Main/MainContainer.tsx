@@ -6,7 +6,7 @@ import LeftSideOfMainPage from './LefSideOfMain/LeftSideOfMainPage'
 import MiddleOfMain from './MiddleOfMain/MiddleOfMain'
 import RightSideOfMain from './RightSideOfMain/RightSideOfMain'
 import FriendModal from './ShowFriendModal/FriendModal'
-import TopOfPage from './TopOfPage/TopOfPage'
+import TopOfPage from '../TopOfPage/TopOfPage'
 
 interface post{
     user: User, post: Post 

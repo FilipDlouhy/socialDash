@@ -5,7 +5,7 @@ import ModalShowCommentsOrLikes from '@/Components/Main/ModalShowCommentsOrLikes
 import PostModal from '@/Components/Main/MiddleOfMain/Post/PostModal'
 import RightSideOfMain from '@/Components/Main/RightSideOfMain/RightSideOfMain'
 import FriendModal from '@/Components/Main/ShowFriendModal/FriendModal'
-import TopOfPage from '@/Components/Main/TopOfPage/TopOfPage'
+import TopOfPage from '@/Components/TopOfPage/TopOfPage'
 import TweetModal from '@/Components/Main/MiddleOfMain/Tweet/TweetModal'
 import { Post, Tweet, User } from '@prisma/client'
 import axios from 'axios'

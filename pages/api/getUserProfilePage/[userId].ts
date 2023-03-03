@@ -13,22 +13,8 @@ export default async function handler(
   if (typeof query.userId === 'string') {
     userId = query.userId;
   }
-  const {postId} = req.body
-  let Post = await prisma.post.findUnique({where:{id:postId}})
-
-  let likes:string[] = []
-  Post?.likes.map((like)=>{
-    if(like !== userId)
-    {
-        likes.push(like)
-    }
-  })
-
-
-  await prisma.post.update({
-    where: { id: postId },
-    data: { likes: likes}
-  })
-  res.status(200).json({ message: 'OK' })
-
+  const user = await prisma.user.findUnique({where:{id:userId}})
+  const postLength = await (await prisma.post.findMany({where:{userId:userId}})).length
+  const tweetLength = await (await prisma.tweet.findMany({where:{userId:userId}})).length
+  res.send({user:user,postLength:postLength,tweetLength:tweetLength})
 }

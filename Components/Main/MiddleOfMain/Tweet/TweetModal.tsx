@@ -21,6 +21,8 @@ function TweetModal({user}:props) {
   const {setTweet} = useContext(mainContext)
   const {showModalTweet} = useContext(mainContext)
   const [comments,setComments] = useState<TweetComment[]>()
+  const [totalComments,setTotalComments] = useState<number | undefined>(0)
+  const [totalLikes,setTotalLikes] = useState<number | undefined>(0)
   const handleCloseModal = () => {
     setShowModalTweet(false);
     if(story)
@@ -32,10 +34,14 @@ function TweetModal({user}:props) {
   };
   useEffect(()=>{
     setComments(Tweet?.tweetComments)
+    setTotalComments(Tweet?.tweetComments.length)
+    setTotalLikes(Tweet?.tweet.tweet.likes.length)
   },[Tweet])
 
 
     useEffect(()=>{
+      setTotalComments(Tweet?.tweetComments.length)
+      setTotalLikes(Tweet?.tweet.tweet.likes.length)
       if(story)
       {
           setTimeout(() => {
@@ -94,9 +100,14 @@ function TweetModal({user}:props) {
 
                               
                         <div className='w-full h-20'>
-                        <div className='h-20 p-5 flex justify-start items-center'>
+                        <div className='h-10 p-5 flex justify-start items-center'>
                               <p className='text-lg'> <span className='font-semibold  text-xl'>{Tweet?.tweet.user.userName}:</span>  {Tweet?.tweet.tweet.description}</p> 
-                            </div>
+                        </div>
+                          <div className='w-full h-20 flex justify-around items-center '>
+                            <p className='text-xs font-medium '>Total Comments: <span className='text-sm font-semibold'>{totalComments}</span></p>
+                            <p className='text-xs font-medium'>Total Likes: <span className='text-sm font-semibold'>{totalLikes}</span></p>
+                          </div>
+
                                 {!story &&<TweetModalLike/>      }
                               {!story &&<TweetModalCreateComment user={user} />      }
 

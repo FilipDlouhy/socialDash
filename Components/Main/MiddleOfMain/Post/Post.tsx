@@ -63,7 +63,7 @@ function Post({Post,user}:props) {
         {
             let count = 1;
             let arr: Comment[] = []
-            post.postComments.map((comment, index) => {
+            post.postComments.map((comment) => {
               if (count < 7) {
                 arr.push(comment)
               }

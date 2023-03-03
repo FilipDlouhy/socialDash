@@ -1,12 +1,21 @@
+import { Tweet } from '@prisma/client'
 import React from 'react'
 
-function ProfilePageTweet() {
+interface props{
+    tweet:Tweet
+}
+
+function ProfilePageTweet({tweet}:props) {
+        
+    function getWordStr(str:string) {
+        return str?.split(/\s+/).slice(0, 40).join(" ");
+        }
   return (
     <div className='ProfilePageTweet my-4'>
         <div className='ProfilePageTweetShadow w-full h-2/3'>
-            <p className='h-12 flex items-center justify-center text-white text-lg font-semibold '>TITLEVOLE</p>
+            <p className='h-12 flex items-center justify-center text-white text-lg font-semibold '>{tweet.title}</p>
             
-            <p className='w-full px-2 text-center font-medium text-white text-sm'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, omnis quibusdam! Vel atque sapiente sequi placeat labore impedit inventore dolorum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error optio doloribus dignissimos libero voluptatum nobis, aspernatur magnam unde tempora at!</p>
+            <p className='w-full px-2 h-32 text-center font-medium text-white text-sm'>{getWordStr(tweet.description)}</p>
 
             <div className='w-full h-1/3 py-1 px-4'>
                 

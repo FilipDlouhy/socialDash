@@ -23,6 +23,8 @@ function Modal({user}:props) {
   const {setStory} = useContext(mainContext)
   const {setPost} = useContext(mainContext)
   const [comments,setComments] = useState<PostComment[]>()
+  const [totalComments,setTotalComments] = useState<number | undefined>(0)
+  const [totalLikes,setTotalLikes] = useState<number | undefined>(0)
   const handleCloseModal = () => {
     setShowModalPost(false);
     if(story)
@@ -35,12 +37,14 @@ function Modal({user}:props) {
 
   useEffect(()=>{
     setComments(post?.postComments)
-
+    setTotalComments(post?.postComments?.length)
+    setTotalLikes(post?.post.post.likes.length)
   },[post])
 
   useEffect(()=>{
     setComments(post?.postComments)
-
+    setTotalComments(post?.postComments?.length)
+    setTotalLikes(post?.post.post.likes.length)
     if(story)
     {
       setTimeout(() => {
@@ -56,7 +60,7 @@ function Modal({user}:props) {
                   <div className="modal-overlay" onClick={handleCloseModal}>
 
 
-             <div className="modal-content " onClick={(e) => e.stopPropagation()}>
+             <div className="PostModal" onClick={(e) => e.stopPropagation()}>
               { story &&         <div className='progress w-full '>
                                 <div className='progress-value'></div>
                               </div>}
@@ -93,12 +97,18 @@ function Modal({user}:props) {
 
 
                                           
-                                    <div className='w-full h-20'>
-                                      <div className='h-20 p-5 flex justify-start items-center'>
+                                    <div className='w-full h-28'>
+                                      <div className='h-10 p-5 flex justify-start items-center'>
                                           <p className='text-lg font-medium'> <span className='font-semibold  text-xl'>{post?.post.user.userName}:</span>  {post?.post.post.description}</p> 
                                       </div>
-                                      {!story && <PostModalLike/>      }
-                                    {!story &&   <PostModalCreateComment user={user}/>}
+
+                                      <div className='w-full h-10 flex items-center justify-around'>
+                                            <p className='text-sm font-medium '>Total Comments: <span className='text-lg font-semibold'>{totalComments}</span></p>
+                                            <p className='text-sm font-medium'>Total Likes: <span className='text-lg font-semibold'>{totalLikes}</span></p>
+                                      </div>
+
+                                      {!story && <PostModalLike/>}
+                                    {!story &&<PostModalCreateComment user={user}/>}
                                     </div>
 
 

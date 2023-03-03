@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from "bcryptjs"
 import prisma from "../../../prisma/prisma"
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, User } from '@prisma/client'
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,22 +13,14 @@ export default async function handler(
   if (typeof query.userId === 'string') {
     userId = query.userId;
   }
-  const {postId} = req.body
-  let Post = await prisma.post.findUnique({where:{id:postId}})
-
-  let likes:string[] = []
-  Post?.likes.map((like)=>{
-    if(like !== userId)
+  const users = await prisma.user.findMany()
+  const friends:User[] = []
+  users.map((user)=>{
+    if(userId&& user.friends.includes(userId))
     {
-        likes.push(like)
+      friends.push(user)
     }
   })
 
-
-  await prisma.post.update({
-    where: { id: postId },
-    data: { likes: likes}
-  })
-  res.status(200).json({ message: 'OK' })
-
+  res.send(friends)
 }

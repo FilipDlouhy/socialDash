@@ -59,11 +59,11 @@ function Tweet({user,tweet}:props) {
 
 
    
-        if(Tweet &&Tweet.tweet.tweet.id=== Tweet.tweet.tweet.id && Tweet.tweetComments &&  comments && Tweet.tweetComments?.length > comments?.length )
+        if(Tweet &&Tweet.tweet.tweet.id=== tweet.tweet.id && Tweet.tweetComments &&  comments && Tweet.tweetComments?.length > comments?.length )
         {
             let count = 1;
             let arr: comment[] = []
-            Tweet.tweetComments.map((comment, index) => {
+            Tweet.tweetComments.map((comment, ) => {
               if (count < 5) {
                 arr.push(comment)
               }

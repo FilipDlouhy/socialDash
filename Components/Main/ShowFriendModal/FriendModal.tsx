@@ -156,8 +156,9 @@ function FriendModal({user,friends,setFriends}:props) {
 
                             <FriendModalFriendData userNumbers={userNumbers} setRenderCondition={setRenderCondition} user={User}/>
                             
-                            <div className='w-1/3 flex items-start pt-10 justify-center h-full'>
+                            <div className='w-1/3 flex flex-col items-center  justify-around   h-full'>
                               <FriendModalAddRemoveFriendButton User={User} friends={friends} inFriendList={inFriendList} setFriends={setFriends} setInFriendList={setInFriendList}/>
+                              <button className='w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out3'>Go to Profile Page</button>
                             </div>
 
                         </div>    

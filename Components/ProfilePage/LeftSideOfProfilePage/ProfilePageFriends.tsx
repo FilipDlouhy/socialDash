@@ -1,6 +1,13 @@
+import { User } from '@prisma/client'
 import React from 'react'
+import ProfilePageFriend from './ProfilePageFriend'
 
-function ProfilePageFriends() {
+
+interface props{
+  friends:User[] 
+}
+
+function ProfilePageFriends({friends}:props) {
   return (
     <div className='ProfilePageFriends'>
         <div className='w-2/3 h-7 mb-3 mx-auto text-center text-white font-normal text-xl border-b-2'>
@@ -9,9 +16,15 @@ function ProfilePageFriends() {
 
 
         <div className='w-full h-4/5 flex flex-wrap items-start justify-center'>
-            <div className='w-44 h-44 m-3 hover:scale-95 duration-300 cursor-pointer bg-black'>
+          {friends.map((friend)=>{
+            let count =0
+            if(count < 4)
+            {
+              return  <ProfilePageFriend friend={friend}/>
+            }
+            count++
+          })}
 
-            </div>
             
         </div>
 

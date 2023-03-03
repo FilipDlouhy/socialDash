@@ -14,5 +14,6 @@ export default async function handler(
     userId = query.userId;
   }
   const user = await prisma.user.findUnique({where:{id:userId}})
+  console.log(user)
   res.send(user)
 }

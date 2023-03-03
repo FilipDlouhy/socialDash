@@ -1,5 +1,5 @@
 import CreateTweet from '@/Components/CreateTweet/CreateTweet'
-import TopOfPage from '@/Components/Main/TopOfPage/TopOfPage'
+import TopOfPage from '@/Components/TopOfPage/TopOfPage'
 import React from 'react'
 
 function page() {
