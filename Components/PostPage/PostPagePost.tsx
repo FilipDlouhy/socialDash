@@ -39,7 +39,7 @@ function PostPagePost({user,post,postComments}:props) {
     },[])
 
   return (
-    <div className='PostPagePost flex '>
+    <div className='PostPagePost flex mx-auto '>
             <div className='w-2/3 h-full'> 
                {post.post.img && <img src={post.post.img} className='w-full h-full'></img>}
             </div>

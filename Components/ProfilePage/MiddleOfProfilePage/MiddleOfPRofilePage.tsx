@@ -1,7 +1,7 @@
 import { Post, Tweet } from '@prisma/client'
 import React from 'react'
 import ProfilePagePost from './ProfilePagePost/ProfilePagePost'
-import ProfilePageTweet from './ProfilePageTweet'
+import ProfilePageTweet from './ProfilePageTweet/ProfilePageTweet'
 import ProfilePageVideo from './ProfilePageVideo'
 
 interface post{
@@ -29,7 +29,7 @@ function MiddleOfPRofilePage({userId,displayData}:props) {
                 return <ProfilePagePost userId={userId}  post={data.post}  />
 
               } else if ("tweet" in data) {
-                  return <ProfilePageTweet tweet={data.tweet} />
+                  return <ProfilePageTweet userId={userId}  tweet={data.tweet} />
               }
             })}
         <ProfilePageVideo/>

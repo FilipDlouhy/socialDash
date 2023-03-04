@@ -19,4 +19,5 @@ export default async function handler(
     data: { likes: { push: userId } }
   })
 
+  res.status(200).json({ message: 'OK' })
 }

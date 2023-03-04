@@ -1,8 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import bcrypt from "bcryptjs"
 import prisma from "../../prisma/prisma"
 import { PrismaClient } from '@prisma/client'
-import uuid from 'react-uuid'
 type Data = {
   message: string
 }
@@ -12,19 +12,16 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
     const prisma = new PrismaClient()
-    const {text,userId,tweetId,userName} = req.body
-    console.log(req.body)
-    const id = uuid()
+    const {Title,Category,ImgNew,postId} = req.body
     try {
-      const data = await prisma.tweetComment.create({
-        data:{
-          text:text,userId:userId,tweetId:tweetId,id:id,userName:userName
-        }
-    })
+       await prisma.post.update({where:{id:postId},data:{title:Title,placeFrom:Category,img:ImgNew
+        }})
+
+
     res.status(200).json({ message: 'OK' })
 
     } catch (error) {
-      res.status(200).json({ message: 'Something went wrong pleasy try again' })
+      res.status(200).json({ message: 'Email is already taken ' })
     }
 
 

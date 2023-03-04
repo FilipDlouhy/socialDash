@@ -4,10 +4,12 @@ import MiddleOfPRofilePage from '@/Components/ProfilePage/MiddleOfProfilePage/Mi
 import RightSideOfProfilePage from '@/Components/ProfilePage/RightSideOfProfilePage/RightSideOfProfilePage';
 import React from 'react';
 import axios from 'axios';
-import { User } from '@prisma/client';
+import { Post, User } from '@prisma/client';
 import FriendModalFriend from '@/Components/Main/ShowFriendModal/FriendModalFriend';
 import FriendModal from '@/Components/Main/ShowFriendModal/FriendModal';
-
+interface post{
+  user: User, post: Post 
+}
 interface Props {
   params: {
     userId: string;
@@ -39,11 +41,7 @@ async function getFriends(userId: string) {
 
 }
 
-async function getPossibleFriends(userId: string) {
-  const res = await axios.post(`http://localhost:3000/api/getPossibleNewFriends`,{userId:userId});
-  return res.data
-  
-}
+
 
 
 async function page({ params: { userId } }: Props) {
@@ -57,7 +55,7 @@ async function page({ params: { userId } }: Props) {
 
       <div className='w-full h-full flex'>
         <LeftSideOfProfilePage friends={friends} totalFriends={totalFriends}  UserAndData={userAndData} />
-        <MiddleOfPRofilePage />
+        <MiddleOfPRofilePage  />
         <RightSideOfProfilePage />
 
       </div>

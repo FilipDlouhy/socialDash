@@ -1,6 +1,9 @@
 import PostPagePost from '@/Components/PostPage/PostPagePost';
+import { faArrowCircleLeft, faLandmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Post, PostComment, User } from '@prisma/client';
 import axios from 'axios';
+import Link from 'next/link';
 import React from 'react'
 interface Props {
     params: {
@@ -31,8 +34,12 @@ async function page({params:{postId,userId}}:Props) {
     const user:User = await getUser(userId)
     const postComments:PostComment[] = await getPostComments(postId)
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
-            <PostPagePost user={user} post={post} postComments={postComments}/>
+    <div className='w-full h-screen'>
+        <div className='w-full h-32 flex items-center'>
+      <Link href={`/ProfilePage/${userId}`}>  <FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faArrowCircleLeft}/> </Link>
+
+        </div>
+            <PostPagePost  user={user} post={post} postComments={postComments}/>
     </div>
   )
 }

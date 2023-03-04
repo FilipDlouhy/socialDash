@@ -29,6 +29,7 @@ export default async function handler(
     where: { id: tweetId },
     data: { likes: likes}
   })
+  res.status(200).json({ message: 'OK' })
 
 
 }

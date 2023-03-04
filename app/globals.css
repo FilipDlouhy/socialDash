@@ -317,7 +317,7 @@
 }
 .ProfilePageTweet{
   width: 400px;
-  height: 400px;
+  height: 500px;
 }
 .ProfilePageTweetShadow{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -823,4 +823,19 @@ border-bottom-color: transparent;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     width: 70%;
     height: 80%;
+  }
+  .UpdatePostForm{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width:30%;
+    height: 70%;
+  }
+  .UpdatePostPost{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width:30%;
+    height: 80%;
+  }
+  .TweetPageTweet{
+    width: 60%;
+    height: 80%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   }

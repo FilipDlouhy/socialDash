@@ -14,7 +14,7 @@ function PostPageLike({postId,userId,liked,setLiked}:props) {
 
 
 
-    function likeComment() {
+    function like() {
           axios.post(`/api/likePost/${userId}`, { postId: postId }).then((res)=>{ 
             console.log(res.data)      
             if(res.data.message==="OK")
@@ -25,7 +25,7 @@ function PostPageLike({postId,userId,liked,setLiked}:props) {
           })
         }
 
-function unLikeComment ()
+function unLike()
     {
         axios.post(`/api/unLikePost/${userId}`, { postId: postId}).then((res)=>{  
             console.log(res.data)           
@@ -40,7 +40,7 @@ function unLikeComment ()
 
   return (
     <div className='w-full flex items-center justify-around h-1/2'>
-        <FontAwesomeIcon onClick={()=>{liked  ? unLikeComment():likeComment() }} className={liked ?'w-12 h-12 text-red-600 hvr-shrink cursor-pointer'  :'w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
+        <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-12 h-12 text-red-600 hvr-shrink cursor-pointer'  :'w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
 
         <FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
 

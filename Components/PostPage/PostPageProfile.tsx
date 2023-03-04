@@ -15,8 +15,8 @@ function PostPageProfile({form,user}:props) {
                     {user.img && <img src={user.img} className='w-20 h-20 hover:scale-105 duration-200 cursor-pointer rounded-full'></img>}
                 </div>
                 <div className='h-full w-3/4 flex items-center justify-around '>
-                    <p className=' text-center font-semibold text-white text-sm'>{user.userName}</p>
-                    <p className=' text-center font-semibold text-white text-sm'>From {form} </p>
+                    <p className=' text-center font-semibold text-white text-lg'>{user.userName}</p>
+                    <p className=' text-center font-semibold text-white text-lg'>From {form} </p>
                 </div>
 
             </div>

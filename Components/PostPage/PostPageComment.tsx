@@ -11,7 +11,8 @@ function PostPageComment({comment}:props) {
         <div className='h-full w-1/4 flex items-center justify-center'>
             {comment.userImg &&<img src={comment.userImg} className='w-16 h-16 hover:scale-105 duration-200 cursor-pointer rounded-full'></img>}
         </div>
-        <div className='h-full w-3/4 flex items-center justify-center '>
+        <div className='h-full w-3/4 flex items-center justify-around flex-col  '>
+            <p className=' text-center font-bold text-white text-sm' > {comment.userName}</p>
             <p className=' text-center font-semibold text-white text-xs'>{comment.text}</p>
         </div>
 
