@@ -1,6 +1,7 @@
 import { User } from '@prisma/client'
 import React from 'react'
 import ProfilePageFriend from './ProfilePageFriend'
+import ProfilePageShowAllFriendsButton from './ProfilePageShowAllFriendsButton'
 
 
 interface props{
@@ -28,9 +29,7 @@ function ProfilePageFriends({friends}:props) {
             
         </div>
 
-        <div className='w-full h-14 flex items-center justify-end pr-6'>
-            <button className='w-40 h-7 flex justify-center items-center hover:scale-110 duration-150 cursor-pointer font-medium text-lg  text-white shadow-md rounded-md'>See All Friends </button>
-        </div>    
+        <ProfilePageShowAllFriendsButton/>
 
     </div>
   )

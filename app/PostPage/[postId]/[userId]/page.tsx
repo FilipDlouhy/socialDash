@@ -36,7 +36,7 @@ async function page({params:{postId,userId}}:Props) {
   return (
     <div className='w-full h-screen'>
         <div className='w-full h-32 flex items-center'>
-      <Link href={`/ProfilePage/${userId}`}>  <FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faArrowCircleLeft}/> </Link>
+        <Link href={`/ProfilePage/${userId}`}>  <FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faArrowCircleLeft}/> </Link>
 
         </div>
             <PostPagePost  user={user} post={post} postComments={postComments}/>

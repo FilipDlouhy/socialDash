@@ -1,841 +1,818 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.background{
-    width: 100vw;
-
-    overflow-x: hidden;
-    padding: 0 3rem;
-    background: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
+ @tailwind components;
+ @tailwind utilities;
+ :root{
+     --bg-blue: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
+     --bg-red: linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%);
+     --bg-pink: linear-gradient(102.7deg, rgb(253, 218, 255) 8.2%, rgb(223, 173, 252) 19.6%, rgb(173, 205, 252) 36.8%, rgb(173, 252, 244) 73.2%, rgb(202, 248, 208) 90.9%);
+     --bg-yellow: radial-gradient(circle at 3.1% 8.2%, rgb(248, 250, 107) 0%, rgb(238, 148, 148) 98.2%);
+     --bg-black: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
 }
-.LoginForm{
-    width: 600px;
-    height: 600px;
-    margin: 30px auto;
-    background-color: whitesmoke;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 20px;
+ .background{
+     width: 100vw;
+     overflow-x: hidden;
+     padding: 0 3rem;
 }
-
-.SingInForm{
-    width: 600px;
-    height: 950px;
-    margin: 30px auto;
-    background-color: whitesmoke;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ .LoginForm{
+     width: 600px;
+     height: 600px;
+     margin: 30px auto;
+     background-color: whitesmoke;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     border-radius: 20px;
 }
-
+ .SingInForm{
+     width: 600px;
+     height: 950px;
+     margin: 30px auto;
+     background-color: whitesmoke;
+     border-radius: 20px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
 /* Pop */
-@-webkit-keyframes hvr-pop {
-    50% {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
+ @-webkit-keyframes hvr-pop {
+     50% {
+         -webkit-transform: scale(1.2);
+         transform: scale(1.2);
     }
-  }
-  @keyframes hvr-pop {
-    50% {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
+}
+ @keyframes hvr-pop {
+     50% {
+         -webkit-transform: scale(1.2);
+         transform: scale(1.2);
     }
-  }
+}
 /* Rectangle In */
-.hvr-rectangle-in {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    background: #203ed1;
-    -webkit-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-  }
-  .hvr-rectangle-in:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:  rgb(147 197 253 / var(--tw-bg-opacity));
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-    border-radius: 0.5rem/* 8px */;
-
-  }
-  .hvr-rectangle-in:hover, .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
-    color: white;
-  }
-  .hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, .hvr-rectangle-in:active:before {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  @-webkit-keyframes hvr-pop {
-    50% {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
+ .hvr-rectangle-in {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     position: relative;
+     background: #203ed1;
+     -webkit-transition-property: color;
+     transition-property: color;
+     -webkit-transition-duration: 0.3s;
+     transition-duration: 0.3s;
+}
+ .hvr-rectangle-in:before {
+     content: "";
+     position: absolute;
+     z-index: -1;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: rgb(147 197 253 / var(--tw-bg-opacity));
+     -webkit-transform: scale(1);
+     transform: scale(1);
+     -webkit-transition-property: transform;
+     transition-property: transform;
+     -webkit-transition-duration: 0.3s;
+     transition-duration: 0.3s;
+     -webkit-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+     border-radius: 0.5rem
+    /* 8px */
+    ;
+}
+ .hvr-rectangle-in:hover, .hvr-rectangle-in:focus, .hvr-rectangle-in:active {
+     color: white;
+}
+ .hvr-rectangle-in:hover:before, .hvr-rectangle-in:focus:before, .hvr-rectangle-in:active:before {
+     -webkit-transform: scale(0);
+     transform: scale(0);
+}
+ @-webkit-keyframes hvr-pop {
+     50% {
+         -webkit-transform: scale(1.2);
+         transform: scale(1.2);
     }
-  }
-  @keyframes hvr-pop {
-    50% {
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
+}
+ @keyframes hvr-pop {
+     50% {
+         -webkit-transform: scale(1.2);
+         transform: scale(1.2);
     }
-  }
-  .hvr-pop {
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  }
-  .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
-    -webkit-animation-name: hvr-pop;
-    animation-name: hvr-pop;
-    -webkit-animation-duration: 0.3s;
-    animation-duration: 0.3s;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-  }
-  /* Backward */
-.hvr-backward {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-  }
-  .hvr-backward:hover, .hvr-backward:focus, .hvr-backward:active {
-    -webkit-transform: translateX(-8px);
-    transform: translateX(-8px);
-  }
-  .rotate{
-    width:80px;
-    height:80px;
-    animation: rotation infinite 3s linear;
- }
- 
+}
+ .hvr-pop {
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+ .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+     -webkit-animation-name: hvr-pop;
+     animation-name: hvr-pop;
+     -webkit-animation-duration: 0.3s;
+     animation-duration: 0.3s;
+     -webkit-animation-timing-function: linear;
+     animation-timing-function: linear;
+     -webkit-animation-iteration-count: 1;
+     animation-iteration-count: 1;
+}
+/* Backward */
+ .hvr-backward {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     -webkit-transition-duration: 0.3s;
+     transition-duration: 0.3s;
+     -webkit-transition-property: transform;
+     transition-property: transform;
+}
+ .hvr-backward:hover, .hvr-backward:focus, .hvr-backward:active {
+     -webkit-transform: translateX(-8px);
+     transform: translateX(-8px);
+}
+ .rotate{
+     width:80px;
+     height:80px;
+     animation: rotation infinite 3s linear;
+}
  @keyframes rotation{
-   from{
-     transform:rotate(0deg);
-   }
-   
-   to{
-     transform:rotate(360deg);
-   }
- }
+     from{
+         transform:rotate(0deg);
+    }
+     to{
+         transform:rotate(360deg);
+    }
+}
  .search-box{
-    width: fit-content;
-    height: fit-content;
-    position: relative;
-  }
-  .input-search{
-    height: 50px;
-    width: 50px;
-    border-style: none;
-    padding: 10px;
-    font-size: 18px;
-    letter-spacing: 2px;
-    outline: none;
-    border-radius: 25px;
-    transition: all .5s ease-in-out;
-    background-color: rgb(43, 208, 245);
-    padding-right: 40px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    color:#fff;
-  }
-  .input-search::placeholder{
-    color:rgba(255,255,255,.5);
-    font-size: 18px;
-    letter-spacing: 2px;
-    font-weight: 100;
-  }
-  .btn-search{
-    width: 50px;
-    height: 50px;
-    border-style: none;
-    font-size: 20px;
-    font-weight: bold;
-    outline: none;
-    cursor: pointer;
-    border-radius: 50%;
-    position: absolute;
-    right: 0px;
-    color:#ffffff ;
-    background-color:transparent;
-    pointer-events: painted;  
-  }
-  .btn-search:focus ~ .input-search{
-    width: 300px;
-    border-radius: 0px;
-    background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  .input-search:focus{
-    width: 300px;
-    border-radius: 0px;
-    background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
-    transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  
-  .hvr-shrink {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-  }
-  .hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
-    -webkit-transform: scale(0.9);
-    transform: scale(0.9);
-  }
-  .selectedPartOfApp {
-    color:#0b9ae7
-  }
-  .UserSmallProfile{
-    position: fixed;
-    margin-top: 50px;
-    width: 500px ;
-    height:650px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    background: radial-gradient(circle at -0.8% 4.3%, rgb(55, 173, 236) 0%, rgb(76, 198, 250) 83.6%);
-    border-radius: 10px;
-  }
-  .UserProfBTNBG{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-color: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
-  }
-  .RecentlyaddedFreund{
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  }
-  .Post{
-    width: 600px;
-    height: 1000px;
-    background:  radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    border-radius: 10px;
-}
-.Tweet{
-    width: 600px;
-    height: 430px;
-    background:  radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-}
-.SuggestedFriends{
-  width: 400px;
-  height: 700px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  margin-top: 40px;
-  border-radius: 5px;
-}
-.custom-file-input {
-  color: transparent;
-}
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom-file-input::before {
-  content: 'Select some files';
-  width: 320px;
-  color: white;
-  display: inline-block;
-  --tw-bg-opacity: 1;
-  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
-  border-radius: 6px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-
-.custom-file-input2 {
-  color: transparent;
-}
-.custom-file-input2::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom-file-input2::before {
-  content: 'Select prfile Img';
-  width: 320px;
-  color: black;
-  display: inline-block;
-  --tw-bg-opacity: 1;
-  background-color: white;
-  border-radius: 6px;
-  padding: 5px 8px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  font-weight: 500;
-}
-.ProfilePageUserProfile{
-  width:450px;
-  height: 350px; 
-  background: transparent;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 2px;
-}
-.ProfilePageFriends{
-  width:  450px;
-  height: 500px;
-  margin-top: 100px;
-  border-radius: 2px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  margin-bottom: 200px;
-}
-
-.ProfilePagePost{
-  width: 400px;
-  height: 500px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.ProfilePageTweet{
-  width: 400px;
-  height: 500px;
-}
-.ProfilePageTweetShadow{
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.ProfilePagePossibleFriends
-{
-  width:450px;
-  height: 300px; 
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.ProfilePageFavoritePosts
-{
-  width:450px;
-  height: 500px; 
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.ProfilePageBackgroundChange{
-  width:450px;
-  height:150px; 
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-}
-.background1{
-  background: linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%);
-}
-.background2{
-  background: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
-
-}
-.background3{
-  background: linear-gradient(102.7deg, rgb(253, 218, 255) 8.2%, rgb(223, 173, 252) 19.6%, rgb(173, 205, 252) 36.8%, rgb(173, 252, 244) 73.2%, rgb(202, 248, 208) 90.9%);
-}
-.background4{
-  background: radial-gradient(circle at 3.1% 8.2%, rgb(248, 250, 107) 0%, rgb(238, 148, 148) 98.2%);
-}
-.background5{
-  background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
-}
-.loading {
-  display: flex;
-  flex-direction: row;
-}
-.loading__letter {
-  font-size: 88px;
-  font-weight: normal;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  font-family: "Audiowide";
-  color: white;
-  animation-name: bounce;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-.loading__letter:nth-child(2) {
-  animation-delay: .1s; 
-}
-.loading__letter:nth-child(3) {
-  animation-delay: .2s;
-}
-.loading__letter:nth-child(4) {
-  animation-delay: .3s; 
-}
-.loading__letter:nth-child(5) {
-  animation-delay: .4s;
-}
-.loading__letter:nth-child(6) {
-  animation-delay: .5s; 
-}
-.loading__letter:nth-child(7) {
-  animation-delay: .6s;
-}
-.loading__letter:nth-child(8) {
-  animation-delay: .8s;
-}
-.loading__letter:nth-child(9) {
-  animation-delay: 1s;
-}
-.loading__letter:nth-child(10) {
-  animation-delay: 1.2s;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0px)
-  }
-  40% {
-    transform: translateY(-40px);
-  }
-  80%,
-  100% {
-    transform: translateY(0px);
-  }
-}
-.postCommentShadow{
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-}
-
-
-.TweetModal{
-  background-color: white;
-  animation: zoom-in 0.3s;
-  width: 60%;
-  height: 80%;
-}
-.ShowLikesComments{
-  background-color: white;
-  animation: zoom-in 0.3s;
-  width:600px;
-  height: 600px;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.ShowsLikesCommentsShadow
-{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;}
-
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-.PostModal {
-  background-color: white;
-  animation: zoom-in 0.3s;
-  width: 65%;
-  height: 90%;
-}
-.postModalHeight {
-  height: 98%;
-}
-
-.modalCommentScroll{
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-.modalCommentShadow{
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;}
-
-@keyframes zoom-in {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-@keyframes close {
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-  to {
-    transform: scale(0);
-    opacity: 0;
-  }
-}
-
-
-@keyframes rotate {
-  from {
-      transform: rotate(0deg);
-  }
-  to { 
-      transform: rotate(360deg);
-  }
-}
-
-
-@-webkit-keyframes rotate {
-  from {
-      -webkit-transform: rotate(0deg);
-  }
-  to { 
-      -webkit-transform: rotate(360deg);
-  }
-}
-
-.load {
-
-border:solid 5px white;
-border-radius: 50%;
-border-right-color: transparent;
-border-bottom-color: transparent;
-  -webkit-animation-name:             rotate; 
-  -webkit-animation-duration:         1.0s; 
-  -webkit-animation-iteration-count:  infinite;
-  -webkit-animation-timing-function: linear;
-    
-  animation-name:             rotate; 
-  animation-duration:         1.0s; 
-  animation-iteration-count:  infinite;
-  animation-timing-function: linear; 
-}
-
-.progress {
-  background: rgba(0, 0, 0, 0.729);
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
-  display: flex;
-  height: 2%;
-
-}
-
-.progress-value {
-  animation: loadBar 10s normal forwards;
-  box-shadow: 0 10px 40px -10px #0699c9;
-  background: #09a3e0;
-  height: 10px;
-  width: 0;
-}
-
-@keyframes loadBar {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-.story-animation {
-  animation-name: open-story;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-
-@keyframes open-story {
-  0% {
-    transform: scale(0.2);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.ModalFriend
-{
-  background-color: white;
-  animation: zoom-in 0.3s;
-  width: 60%;
-  height: 80%;
-}
-
-.hvr-radial-out {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  overflow: hidden;
-  background:#A2D2FF;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-}
-.hvr-radial-out:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #79A8D1;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
-  color: white;
-}
-.hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
-  -webkit-transform: scale(2);
-  transform: scale(2);
-}
-.friendProfileShadow{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-
-.hvr-radial-out2 {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  overflow: hidden;
-  background:lightcoral;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-}
-.hvr-radial-out2:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: red;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-radial-out2:hover, .hvr-radial-out2:focus, .hvr-radial-out2:active {
-  color: white;
-}
-.hvr-radial-out2:hover:before, .hvr-radial-out2:focus:before, .hvr-radial-out2:active:before {
-  -webkit-transform: scale(2);
-  transform: scale(2);
-}
-
-.hvr-radial-out3 {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  overflow: hidden;
-  background:#0699c9;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-}
-.hvr-radial-out3:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #203ed1;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.7s;
-  transition-duration: 0.7s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.hvr-radial-out3:hover, .hvr-radial-out3:focus, .hvr-radial-out3:active {
-  color: white;
-}
-.hvr-radial-out3:hover:before, .hvr-radial-out3:focus:before, .hvr-radial-out3:active:before {
-  -webkit-transform: scale(2);
-  transform: scale(2);
-}
-
-.SearchResults{
-  width: 300px;
-  height: 400px;
-  background-color: white;
-  position:  absolute;
-  top:3.3rem;
-  left:0;
-  z-index: 2000;
-}
-.searchReslutShadow
-{
-  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;}
-  .content {
-    position: relative;
-  }
-  
-  .content h2 {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    font-size: 4rem;
-    font-weight: 900;
-    color: white;
-    animation: flipIn 1s ease-in-out forwards;
-  }
-  
-  .content h2::before {
-    content: "Welcome to social Dash";
-    position: absolute;
-    color: #0b9ae7;
-    animation: flipIn 1s ease-in-out forwards;
-
-    animation: wave 3s ease-in-out infinite;
-  }
-  
-  @keyframes wave {
-    0%, 100% {
-      clip-path: polygon(0 42%, 13% 48%, 26% 55%, 41% 64%, 56% 65%, 69% 58%, 84% 45%, 100% 38%, 100% 100%, 0% 100%);
+     width: fit-content;
+     height: fit-content;
+     position: relative;
+}
+ .input-search{
+     height: 50px;
+     width: 50px;
+     border-style: none;
+     padding: 10px;
+     font-size: 18px;
+     letter-spacing: 2px;
+     outline: none;
+     border-radius: 25px;
+     transition: all .5s ease-in-out;
+     background-color: transparent;
+     padding-right: 40px;
+     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px ;
+     color:#fff;
+}
+ .input-search::placeholder{
+     color:rgba(255,255,255,.5);
+     font-size: 18px;
+     letter-spacing: 2px;
+     font-weight: 100;
+}
+ .btn-search{
+     width: 50px;
+     height: 50px;
+     border-style: none;
+     font-size: 20px;
+     font-weight: bold;
+     outline: none;
+     cursor: pointer;
+     border-radius: 50%;
+     position: absolute;
+     right: 0px;
+     color:#ffffff ;
+     background-color:transparent;
+     pointer-events: painted;
+}
+ .btn-search:focus ~ .input-search{
+     width: 300px;
+     border-radius: 0px;
+     background-color: transparent;
+     border-bottom:1px solid rgba(255,255,255,.5);
+     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+ .input-search:focus{
+     width: 300px;
+     border-radius: 0px;
+     background-color: transparent;
+     border-bottom:1px solid rgba(255,255,255,.5);
+     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+ .hvr-shrink {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     -webkit-transition-duration: 0.3s;
+     transition-duration: 0.3s;
+     -webkit-transition-property: transform;
+     transition-property: transform;
+}
+ .hvr-shrink:hover, .hvr-shrink:focus, .hvr-shrink:active {
+     -webkit-transform: scale(0.9);
+     transform: scale(0.9);
+}
+ .selectedPartOfApp {
+     color:#0b9ae7 
+}
+ .UserSmallProfile{
+     position: fixed;
+     margin-top: 50px;
+     width: 500px ;
+     height:650px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     border-radius: 10px;
+}
+ .UserProfBTNBG{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     background-color: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
+}
+ .RecentlyaddedFreund{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .Post{
+     width: 600px;
+     height: 1000px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     border-radius: 10px;
+}
+ .Tweet{
+     width: 600px;
+     height: 430px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .SuggestedFriends{
+     width: 400px;
+     height: 700px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     margin-top: 40px;
+     border-radius: 5px;
+}
+ .custom-file-input {
+     color: transparent;
+}
+ .custom-file-input::-webkit-file-upload-button {
+     visibility: hidden;
+}
+ .custom-file-input::before {
+     content: 'Select some files';
+     width: 320px;
+     color: white;
+     display: inline-block;
+     --tw-bg-opacity: 1;
+     background-color: rgb(147 197 253 / var(--tw-bg-opacity));
+     border-radius: 6px;
+     padding: 5px 8px;
+     outline: none;
+     white-space: nowrap;
+     -webkit-user-select: none;
+     cursor: pointer;
+     font-weight: 500;
+}
+ .custom-file-input2 {
+     color: transparent;
+}
+ .custom-file-input2::-webkit-file-upload-button {
+     visibility: hidden;
+}
+ .custom-file-input2::before {
+     content: 'Select prfile Img';
+     width: 320px;
+     color: black;
+     display: inline-block;
+     --tw-bg-opacity: 1;
+     background-color: white;
+     border-radius: 6px;
+     padding: 5px 8px;
+     outline: none;
+     white-space: nowrap;
+     -webkit-user-select: none;
+     cursor: pointer;
+     font-weight: 500;
+}
+ .ProfilePageUserProfile{
+     width:450px;
+     height: 350px;
+     background: transparent;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     border-radius: 2px;
+}
+ .ProfilePageFriends{
+     width: 450px;
+     height: 500px;
+     margin-top: 100px;
+     border-radius: 2px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     margin-bottom: 200px;
+}
+ .ProfilePagePost{
+     width: 400px;
+     height: 500px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .ProfilePageTweet{
+     width: 400px;
+     height: 500px;
+}
+ .ProfilePageTweetShadow{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .ProfilePagePossibleFriends {
+     width:450px;
+     height: 300px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .ProfilePageFavoritePosts {
+     width:450px;
+     height: 500px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .ProfilePageBackgroundChange{
+     width:450px;
+     height:150px;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .background1{
+     background: linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%);
+}
+ .background2{
+     background: radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%);
+}
+ .background3{
+     background: linear-gradient(102.7deg, rgb(253, 218, 255) 8.2%, rgb(223, 173, 252) 19.6%, rgb(173, 205, 252) 36.8%, rgb(173, 252, 244) 73.2%, rgb(202, 248, 208) 90.9%);
+}
+ .background4{
+     background: radial-gradient(circle at 3.1% 8.2%, rgb(248, 250, 107) 0%, rgb(238, 148, 148) 98.2%);
+}
+ .background5{
+     background: linear-gradient(178.6deg, rgb(20, 36, 50) 11.8%, rgb(124, 143, 161) 83.8%);
+}
+ .loading {
+     display: flex;
+     flex-direction: row;
+}
+ .loading__letter {
+     font-size: 88px;
+     font-weight: normal;
+     letter-spacing: 4px;
+     text-transform: uppercase;
+     font-family: "Audiowide";
+     color: white;
+     animation-name: bounce;
+     animation-duration: 2s;
+     animation-iteration-count: infinite;
+}
+ .loading__letter:nth-child(2) {
+     animation-delay: .1s;
+}
+ .loading__letter:nth-child(3) {
+     animation-delay: .2s;
+}
+ .loading__letter:nth-child(4) {
+     animation-delay: .3s;
+}
+ .loading__letter:nth-child(5) {
+     animation-delay: .4s;
+}
+ .loading__letter:nth-child(6) {
+     animation-delay: .5s;
+}
+ .loading__letter:nth-child(7) {
+     animation-delay: .6s;
+}
+ .loading__letter:nth-child(8) {
+     animation-delay: .8s;
+}
+ .loading__letter:nth-child(9) {
+     animation-delay: 1s;
+}
+ .loading__letter:nth-child(10) {
+     animation-delay: 1.2s;
+}
+ @keyframes bounce {
+     0% {
+         transform: translateY(0px) 
     }
-    50% {
-      clip-path: polygon(0 63%, 14% 57%, 25% 50%, 40% 42%, 56% 40%, 71% 44%, 84% 50%, 100% 60%, 100% 100%, 0% 100%);
+     40% {
+         transform: translateY(-40px);
     }
-  }
-  @keyframes wave2 {
-    0%, 100% {
-      clip-path: polygon(0 42%, 13% 48%, 26% 55%, 41% 64%, 56% 65%, 69% 58%, 84% 45%, 100% 38%, 100% 100%, 0% 100%);
+     80%, 100% {
+         transform: translateY(0px);
     }
-    50% {
-      clip-path: polygon(0 63%, 14% 57%, 25% 50%, 40% 42%, 56% 40%, 71% 44%, 84% 50%, 100% 60%, 100% 100%, 0% 100%);
+}
+ .postCommentShadow{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .TweetModal{
+     background-color: white;
+     animation: zoom-in 0.3s;
+     width: 60%;
+     height: 85%;
+}
+ .ShowLikesComments{
+     background-color: white;
+     animation: zoom-in 0.3s;
+     width:600px;
+     height: 600px;
+     overflow-x: hidden;
+     overflow-y: auto;
+}
+ .ShowsLikesCommentsShadow {
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .modal-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100vw;
+     height: 100vh;
+     background-color: rgba(0, 0, 0, 0.5);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 999;
+}
+ .PostModal {
+     background-color: white;
+     animation: zoom-in 0.3s;
+     width: 65%;
+     height: 90%;
+}
+ .postModalHeight {
+     height: 98%;
+}
+ .modalCommentScroll{
+     overflow-x: hidden;
+     overflow-y: auto;
+}
+ .modalCommentShadow{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ @keyframes zoom-in {
+     from {
+         transform: scale(0);
     }
-  }
-  .content2 {
-    position: relative;
-  }
-  
-  .content2 h2 {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    font-size: 2rem;
-    font-weight: 900;
-    color: white;
-      animation: flipIn 1s ease-in-out forwards;
-
-  }
-  
-  .content2 h2::before {
-    content: "Please Create account or Login if you have one";
-    position: absolute;
-    color: #0b9ae7;
-      animation: flipIn 1s  ease-in-out forwards;
-      animation: wave 3s ease-in-out infinite;
-    
-  }
-  @keyframes flipIn {
-    0% {
-      transform: rotateY(90deg);    
-        opacity: 0;
+     to {
+         transform: scale(1);
     }
-    100% {
-      transform: rotateY(0deg);     
-       opacity: 1;
+}
+ @keyframes close {
+     from {
+         transform: scale(1);
+         opacity: 1;
     }
-  }
-
-
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-      display: none;
+     to {
+         transform: scale(0);
+         opacity: 0;
     }
-    100% {
-      opacity: 1;
-      transform: translateX(0%);
-      display: flex;
+}
+ @keyframes rotate {
+     from {
+         transform: rotate(0deg);
     }
-  }
-  .startText {
-    transform: translateX(-100%);
-    animation: slideIn 1s ease-in-out forwards;
-    animation-delay: 1s;
-  }
-  .startBtnFlipIn
-  {
-    transform: translateX(-100%);
-    animation: slideIn 1s ease-in-out forwards;
-    animation-delay: 1s;
-  }
-  .UpdateProfileForm{
-    width:25%;
-    height: 85%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  }
-  .UpdateProfileUserProfile{
-    width:40%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    height: 95%;
-  }
-  .PostPagePost
-  {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width: 70%;
-    height: 80%;
-  }
-  .UpdatePostForm{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width:30%;
-    height: 70%;
-  }
-  .UpdatePostPost{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width:30%;
-    height: 80%;
-  }
-  .TweetPageTweet{
-    width: 60%;
-    height: 80%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  }
+     to {
+         transform: rotate(360deg);
+    }
+}
+ @-webkit-keyframes rotate {
+     from {
+         -webkit-transform: rotate(0deg);
+    }
+     to {
+         -webkit-transform: rotate(360deg);
+    }
+}
+ .load {
+     border:solid 5px white;
+     border-radius: 50%;
+     border-right-color: transparent;
+     border-bottom-color: transparent;
+     -webkit-animation-name: rotate;
+     -webkit-animation-duration: 1.0s;
+     -webkit-animation-iteration-count: infinite;
+     -webkit-animation-timing-function: linear;
+     animation-name: rotate;
+     animation-duration: 1.0s;
+     animation-iteration-count: infinite;
+     animation-timing-function: linear;
+}
+ .progress {
+     background: rgba(0, 0, 0, 0.729);
+     justify-content: flex-start;
+     align-items: center;
+     position: relative;
+     display: flex;
+     height: 2%;
+}
+ .progress-value {
+     animation: loadBar 10s normal forwards;
+     box-shadow: 0 10px 40px -10px #0699c9;
+     background: #09a3e0;
+     height: 10px;
+     width: 0;
+}
+ @keyframes loadBar {
+     0% {
+         width: 0;
+    }
+     100% {
+         width: 100%;
+    }
+}
+ .story-animation {
+     animation-name: open-story;
+     animation-duration: 1s;
+     animation-timing-function: ease-out;
+}
+ @keyframes open-story {
+     0% {
+         transform: scale(0.2);
+         opacity: 0;
+    }
+     50% {
+         transform: scale(1.2);
+         opacity: 1;
+    }
+     100% {
+         transform: scale(1);
+         opacity: 1;
+    }
+}
+ .ModalFriend {
+     background-color: white;
+     animation: zoom-in 0.3s;
+     width: 60%;
+     height: 80%;
+}
+ .hvr-radial-out {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     position: relative;
+     overflow: hidden;
+     background:#A2D2FF;
+     -webkit-transition-property: color;
+     transition-property: color;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+}
+ .hvr-radial-out:before {
+     content: "";
+     position: absolute;
+     z-index: -1;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: #79A8D1;
+     border-radius: 100%;
+     -webkit-transform: scale(0);
+     transform: scale(0);
+     -webkit-transition-property: transform;
+     transition-property: transform;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+     -webkit-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+}
+ .hvr-radial-out:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
+     color: white;
+}
+ .hvr-radial-out:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
+     -webkit-transform: scale(2);
+     transform: scale(2);
+}
+ .friendProfileShadow{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .hvr-radial-out2 {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     position: relative;
+     overflow: hidden;
+     background:lightcoral;
+     -webkit-transition-property: color;
+     transition-property: color;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+}
+ .hvr-radial-out2:before {
+     content: "";
+     position: absolute;
+     z-index: -1;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: red;
+     border-radius: 100%;
+     -webkit-transform: scale(0);
+     transform: scale(0);
+     -webkit-transition-property: transform;
+     transition-property: transform;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+     -webkit-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+}
+ .hvr-radial-out2:hover, .hvr-radial-out2:focus, .hvr-radial-out2:active {
+     color: white;
+}
+ .hvr-radial-out2:hover:before, .hvr-radial-out2:focus:before, .hvr-radial-out2:active:before {
+     -webkit-transform: scale(2);
+     transform: scale(2);
+}
+ .hvr-radial-out3 {
+     display: inline-block;
+     vertical-align: middle;
+     -webkit-transform: perspective(1px) translateZ(0);
+     transform: perspective(1px) translateZ(0);
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+     position: relative;
+     overflow: hidden;
+     background:#0699c9;
+     -webkit-transition-property: color;
+     transition-property: color;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+}
+ .hvr-radial-out3:before {
+     content: "";
+     position: absolute;
+     z-index: -1;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: #203ed1;
+     border-radius: 100%;
+     -webkit-transform: scale(0);
+     transform: scale(0);
+     -webkit-transition-property: transform;
+     transition-property: transform;
+     -webkit-transition-duration: 0.7s;
+     transition-duration: 0.7s;
+     -webkit-transition-timing-function: ease-out;
+     transition-timing-function: ease-out;
+}
+ .hvr-radial-out3:hover, .hvr-radial-out3:focus, .hvr-radial-out3:active {
+     color: white;
+}
+ .hvr-radial-out3:hover:before, .hvr-radial-out3:focus:before, .hvr-radial-out3:active:before {
+     -webkit-transform: scale(2);
+     transform: scale(2);
+}
+ .SearchResults{
+     width: 300px;
+     height: 400px;
+     background-color: white;
+     position: absolute;
+     top:3.3rem;
+     left:0;
+     z-index: 2000;
+}
+ .searchReslutShadow {
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .content {
+     position: relative;
+}
+ .content h2 {
+     position: absolute;
+     top: 50%;
+     left: 30%;
+     transform: translate(-50%, -50%);
+     font-size: 4rem;
+     font-weight: 900;
+     color: white;
+     animation: flipIn 1s ease-in-out forwards;
+}
+ .content h2::before {
+     content: "Welcome to social Dash";
+     position: absolute;
+     color: #0b9ae7;
+     animation: flipIn 1s ease-in-out forwards;
+     animation: wave 3s ease-in-out infinite;
+}
+ @keyframes wave {
+     0%, 100% {
+         clip-path: polygon(0 42%, 13% 48%, 26% 55%, 41% 64%, 56% 65%, 69% 58%, 84% 45%, 100% 38%, 100% 100%, 0% 100%);
+    }
+     50% {
+         clip-path: polygon(0 63%, 14% 57%, 25% 50%, 40% 42%, 56% 40%, 71% 44%, 84% 50%, 100% 60%, 100% 100%, 0% 100%);
+    }
+}
+ @keyframes wave2 {
+     0%, 100% {
+         clip-path: polygon(0 42%, 13% 48%, 26% 55%, 41% 64%, 56% 65%, 69% 58%, 84% 45%, 100% 38%, 100% 100%, 0% 100%);
+    }
+     50% {
+         clip-path: polygon(0 63%, 14% 57%, 25% 50%, 40% 42%, 56% 40%, 71% 44%, 84% 50%, 100% 60%, 100% 100%, 0% 100%);
+    }
+}
+ .content2 {
+     position: relative;
+}
+ .content2 h2 {
+     position: absolute;
+     top: 50%;
+     left: 30%;
+     font-size: 2rem;
+     font-weight: 900;
+     color: white;
+     animation: flipIn 1s ease-in-out forwards;
+}
+ .content2 h2::before {
+     content: "Please Create account or Login if you have one";
+     position: absolute;
+     color: #0b9ae7;
+     animation: flipIn 1s ease-in-out forwards;
+     animation: wave 3s ease-in-out infinite;
+}
+ @keyframes flipIn {
+     0% {
+         transform: rotateY(90deg);
+         opacity: 0;
+    }
+     100% {
+         transform: rotateY(0deg);
+         opacity: 1;
+    }
+}
+ @keyframes slideIn {
+     0% {
+         transform: translateX(-100%);
+         opacity: 0;
+         display: none;
+    }
+     100% {
+         opacity: 1;
+         transform: translateX(0%);
+         display: flex;
+    }
+}
+ .startText {
+     transform: translateX(-100%);
+     animation: slideIn 1s ease-in-out forwards;
+     animation-delay: 1s;
+}
+ .startBtnFlipIn {
+     transform: translateX(-100%);
+     animation: slideIn 1s ease-in-out forwards;
+     animation-delay: 1s;
+}
+ .UpdateProfileForm{
+     width:25%;
+     height: 85%;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .UpdateProfileUserProfile{
+     width:40%;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     height: 95%;
+}
+ .PostPagePost {
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     width: 70%;
+     height: 80%;
+}
+ .UpdatePostForm{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     width:30%;
+     height: 70%;
+}
+ .UpdatePostPost{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+     width:30%;
+     height: 80%;
+}
+ .TweetPageTweet{
+     width: 60%;
+     height: 80%;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .TweetUpdateForm{
+     width: 30%;
+     height: 80%;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .TweetUpdateTweer{
+     width: 35%;
+     height: 80%;
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+ .ModalAllFriendends{
+     width: 70%;
+     height: 80%;
+     background-color: white;
+}
+ .AllFriendsModalFriend {
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    width: 250px;
+     height: 250px;
+     margin: 20px;
+}

@@ -97,7 +97,7 @@ function Modal({user}:props) {
 
 
                                           
-                                    <div className='w-full h-28'>
+                                    <div className='w-full h-28 mt-4'>
                                       <div className='h-10 p-5 flex justify-start items-center'>
                                           <p className='text-lg font-medium'> <span className='font-semibold  text-xl'>{post?.post.user.userName}:</span>  {post?.post.post.description}</p> 
                                       </div>

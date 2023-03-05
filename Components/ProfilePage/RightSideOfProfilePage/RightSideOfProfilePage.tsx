@@ -13,14 +13,15 @@ interface props{
   mostLikedPOSTS:POST[]
   mostLikedTWEETS:TWEET[]
   possibleFriends:User[]
+  userId:string
 }
 
-function RightSideOfProfilePage({possibleFriends,mostLikedPOSTS,mostLikedTWEETS}:props) {
+function RightSideOfProfilePage({userId,possibleFriends,mostLikedPOSTS,mostLikedTWEETS}:props) {
   return (
     <div className='w-1/4 h-full'>
 
         <ProfilePagePossibleNewFriends possibleFriends={possibleFriends}/>
-        <ProfilePageFavoritePostsAndTweets mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
+        <ProfilePageFavoritePostsAndTweets userId={userId} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
 
         <ProfilePageRightColors/>
 

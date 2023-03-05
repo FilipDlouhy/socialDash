@@ -7,7 +7,9 @@ import axios from 'axios';
 import { Post, Tweet, User } from '@prisma/client';
 import FriendModalFriend from '@/Components/Main/ShowFriendModal/FriendModalFriend';
 import FriendModal from '@/Components/Main/ShowFriendModal/FriendModal';
-import ModalShowCommentsOrLikes from '@/Components/Main/ModalShowCommentsOrLikes/ModalShowCommentsOrLikes';
+import ModalShowCommentsOrLikes from '@/Components/ModalShowCommentsOrLikes/ModalShowCommentsOrLikes';
+import AllFriendsModal from '@/Components/ShowAllFriendsProfilePage/AllFriendsModal';
+import ProfilePageContainer from '@/Components/ProfilePage/ProfilePageContainer';
 
 interface Props {
   params: {
@@ -114,15 +116,7 @@ async function page({ params: { userId } }: Props) {
     });
     
   return (
-    <div className='w-full h-full'>
-      <div className='w-full h-full flex'>
-        <LeftSideOfProfilePage friends={friends} totalFriends={totalFriends}  UserAndData={userAndData} />
-        <MiddleOfPRofilePage userId={userId} displayData={displayData} />
-        <RightSideOfProfilePage possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
-        <ModalShowCommentsOrLikes/> 
-
-      </div>
-    </div>
+    <ProfilePageContainer UserAndData={userAndData} possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS} displayData={displayData} userId={userId}   friends={friends} totalFriends={totalFriends} />
   );
 }
 

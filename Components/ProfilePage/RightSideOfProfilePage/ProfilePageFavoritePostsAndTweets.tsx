@@ -11,19 +11,21 @@ interface POST{
 interface props{
     mostLikedPOSTS:POST[]
     mostLikedTWEETS:TWEET[]
+    userId:string
+
   }
-function ProfilePageFavoritePostsAndTweets({mostLikedPOSTS,mostLikedTWEETS}:props) {
+function ProfilePageFavoritePostsAndTweets({userId,mostLikedPOSTS,mostLikedTWEETS}:props) {
   return (
     <div className='ProfilePageFavoritePosts my-6'>
         <p className='w-full h-12 font-semibold flex items-center justify-center text-white text-xl'>Posts and Tweets wich people Liked Mosts</p>
         
         <div className='w-full h-5/6 flex justify-center flex-wrap items-start'>
                     {mostLikedPOSTS.map((post)=>{
-                        return <MostLikedPost post={post} />
+                        return <MostLikedPost post={post} userId={userId} />
                     })}
 
                     {mostLikedTWEETS.map((tweet)=>{
-                        return <MostLikedTweet tweet={tweet}/>
+                        return <MostLikedTweet tweet={tweet} userId={userId}/>
                     })}
         </div>
     </div>

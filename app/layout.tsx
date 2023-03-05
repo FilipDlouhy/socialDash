@@ -46,6 +46,8 @@ export default function RootLayout({
   const [friend, setFriend] = useState<string>();
   const [Tweet,setTweet] = useState<modalTweet>()
   const [story,setStory] = useState<boolean>(false)
+  const [color,setColor]= useState<string>("radial-gradient(circle at -0.8% 4.3%, rgb(59, 176, 255) 0%, rgb(76, 222, 250) 83.6%)")
+  const [seeAllFriends,setSeeAllFriends] = useState<boolean>(false)
   const handleOpenModalPost = (story:boolean,userId:string,id:string,commentLength:number | undefined) => {
 
     if(post)
@@ -141,6 +143,8 @@ export default function RootLayout({
     }
   }
 
+
+ 
   return (
     <html lang="en">
       {/*
@@ -148,9 +152,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <mainContext.Provider value={{friend,setFriend,showModalFriend,setShowModalFriend,story,setStory,showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
+      <mainContext.Provider value={{color,setColor,seeAllFriends,setSeeAllFriends,friend,setFriend,showModalFriend,setShowModalFriend,story,setStory,showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
         <SessionProvider>
-          <body className='background'>
+          <body style={{ background: `${color}`}} className='background'>
             {children}
           </body>
         </SessionProvider>

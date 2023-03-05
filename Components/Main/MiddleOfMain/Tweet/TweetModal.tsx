@@ -100,7 +100,7 @@ function TweetModal({user}:props) {
 
                               
                         <div className='w-full h-20'>
-                        <div className='h-10 p-5 flex justify-start items-center'>
+                        <div className='h-10 mt-2 p-5 flex justify-start items-center'>
                               <p className='text-lg'> <span className='font-semibold  text-xl'>{Tweet?.tweet.user.userName}:</span>  {Tweet?.tweet.tweet.description}</p> 
                         </div>
                           <div className='w-full h-20 flex justify-around items-center '>
