@@ -20,7 +20,7 @@ function RightSideOfProfilePage({userId,possibleFriends,mostLikedPOSTS,mostLiked
   return (
     <div className='w-1/4 h-full'>
 
-        <ProfilePagePossibleNewFriends possibleFriends={possibleFriends}/>
+        <ProfilePagePossibleNewFriends userId={userId} possibleFriends={possibleFriends}/>
         <ProfilePageFavoritePostsAndTweets userId={userId} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
 
         <ProfilePageRightColors/>

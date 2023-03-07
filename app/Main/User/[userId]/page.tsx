@@ -11,6 +11,8 @@ import { Post, Tweet, User } from '@prisma/client'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import React,{useEffect} from 'react'
+import ShowFollowsModal from '@/Components/SeeFollows/ShowFollowsModal'
+import ShowFollowersModal from '@/Components/SeeFollowers/ShowFollowersModal'
 
 interface props{
   params:{
@@ -38,12 +40,12 @@ async function getUser(userId:string) {
  return user.data
 }
 
-async function getPosts() {
-  const posts = await axios.get(`http://localhost:3000/api/getPosts`)
+async function getPosts(userId:string) {
+  const posts = await axios.post(`http://localhost:3000/api/getPostsMain`,{userId:userId})
   return posts.data
  }
- async function getTweets() {
-  const tweets = await axios.get(`http://localhost:3000/api/getTweets`)
+ async function getTweets(userId:string) {
+  const tweets = await axios.post(`http://localhost:3000/api/getTweetsMain`,{userId:userId})
   return tweets.data
  }
 
@@ -95,8 +97,8 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
 
    const user:User =await getUser(props.params.userId)
    const users:User[] = await getUsers(props.params.userId)
-   const posts :post[] = await getPosts()
-   const tweets:tweet[] = await getTweets()
+   const posts :post[] = await getPosts(props.params.userId)
+   const tweets:tweet[] = await getTweets(props.params.userId)
    const numberOfUserPosts = getNumberUserPosts(posts,props.params.userId)
    const numberOfUserTweets = getNumberUseTweets(tweets,props.params.userId)
    const displayData:(tweet | post )[] =[] 
@@ -118,6 +120,8 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
         <PostModal user={user}/>
         <TweetModal  user={user}/>
         <ModalShowCommentsOrLikes/> 
+        <ShowFollowsModal userId={user.id}/>
+        <ShowFollowersModal userId={user.id}/>
       </div>
   )
 }

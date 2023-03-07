@@ -7,33 +7,45 @@ interface post{
     user: User, post: Post 
 }
 
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
 
   try {
-    const posts = await prisma.post.findMany()
+    const {userId} = req.body
+    const posts = await prisma.post.findMany({where:{userId:userId}})
     const users = await prisma.user.findMany()
     
-    let Posts: post[] = [];
+    let Posts: Post[] = [];
+    posts.sort((a,b)=>{
+        return b.likes.length - a.likes.length
+    })
+    posts.map((post,index)=>{
+        if(index < 3)
+        {
+            Posts.push(post)
+        }
+    })
+
+
+    let PostsAndUsers: post[] = [];
   
   
-    posts.map((post)=>{
+    Posts.map((post)=>{
       users.map(user=>{
           if(user.id === post.userId)
           {
               let postWuser = {
                   user:user,post:post
               }
-              Posts.push(postWuser)
+              PostsAndUsers.push(postWuser)
           }
       })
     })
-    Posts.sort((a:post,b:post)=>{
-        return   new Date(b.post.created_at).getTime()- new Date(a.post.created_at).getTime()
-    })
-    res.send(Posts)
+
+    res.send(PostsAndUsers)
   } catch (error) {
     
   }  

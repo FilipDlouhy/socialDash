@@ -11,6 +11,7 @@ import PostModal from "./PostModal"
 import { mainContext } from '@/models';
 import PostDisplayComments from './PostDisplayComments';
 import PostShowLikesAndComments from './PostShowLikesAndComments';
+import PostUserProfile from './PostUserProfile';
 interface Comment
 {
     text:string,
@@ -94,14 +95,7 @@ function Post({Post,user}:props) {
                 
                 
         <div className='h-20 w-full flex items-center '>
-            <div className='flex items-center shadow-md hover:scale-105 hover:shadow-none duration-150 cursor-pointer h-full w-56 pl-4'>
-                {Post.user.img && <img src={Post.user.img} className=' cursor-pointer w-16 h-16 rounded-full'></img>}
-                <div className= ' pl-4 flex flex-col w-32 justify-start items-start'>
-                    <p className='cursor-pointer text-sm  text-white font-semibold '>From {Post.user.userName}</p>
-                    <p className='text-white text-xs font-medium'>Post From: {Post.post.placeFrom}</p>
-                </div>
-            </div>
-
+                <PostUserProfile post={Post} userId={user.id}/>
 
             <h1 className='ml-7 text-xl text-white font-bold'>{Post.post.title}</h1>
         </div>
@@ -125,7 +119,7 @@ function Post({Post,user}:props) {
         </div> 
 
 
-       <PostDisplayComments comments={comments}/>     
+         <PostDisplayComments userId={user.id} comments={comments}/>     
 
 
         <PostCreateComment postId={Post.post.id} comments={comments} setComments={setComments}  totalComments={totalComments} setTotalComments={setTotalComments}   user={user}/>

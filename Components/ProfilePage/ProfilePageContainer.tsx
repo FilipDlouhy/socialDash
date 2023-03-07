@@ -2,6 +2,8 @@
 import { Post, Tweet, User } from '@prisma/client'
 import React, {useState}from 'react'
 import ModalShowCommentsOrLikes from '../ModalShowCommentsOrLikes/ModalShowCommentsOrLikes'
+import ShowFollowersModal from '../SeeFollowers/ShowFollowersModal'
+import ShowFollowsModal from '../SeeFollows/ShowFollowsModal'
 import AllFriendsModal from '../ShowAllFriendsProfilePage/AllFriendsModal'
 import TopOfPage from '../TopOfPage/TopOfPage'
 import LeftSideOfProfilePage from './LeftSideOfProfilePage/LeftSideOfProfilePage'
@@ -56,13 +58,15 @@ function ProfilePageContainer({UserAndData,displayData,friends,mostLikedPOSTS,mo
    } 
   return (
     <div onClick={(e)=>{handleShowSearch(e)}} className='w-full h-full'>
-        <TopOfPage showSearch={showSearch} />
+        <TopOfPage showSearch={showSearch} userId={userId} />
         <div className='w-full h-full flex'>
         <LeftSideOfProfilePage friends={friends} totalFriends={totalFriends}  UserAndData={UserAndData} />
         <MiddleOfPRofilePage userId={userId} displayData={displayData} />
         <RightSideOfProfilePage  userId={userId} possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
         <ModalShowCommentsOrLikes/> 
         <AllFriendsModal userId={userId}/>
+        <ShowFollowsModal userId={userId}/>
+        <ShowFollowersModal userId={userId}/>
         </div>
   </div>
   )

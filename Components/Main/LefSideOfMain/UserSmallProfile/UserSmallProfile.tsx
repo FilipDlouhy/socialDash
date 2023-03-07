@@ -7,6 +7,9 @@ import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { User } from '@prisma/client'
 import UserSmallProfileFriend from './UserSmallProfileFriend';
+import UserSmallProfileShowFollowsBTN from './UserSmallProfileShowFollowingBTN';
+import UserSmallProfileShowFollowingBTN from './UserSmallProfileShowFollowingBTN';
+import UserSmallProfileShowFollowersBTN from './UserSmallProfileShowFollowersBTN';
 
 
 
@@ -33,15 +36,11 @@ interface props{
 
       </div>
 
-      <div className='w-full h-32 flex flex-col mt-4 justify-around items-center'>
+      <div className='w-full h-16 flex flex-col mt-4 justify-around items-center'>
 
           <div className='w-96  flex justify-between px-6 items-center'>
               <p className='font-semibold text-lg text-white'>From {user.placeToLive}</p>
               <FontAwesomeIcon className='w-10 h-10 text-blue-100  cursor-pointer'  icon={faMapLocation} />
-          </div>
-          <div  className='w-96  flex justify-between px-6 items-center'>
-              <p className='font-semibold text-lg text-white'>sadasdxsad</p>
-              <FontAwesomeIcon className='w-10 h-10 text-blue-100 cursor-pointer'  icon={faBriefcase} />
           </div>
 
       </div>
@@ -81,6 +80,11 @@ interface props{
 
       </div>
 
+
+      <div className='w-full h-16 flex items-center justify-center'>
+            <UserSmallProfileShowFollowingBTN/>          
+            <UserSmallProfileShowFollowersBTN/>          
+      </div>
 
       <div className='w-full justify-around  flex h-12'> 
 

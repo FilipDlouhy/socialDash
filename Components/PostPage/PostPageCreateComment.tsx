@@ -26,7 +26,7 @@ function PostPageCreateComment({postId,user,comments,setComments}:props) {
             if(user.img)
             {
                 const newComment:PostComment ={
-                        text:Comment,userId:user.id,userImg:user.img,postId:postId,userName:user.id,id:id,created_at:date
+                        text:Comment,userId:user.id,userImg:user.img,postId:postId,userName:user.userName,id:id,created_at:date
                     } 
                     axios.post("/api/CreatePostComment",newComment).then((res)=>{
                         if(res.data.message==="OK" ){

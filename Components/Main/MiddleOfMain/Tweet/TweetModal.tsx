@@ -8,6 +8,7 @@ import { Tweet, TweetComment, User } from '@prisma/client';
 import TweetModalCreateComment from './TweetModalCreateComment';
 import TweetModalComment from './TweetModalComment';
 import TweetModalLike from './TweetModalLike';
+import Link from 'next/link';
   
 
 
@@ -74,10 +75,10 @@ function TweetModal({user}:props) {
 
 
                         <div className='w-full h-14 border-b-2 flex justify-between items-center border-black'>
-                                    <div className='w-36 flex items-center justify-around h-full'>
+                                    <Link href={user.id === Tweet?.tweet.tweet.userId ?`/ProfilePage/${user.id}`:`/UserPage/${Tweet?.tweet.tweet.userId}/${user.id}`}className='w-36 flex items-center justify-around h-full'>
                                       {Tweet?.tweet.user.img && <img src={Tweet?.tweet.user.img} className='w-11  h-11 rounded-full'></img>}
                                       <p className='text-xs font-semibold'>{Tweet?.tweet.user.userName}</p>
-                                    </div>
+                                    </Link>
 
                                     <div className='w-16 flex items-center justify-center h-full'>
                                       <p className='text-xs font-semibold'>{Tweet?.tweet.tweet.historicalPeriod} Period</p>
@@ -92,7 +93,7 @@ function TweetModal({user}:props) {
                         <div className='w-full h-4/6 modalCommentScroll  border-b-2 border-black'>
 
                         {comments && comments.map((comment)=>{
-                            return <TweetModalComment comment={comment}/>
+                            return <TweetModalComment userId={user.id} comment={comment}/>
                           }) }
 
                         </div>

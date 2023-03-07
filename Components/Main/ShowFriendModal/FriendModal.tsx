@@ -11,7 +11,16 @@ import { useSession } from 'next-auth/react';
 import FriendModalFriendData from './FriendModalFriendData';
 import FriendModalFriend from './FriendModalFriend';
 import FriendModalAddRemoveFriendButton from './FriendModalAddRemoveFriendButton';
+import FriendModalFollowUnfollowButton from './FriendModalFollowUnfollowButton';
+import Link from 'next/link';
 
+
+
+interface friendWithImg{
+  id: string;
+  userName: string; 
+  img: string  | null
+}
 
 interface post{
     user: User, post: Post 
@@ -21,9 +30,11 @@ interface tweet{
 }
 
 interface numberStatsUser{
-    tweets:number,
-    posts:number,
-    friends:number
+  tweets:number,
+  posts:number,
+  friends:number
+  followers:number
+  following:number
 }
 interface props
 {
@@ -36,12 +47,14 @@ function FriendModal({user,friends,setFriends}:props) {
   const {showModalFriend} = useContext(mainContext)
   const {friend} = useContext(mainContext)
   const {setShowModalFriend} = useContext(mainContext)
-  const [User,setUser] = useState<User>()
+  const [Friend,setFriend] = useState<User>()
   const [userNumbers,setUserNumbers] = useState<numberStatsUser>()
   const [data,setData] = useState< (tweet | post )[]>()
   const [renderCondition,setRenderCondition] = useState<string>("default")
   const [inFriendList,setInFriendList] = useState<boolean>(false)
   const session = useSession()
+  const [FriendFriends,setFriendFriends] = useState<friendWithImg[]>([])
+  const [isFollowing,setIsFollowing] = useState<boolean>(false)
   const handleCloseModal = () => {
     setShowModalFriend(false)
   };
@@ -53,9 +66,9 @@ function FriendModal({user,friends,setFriends}:props) {
             <>
               {data?.map((data) => {
                 if ("post" in data) {
-                  return <FriendModalPost post={data} key={data.post.id} />;
+                  return <FriendModalPost userId={user.id}  post={data} key={data.post.id} />;
                 } else if ("tweet" in data) {
-                  return <FriendModalTweet tweet={data} key={data.tweet.id} />;
+                  return <FriendModalTweet  userId={user.id} tweet={data} key={data.tweet.id} />;
                 } else {
                   return null;
                 }
@@ -69,7 +82,7 @@ function FriendModal({user,friends,setFriends}:props) {
             <>
               {data?.map((data) => {
                 if ("post" in data) {
-                  return <FriendModalPost post={data} key={data.post.id} />;
+                  return <FriendModalPost userId={user.id} post={data} key={data.post.id} />;
                 } else if ("tweet" in data) {
                   return null;
                 } else {
@@ -87,7 +100,7 @@ function FriendModal({user,friends,setFriends}:props) {
                 if ("post" in data) {
                     return null;
                 } else if ("tweet" in data) {
-                  return <FriendModalTweet tweet={data} key={data.tweet.id} />;
+                  return <FriendModalTweet userId={user.id} tweet={data} key={data.tweet.id} />;
                 } else {
                   return null;
                 }
@@ -99,36 +112,54 @@ function FriendModal({user,friends,setFriends}:props) {
     {
         return (
             <>
-                {User?.friends.map((id)=>{
-                  friends?.map((Friend)=>{
-                    if(Friend.id === id)
-                    {
-                      return  <FriendModalFriend user={User}/>
-
-                    }
-                  })
-                  if(id ===user.id)
-                  {
-                    return  <FriendModalFriend user={user}/>
-                  }
-                })}
+              {FriendFriends?.map((friend)=>{
+                if(Friend?.friends.includes(friend.id))
+                {
+                  return <FriendModalFriend userId={user.id} user={friend}/>
+                }
+              })}
+            </>
+          );
+    }
+    else if (renderCondition === "followers")
+    {
+        return (
+            <>
+              {FriendFriends?.map((friend)=>{
+                if(Friend?.followers.includes(friend.id))
+                {
+                  return <FriendModalFriend userId={user.id} user={friend}/>
+                }
+              })}
+            </>
+          );
+    }
+    else if (renderCondition === "following")
+    {
+        return (
+            <>
+              {FriendFriends?.map((friend)=>{
+                if(Friend?.following.includes(friend.id))
+                {
+                  return <FriendModalFriend userId={user.id} user={friend}/>
+                }
+              })}
             </>
           );
     }
   }
   useEffect(()=>{
-    if(User?.id !== friend)
+    if(Friend?.id !== friend)
     {      
         setRenderCondition("default")
         setData(undefined)
-        setUser(undefined)
+        setFriend(undefined)
         setUserNumbers(undefined)
         axios.post("/api/getFriend",{userId:friend}).then((res)=>{
         
             setData(res.data.data)
-            setUser(res.data.user)
-            let friendsArray:string[] = res.data.user.friends
-           if(session.data?.user?.name&&friendsArray.includes(session.data?.user?.name) === false)
+            setFriend(res.data.user)
+           if(session.data?.user?.name&&res.data.user.friends.includes(session.data?.user?.name) === false)
            {
                 setInFriendList(false)
            }
@@ -136,7 +167,17 @@ function FriendModal({user,friends,setFriends}:props) {
            {
                 setInFriendList(true)  
            }
+           if(res.data.user.followers.includes(user.id))
+           {
+            setIsFollowing(true)  
+          }
+           else
+           {
+            setIsFollowing(false)  
+           }
             setUserNumbers(res.data.numbersData)
+            setFriendFriends(res.data.firendsWithImg)
+
         })
     }
 
@@ -154,11 +195,12 @@ function FriendModal({user,friends,setFriends}:props) {
                         <div className='w-full flex h-2/5 shadow-xl'>
                             
 
-                            <FriendModalFriendData userNumbers={userNumbers} setRenderCondition={setRenderCondition} user={User}/>
+                            <FriendModalFriendData userNumbers={userNumbers} setRenderCondition={setRenderCondition} user={Friend}/>
                             
                             <div className='w-1/3 flex flex-col items-center  justify-around   h-full'>
-                              <FriendModalAddRemoveFriendButton User={User} friends={friends} inFriendList={inFriendList} setFriends={setFriends} setInFriendList={setInFriendList}/>
-                              <button className='w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out3'>Go to Profile Page</button>
+                              <FriendModalAddRemoveFriendButton user={user} userNumbers={userNumbers} setUserNumbers={setUserNumbers} setFriend={setFriend}   FriendFriends={FriendFriends} setFriendFriends={setFriendFriends} User={Friend} friends={friends} inFriendList={inFriendList} setFriends={setFriends} setInFriendList={setInFriendList}/>
+                              <FriendModalFollowUnfollowButton userNumbers={userNumbers} setUserNumbers={setUserNumbers} setFriend={setFriend} isFollowing={isFollowing} setIsFollowing={setIsFollowing}  FriendFriends={FriendFriends} setFriendFriends={setFriendFriends} user={user} Friend={Friend}/>
+                              <Link href={`/UserPage/${Friend?.id}/${user.id}`} className=' py-2 text-center w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out3'>Go to Profile Page</Link>
                             </div>
 
                         </div>    

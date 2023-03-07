@@ -101,7 +101,6 @@ async function page({ params: { userId } }: Props) {
   const tweets:tweet[] = await getTweets(userId)
   const mostLikedPOSTS:POST[] = await mostLikedPosts()
   const mostLikedTWEETS:TWEET[] = await mostLikedTweets()
-
   const possibleFriends:User[] = await getPossibleNewFriends(userId)
   const displayData:(post | tweet )[] =[] 
    posts.map((post)=>{
@@ -116,7 +115,7 @@ async function page({ params: { userId } }: Props) {
     });
     
   return (
-    <ProfilePageContainer UserAndData={userAndData} possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS} displayData={displayData} userId={userId}   friends={friends} totalFriends={totalFriends} />
+    <ProfilePageContainer  UserAndData={userAndData} possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS} displayData={displayData} userId={userId}   friends={friends} totalFriends={totalFriends} />
   );
 }
 

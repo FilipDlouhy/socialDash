@@ -5,7 +5,9 @@ interface numberStatsUser{
     tweets:number,
     posts:number,
     friends:number
-}
+    followers:number
+    following:number
+  }
 interface props
 {
     user:User | undefined,
@@ -29,9 +31,11 @@ function FriendModalFriendData({user,setRenderCondition,userNumbers}:props) {
             </div>
 
             <div className='w-full h-1/2 flex justify-around items-center flex-wrap'>
-                <p onClick={()=>{setRenderCondition("friends")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-10 flex items-center justify-center font-medium  shadow-xl'>Friends: {userNumbers?.friends}</p>
-                <p onClick={()=>{setRenderCondition("posts")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-10 flex items-center justify-center font-medium  shadow-xl'>Posts: {userNumbers?.posts}</p>
-                <p onClick={()=>{setRenderCondition("tweets")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-10 flex items-center justify-center font-medium  shadow-xl'>Tweets: {userNumbers?.tweets}</p>
+                <p onClick={()=>{setRenderCondition("friends")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-9 flex items-center justify-center font-medium  shadow-xl'>Friends: {userNumbers?.friends}</p>
+                <p onClick={()=>{setRenderCondition("followers")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-9 flex items-center justify-center font-medium  shadow-xl'>Followers: {userNumbers?.followers}</p>
+                <p onClick={()=>{setRenderCondition("following")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-9 flex items-center justify-center font-medium  shadow-xl'>Following: {userNumbers?.following}</p>
+                <p onClick={()=>{setRenderCondition("posts")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-9 flex items-center justify-center font-medium  shadow-xl'>Posts: {userNumbers?.posts}</p>
+                <p onClick={()=>{setRenderCondition("tweets")}} className='hover:shadow-none duration-300 cursor-pointer w-40 h-9 flex items-center justify-center font-medium  shadow-xl'>Tweets: {userNumbers?.tweets}</p>
             
             </div>
 

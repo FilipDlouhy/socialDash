@@ -15,6 +15,7 @@ import TweetModal from './TweetModal';
 import { mainContext } from '@/models';
 import TweetDisplayComments from './TweetDisplayComments';
 import TweetShowLikesAndComments from './TweetShowLikesAndComments';
+import TweetUserProfile from './TweetUserProfile';
 
 interface props{
     tweet:tweet,
@@ -56,8 +57,6 @@ function Tweet({user,tweet}:props) {
                 }
             })
         }
-
-
    
         if(Tweet &&Tweet.tweet.tweet.id=== tweet.tweet.id && Tweet.tweetComments &&  comments && Tweet.tweetComments?.length > comments?.length )
         {
@@ -87,13 +86,7 @@ function Tweet({user,tweet}:props) {
     <div className='Tweet  rounded-lg my-10 '>
                 
         <div className='w-full shadow-md   h-14 flex items-center justify-start ' >
-            <div className='flex pl-2 h-full shadow-md hover:scale-90 duration-150 cursor-pointer items-center '>
-                {tweet.user.img &&  <img src={tweet.user.img} className= 'cursor-pointer rounded-full w-10 h-10'></img>}
-                <div className=' ml-3 flex    w-36 flex-col justify-center items-center'>
-                    <p className= 'w-full cursor-pointer text-start text-white font-semibold text-lg'>{tweet.user.userName}</p>
-                    <p className= 'w-full text-white  text-start text-sm font-light'>Tweet from {tweet.tweet.historicalPeriod}</p>
-                </div>
-            </div>
+                <TweetUserProfile tweet={tweet} userId={user.id}/>
 
             <h1  className='flex items-center justify-center ml-2 w-44 text-white font-bold text-xl'>{tweet.tweet.title}</h1>
             
@@ -105,7 +98,7 @@ function Tweet({user,tweet}:props) {
             <p className='text-white text font-medium text-normal'>{tweet.tweet.description}</p>
         </div>
 
-        <TweetDisplayComments comments={comments}/>
+        <TweetDisplayComments userId={user.id} comments={comments}/>
 
         <div className='w-full  h-10 mt-2 flex justify-around items-center'>
 

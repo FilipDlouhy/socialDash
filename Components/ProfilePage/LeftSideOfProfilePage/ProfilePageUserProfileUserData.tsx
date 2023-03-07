@@ -30,7 +30,14 @@ function ProfilePageUserProfileUserData({UserAndData,totalFriends}:props) {
             <p className='font-medium text-sm text-white'>Tweets: {UserAndData?.tweetLength}</p>
             <p className='font-medium text-sm text-white'>Videos: 666</p>
             </div>
-            <p className='font-medium text-sm text-white'>Friends: {totalFriends}</p>
+
+            <div className='w-44 flex-col justify-center'>
+              <p className='font-medium text-sm text-white my-2  text-center '>Friends: {totalFriends}</p>
+              <p className='font-medium text-sm text-white  my-2 text-center '>Followers: {UserAndData.user.followers.length}</p>
+              <p className='font-medium text-sm text-white  my-2 text-center '>Following: {UserAndData.user.following.length}</p>
+            </div>
+
+
 
         </div>
 </div> 

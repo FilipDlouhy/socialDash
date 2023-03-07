@@ -7,9 +7,11 @@ import React, { useState,useEffect } from 'react'
 import SearchResults from './SearchResults'
 interface props{
     showSearch:boolean
+    userId:string
+
 }
 
-function SearchInput({showSearch}:props) {
+function SearchInput({userId,showSearch}:props) {
     const [searchResults,setSearchResults] = useState<User[]>([])
     const [search,setSearch] = useState<string>()
     useEffect(()=>{
@@ -29,7 +31,7 @@ function SearchInput({showSearch}:props) {
     <div id="search" className="search-box">
         <button id="search" className="btn-search"> <FontAwesomeIcon className='w-7 mx-auto'  icon={faSearch} /></button>
         <input id="search" onChange={(e)=>{setSearch(e.target.value)}} type="text" className="input-search" placeholder="Type to Search..."></input>
-        {  showSearch&&      <SearchResults search={search} searchResults={searchResults}/>}
+        {  showSearch&&      <SearchResults userId={userId} search={search} searchResults={searchResults}/>}
 
     </div>
   )

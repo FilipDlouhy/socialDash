@@ -11,9 +11,10 @@ import ProfilePageLink from './ProfilePageLink';
 
 interface props{
     showSearch:boolean
+    userId:string
 }
 
- function TopOfPage({showSearch}:props) {
+ function TopOfPage({userId,showSearch}:props) {
   return (
     <div className='w-full h-20   '>
         <div className='w-full h-20 flex '>
@@ -22,12 +23,12 @@ interface props{
             </div>
 
             <div className='w-1/5 h-full flex items-center justify-center'>
-                <SearchInput showSearch={showSearch}/>
+                <SearchInput userId={userId} showSearch={showSearch}/>
             </div>
 
             <div className='w-2/5 pl-48 h-full flex items-center justify-around'>
                 <Link href={"/Main"}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faHome} /></Link>
-            <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} />
+                 <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} />
                 <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faVideo} />
                 <ProfilePageLink/>
                 <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faBell} />

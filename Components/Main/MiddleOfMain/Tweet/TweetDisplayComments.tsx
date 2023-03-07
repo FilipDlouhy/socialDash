@@ -2,7 +2,8 @@ import React from 'react'
 import TweetComment from './TweetComment'
 
 interface props{
-    comments:comment[] 
+    comments:comment[]
+    userId:string 
   }
   
   interface comment {
@@ -12,13 +13,13 @@ interface props{
     userName : String
 }
 
-function TweetDisplayComments({comments}:props) {
+function TweetDisplayComments({userId,comments}:props) {
 
     function renderComments() {
         return comments?.map((comment, index) => {
 
          
-            return <TweetComment key={index} comment={comment} />;
+            return <TweetComment  userId={userId} key={index} comment={comment} />;
    
         });
       }

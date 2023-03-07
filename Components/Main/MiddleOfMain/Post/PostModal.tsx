@@ -8,6 +8,7 @@ import axios from 'axios';
 import PostModalComment from './PostModalComment';
 import PostModalCreateComment from './PostModalCreateComment';
 import PostModalLike from './PostModalLike';
+import Link from 'next/link';
 
 interface post{
   user: User, post: Post 
@@ -72,10 +73,10 @@ function Modal({user}:props) {
 
                                           <div className='w-full h-14 border-b-2 flex justify-between items-center border-black'>
 
-                                                <div className='w-48 hover:shadow-none duration-200 cursor-pointer modalCommentShadow flex items-center justify-around h-full'>
+                                                 <Link href={user.id === post?.post.post.userId ?`/ProfilePage/${user.id}`:`/UserPage/${post?.post.post.userId}/${user.id}`} className='w-48 hover:shadow-none duration-200 cursor-pointer modalCommentShadow flex items-center justify-around h-full'>
                                                   {post?.post.user?.img && <img src={post?.post.user.img} className='w-11  h-11 rounded-full'></img>}
                                                   <p className='text-sm font-semibold'>{post?.post.user?.userName}</p>
-                                                </div>
+                                                </Link>
 
                                                 <div className='w-16 flex items-center justify-center h-full'>
                                                   <p className=' text-sm font-semibold text-center'> From {post?.post.post.placeFrom}</p>
@@ -91,7 +92,7 @@ function Modal({user}:props) {
                                           
                                     <div className='w-full h-4/6 modalCommentScroll  border-b-2 border-black'>
                                           {comments&& comments.map((comment)=>{
-                                            return <PostModalComment comment={comment}/>
+                                            return <PostModalComment userId={user.id} comment={comment}/>
                                           })}
                                     </div>
 

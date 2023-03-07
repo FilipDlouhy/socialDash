@@ -3,6 +3,19 @@ import { User } from '@prisma/client'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import React from 'react'
+
+interface friendWithImg{
+  id: string;
+  userName: string; 
+  img: string  | null
+}
+interface numberStatsUser{
+  tweets:number,
+  posts:number,
+  friends:number
+  followers:number
+  following:number
+}
 interface props
 {
   friends:User[]| undefined
@@ -10,9 +23,15 @@ interface props
   User:User| undefined,
   inFriendList: boolean
   setInFriendList:React.Dispatch<React.SetStateAction<boolean>>
+  FriendFriends:friendWithImg[]
+  setFriendFriends:React.Dispatch<React.SetStateAction<friendWithImg[]>>
+  userNumbers:numberStatsUser| undefined
+  setUserNumbers:React.Dispatch<React.SetStateAction<numberStatsUser | undefined>>
+  setFriend:React.Dispatch<React.SetStateAction<User| undefined>>
+  user:User
 }
 
-function FriendModalAddRemoveFriendButton({setInFriendList,inFriendList,friends,User,setFriends}:props) {
+function FriendModalAddRemoveFriendButton({user,setFriend,userNumbers,setUserNumbers,setFriendFriends,FriendFriends,setInFriendList,inFriendList,friends,User,setFriends}:props) {
     const session = useSession()
 
 
@@ -48,13 +67,27 @@ function FriendModalAddRemoveFriendButton({setInFriendList,inFriendList,friends,
           img:Friend.img,
           password:Friend.password,
           placeToLive:Friend.placeToLive,
+          following:Friend.following,
+          followers:Friend.followers,
           userName:Friend.userName
+
         }
         arr.push(newUser)
       }
     })
     setFriends(arr)
+    if(userNumbers)
+    {
+      setUserNumbers({ ...userNumbers, friends: userNumbers.friends + 1 });
+    }
 
+    if(User)
+    {
+      let arr:string[] =User.friends
+      arr.push(user.id)
+
+       setFriend({...User,friends:arr})
+    }
 }
 function removeFriend()
 {
@@ -83,12 +116,33 @@ function removeFriend()
           img:Friend.img,
           password:Friend.password,
           placeToLive:Friend.placeToLive,
-          userName:Friend.userName
+          userName:Friend.userName,
+          following:Friend.following,
+          followers:Friend.followers
+          
+
         }
         arr.push(newUser)
       }
     })
 
+    if(userNumbers)
+    {
+      setUserNumbers({ ...userNumbers, friends: userNumbers.friends - 1 });
+    }
+
+    if(User)
+    {
+        let arr:string[] =[]
+        User.friends.map((id)=>{
+        if(id!==user.id)
+            {
+                arr.push(id)
+             }
+         })
+
+         setFriend({...User,friends:arr})
+    }
     setFriends(arr)
 }
   return (

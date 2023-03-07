@@ -16,8 +16,9 @@ model User {
   img         String?
   created_at  DateTime @default(now()) @db.Timestamptz(6)
   friends     String[]
-
-}
+  followers     String[]
+  following    String[]
+} 
 
 model Post {
   id          String   @id @db.Uuid

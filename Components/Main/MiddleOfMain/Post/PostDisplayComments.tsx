@@ -3,6 +3,7 @@ import PostComment from './PostComment';
 
 interface props{
     comments:Comment[] 
+    userId:string
   }
   interface Comment
 {
@@ -12,14 +13,14 @@ interface props{
     postId:String
     userName:String
 }
-function PostDisplayComments({comments}:props) {
+function PostDisplayComments({comments,userId}:props) {
 
     function renderComments() {
         let count = 1;
         return comments.map((comment, index) => {
           if (count < 7) {
             count++;
-            return <PostComment key={index} comment={comment} />;
+            return <PostComment userId={userId} key={index} comment={comment} />;
           }
         });
       }

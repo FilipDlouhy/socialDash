@@ -17,7 +17,7 @@ export default async function handler(
     try {
       const data = await prisma.user.create({
         data:{
-          userName:userName,email:email,id:id,password:hashPassword,placeToLive:palcetoLive,img:img,friends:[]
+        followers:[],userName:userName,email:email,id:id,password:hashPassword,placeToLive:palcetoLive,img:img,friends:[],following:[]
         }
     })
     res.status(200).json({ message: 'OK' })

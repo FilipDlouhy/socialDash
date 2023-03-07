@@ -46,6 +46,10 @@ export type MainContext = {
     setSeeAllFriends: React.Dispatch<React.SetStateAction<boolean>>,
     color:string
     setColor:React.Dispatch<React.SetStateAction<string>>,
+    showFollows:boolean
+    setShowFollows: React.Dispatch<React.SetStateAction<boolean>>
+    showFollowers:boolean
+    setShowFollowers: React.Dispatch<React.SetStateAction<boolean>>
   }
   export const mainContext = createContext<MainContext>({
     setShowModalPost:()=>{},
@@ -72,5 +76,9 @@ export type MainContext = {
     seeAllFriends:false,
     setSeeAllFriends:()=>{},
     color:"",
-    setColor:()=>{}
+    setColor:()=>{},
+    showFollows:false,
+    setShowFollows:()=>{},
+    showFollowers:false,
+    setShowFollowers:()=>{}
   })

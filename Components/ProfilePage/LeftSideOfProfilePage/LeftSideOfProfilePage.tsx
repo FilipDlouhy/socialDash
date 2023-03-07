@@ -19,7 +19,7 @@ function LeftSideOfProfilePage({friends,totalFriends,UserAndData}:props) {
   return (
     <div className='w-1/4 flex flex-col items-center  mt-10 '>
         <ProfilePageUserProfile totalFriends={totalFriends} UserAndData={UserAndData} />
-        <ProfilePageFriends friends={friends}/>
+        <ProfilePageFriends userId={UserAndData.user.id} friends={friends}/>
     </div>
   )
 }

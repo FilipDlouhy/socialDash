@@ -18,6 +18,6 @@ export default async function handler(
     where: { id: friendId },
     data: { friends:{push:userId} }
   })
-
+  res.status(200).json({ message: 'OK' })
 
 }

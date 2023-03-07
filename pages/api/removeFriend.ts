@@ -7,6 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const { userId, friendId } = req.body
+  console.log(req.body)
   const user = await prisma.user.findUnique({where:{id:userId}})
   const friend = await prisma.user.findUnique({where:{id:friendId}})
 
@@ -41,4 +42,5 @@ export default async function handler(
     data: { friends: friendsFriends
      }
   })
+  res.status(200).json({ message: 'OK' })
 }
