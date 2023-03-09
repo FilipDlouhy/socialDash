@@ -20,11 +20,11 @@ function CreateTweetForm() {
   const [header,setHeader] =useState<string>()
   const [title,setTitle] = useState<string>()
   const [description,setDescription] = useState<string>()
-  const [category,setCategory] = useState<string>()
+  const [theme,setTheme] = useState<string>()
   const session = useSession()
   const router = useRouter()
   useEffect(()=>{
-    setHeader("Login to Historia pro omnibus ubique ")
+    setHeader("Tweet on Social Dash")
   },[])
 
 
@@ -32,11 +32,11 @@ function CreateTweetForm() {
   function addTweet(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)
   {
     e.preventDefault()
-    if(title&& description&& category && session.data?.user?.name)
+    if(title&& description&& theme && session.data?.user?.name)
     {
-      const newTweet :Tweet ={
+      const newTweet  ={
         description:description,
-        historicalPeriod:category,
+        theme:theme,
         title:title,
         userId:session.data?.user?.name
       }
@@ -63,17 +63,15 @@ function CreateTweetForm() {
 
         
         <div className='w-2/3 h-32 my-9 flex justify-around items-center flex-col' >
-            <label className='text-2xl font-semibold' >On wich period is tweet focused</label>
-            <select onChange={(e)=>{setCategory(e.target.value)}} className=' text-white font-medium w-64 h-9 rounded-md bg-blue-300 ' id="country" name="country">
-                <option>Category</option>
-                <option value="Afghanistan">Pax Romana</option>
-                <option value="Aland Islands">Dark Ages</option>
-                <option value="Albania">Middle Ages</option>
-                <option value="Algeria">Age of Reformation</option>
-                <option value="American Samoa">Age of Absolutism</option>
-                <option value="American Samoa">Age of Revolutions</option>
-                <option value="American Samoa">The Great Wars</option>
-                <option value="American Samoa">Modern History</option>
+            <label className='text-2xl font-semibold' >On wich Theme is tweet focused</label>
+            <select onChange={(e)=>{setTheme(e.target.value)}} className=' text-white font-medium w-64 h-9 rounded-md bg-blue-300 ' id="country" name="country">
+                <option>Theme</option>
+                <option value="Sport">Sport</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="History">History</option>
+                <option value="Politics">Politics</option>
+                <option value="Other">Other</option>
             </select>
         </div>
         

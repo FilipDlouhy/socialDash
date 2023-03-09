@@ -1,4 +1,6 @@
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import ShowFollowModalUnfollowBtn from './ShowFollowModalUnfollowBtn'
 
@@ -24,9 +26,20 @@ interface props
 }
 
 function ShowFollowModalUser({setFollowData,followData,user,userId}:props) {
+    const session = useSession()
+    const router = useRouter()
   return (
     <div  className='w-72 h-96 postCommentShadow  m-2'>
-      { user.img &&  <Link className='w-full h-1/2' href={userId === user.userId ?`/ProfilePage/${userId}` :`/UserPage/${user.userId}/${userId}`}> <img src={user.img} className='w-full cursor-pointer h-1/2'></img> </Link>       }
+      { user.img &&  <div className='w-full h-1/2' onClick={()=>{
+        if(user.userId === session.data?.user?.name)
+        {
+          router.push(`/ProfilePage/${ session.data?.user?.name}`)
+        }
+        else
+        {
+          router.push(`/UserPage/${user.userId}/${userId}`)
+        }
+      }} > <img src={user.img} className='w-full cursor-pointer h-1/2'></img> </div>       }
         <div className='w-full h-1/2'>
 
             <div className='w-full h-1/2 '>

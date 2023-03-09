@@ -20,6 +20,8 @@ export default async function handler(
 
 
         await prisma.postComment.updateMany({where:{userId:userId},data:{userImg:profileImg}})
+        await prisma.postComment.updateMany({where:{userId:userId},data:{userImg:profileImg,userName:userName}})
+        await prisma.tweetComment.updateMany({where:{userId:userId},data:{userName:userName}})
 
     res.status(200).json({ message: 'OK' })
 

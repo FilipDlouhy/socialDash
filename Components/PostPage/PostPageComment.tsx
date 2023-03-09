@@ -1,5 +1,6 @@
 import { PostComment } from '@prisma/client'
 import React from 'react'
+import PostPageCommentImgLink from './PostPageCommentImgLink'
 
 interface props{
     comment:PostComment
@@ -8,9 +9,7 @@ interface props{
 function PostPageComment({comment}:props) {
   return (
     <div className='w-11/12 h-20 flex mx-auto my-4'>
-        <div className='h-full w-1/4 flex items-center justify-center'>
-            {comment.userImg &&<img src={comment.userImg} className='w-16 h-16 hover:scale-105 duration-200 cursor-pointer rounded-full'></img>}
-        </div>
+        <PostPageCommentImgLink img={comment.userImg} imgUserId={comment.userId}/>
         <div className='h-full w-3/4 flex items-center justify-around flex-col  '>
             <p className=' text-center font-bold text-white text-sm' > {comment.userName}</p>
             <p className=' text-center font-semibold text-white text-xs'>{comment.text}</p>

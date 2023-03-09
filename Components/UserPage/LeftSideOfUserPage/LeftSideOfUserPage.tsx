@@ -14,21 +14,18 @@ interface UserAndData {
 
 interface props {
   UserAndData:UserAndData
-  totalFriends:number
   friends:User[] 
   isFriend:boolean
   userId:string
   isFollowing:boolean
-  totalFollows:number
-  setTotalFriends: React.Dispatch<React.SetStateAction<number>>
-  setTotalFollows: React.Dispatch<React.SetStateAction<number>>
-  TotalFriends:number
-  TotalFollows:number
+  Friend:UserAndData
+  setFriend: React.Dispatch<React.SetStateAction<UserAndData>>
+  setRender: React.Dispatch<React.SetStateAction<string>>
 }
-function LeftSideOfUserPage({TotalFriends,TotalFollows,setTotalFriends,setTotalFollows,totalFollows,isFollowing,userId,isFriend,friends,totalFriends,UserAndData}:props) {
+function LeftSideOfUserPage({setRender,setFriend,Friend,isFollowing,userId,isFriend,friends,UserAndData}:props) {
   return (
     <div className='w-1/4 flex flex-col items-center  mt-10 '>
-        <UserPageUserProfile userId={userId} TotalFriends={TotalFriends} TotalFollows={TotalFollows} setTotalFriends={setTotalFriends} setTotalFollows={setTotalFollows} totalFollows={totalFollows} isFollowing={isFollowing} isFriend={isFriend} totalFriends={totalFriends} UserAndData={UserAndData} />
+        <UserPageUserProfile setRender={setRender} Friend={Friend}  userId={userId}  isFollowing={isFollowing} isFriend={isFriend}  UserAndData={UserAndData} />
         <UserPageFriends userId={userId} userName={UserAndData.user.userName}  friends={friends}/>
     </div>
   )

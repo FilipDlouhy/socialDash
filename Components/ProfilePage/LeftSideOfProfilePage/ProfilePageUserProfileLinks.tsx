@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import ProfilePageUserProfileDeleteProfile from './ProfilePageUserProfileDeleteProfile'
 import ShowFollowButtons from './ShowFollowButtons'
 
 interface props {
@@ -10,8 +11,7 @@ function ProfilePageUserProfileLinks({userId}:props) {
   return (
         <div>
             <div className='w-full  h-20 flex justify-around items-center'>
-            
-            <button className='w-44 h-9 flex justify-center items-center hover:scale-110 duration-150 cursor-pointer font-medium text-lg  text-white shadow-md rounded-md'>Delete Profile</button>
+            <ProfilePageUserProfileDeleteProfile userId={userId}/> 
             <Link href={`UpdateProfile/${userId}`} className='w-44 h-9 flex justify-center items-center hover:scale-110 duration-150 cursor-pointer font-medium text-lg  text-white shadow-md rounded-md'>Update Profile</Link>
             </div>
             

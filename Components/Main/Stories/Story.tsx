@@ -39,7 +39,7 @@ function Story({story}:props) {
     <div onClick={()=>{loadStory()}} className={loading ? ' hvr-pop cursor-pointer  h-24 w-24 rounded-full':' border-4 border-white hvr-pop cursor-pointer  h-24 w-24 rounded-full' }>
         <div className={loading ? 'load  w-full h-full absolute' : '  w-full h-full absolute'}>
         </div>
-        {story.user.img &&   <img src={story.user.img} className='w-full h-full rounded-full'></img>}
+        {story?.user.img &&   <img src={story?.user.img} className='w-full h-full rounded-full'></img>}
 
     </div>
   )

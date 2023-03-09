@@ -21,17 +21,15 @@ function TweetPageUpdateForm({Category,Text,Title,setCategory,setText,setTitle}:
 
 
         <div className='w-2/3 h-32 my-9 flex justify-around items-center flex-col' >
-            <label className='text-lg text-white  font-semibold' >On wich period is tweet focused</label>
+            <label className='text-lg text-white  font-semibold' >On wich theme is tweet focused</label>
             <select value={Category}   onChange={(e)=>{setCategory(e.target.value)}}className='font-medium w-64 h-8 text-center  rounded-md  ' id="country" name="country">
-                <option>Category</option>
-                <option value="Afghanistan">Pax Romana</option>
-                <option value="Aland Islands">Dark Ages</option>
-                <option value="Albania">Middle Ages</option>
-                <option value="Algeria">Age of Reformation</option>
-                <option value="American Samoa">Age of Absolutism</option>
-                <option value="American Samoa">Age of Revolutions</option>
-                <option value="American Samoa">The Great Wars</option>
-                <option value="American Samoa">Modern History</option>
+            <option>Theme</option>
+                <option value="Sport">Sport</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="History">History</option>
+                <option value="Politics">Politics</option>
+                <option value="Other">Other</option>
             </select>
         </div>
 

@@ -23,12 +23,31 @@ function DisplayStories({stories}:props) {
   const [animate,setAnimate] = useState<boolean>(false)
   function storyDisplay() {
     const displayedStories = [];
-  
-    for (let i = number; i < number + 3; i++) {
-      const storyIndex = i % stories.length;
-      displayedStories.push(<Story story={stories[storyIndex]} />);
+    if(stories.length ===1 )
+    {
+      for (let i = number; i < number + 1; i++) {
+        const storyIndex = i % stories.length;
+        displayedStories.push(<Story story={stories[storyIndex]} />);
+      }
+    
     }
-  
+
+    else if(stories.length === 2 )
+    {
+      for (let i = number; i < number + 2; i++) {
+        const storyIndex = i % stories.length;
+        displayedStories.push(<Story story={stories[storyIndex]} />);
+      }
+    
+    }
+    else
+    {
+      for (let i = number; i < number + 3; i++) {
+        const storyIndex = i % stories.length;
+        displayedStories.push(<Story story={stories[storyIndex]} />);
+      }
+    }
+
     return displayedStories;
   }
   useEffect(()=>{
@@ -39,6 +58,12 @@ function DisplayStories({stories}:props) {
      },100)
  
   },[number])
+  if(stories.length === 0)
+  {
+    return null
+  }
+  else{
+
   return (
     <div className='w-full flex px-32'>
 
@@ -72,6 +97,8 @@ function DisplayStories({stories}:props) {
 
 </div> 
   )
+  }
+
 }
 
 export default DisplayStories

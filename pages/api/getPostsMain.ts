@@ -32,7 +32,7 @@ export default async function handler(
         ids.push(id)
       }
     })
-  
+    ids.push(userId)  
     posts.map((post)=>{
       users.map(user=>{
           if(user.id === post.userId)
@@ -53,13 +53,12 @@ export default async function handler(
 
     ids.map((id)=>{
       Posts.map((post)=>{
-      if(post.user.id===id || post.user.id===userId)
+      if(post.user.id===id )
       {
         FinalPosts.push(post)
       }
       })
     })
-
     res.send(FinalPosts)
   } catch (error) {
     

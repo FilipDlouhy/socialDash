@@ -58,7 +58,7 @@ function SingInForm() {
       })
     }
   useEffect(()=>{
-    setHeader("Login to Historia pro omnibus ubique ")
+    setHeader("Login to Social Dash")
   },[])
   return (
     <form className='SingInForm flex justify-center items-center flex-col '>
@@ -349,7 +349,7 @@ function SingInForm() {
         </div>
 
 
-        <button onClick={(e)=>{handleOnSubmit(e)}} className='hvr-rectangle-in w-56 rounded-lg text-xl font-semibold cursor-pointer h-9 mb-3 bg-blue-300 text-white'>Login</button>
+        <button onClick={(e)=>{handleOnSubmit(e)}} className='hvr-rectangle-in w-56 rounded-lg text-xl font-semibold cursor-pointer h-9 mb-3 bg-blue-300 text-white'>Create account</button>
     </form>
   )
 }

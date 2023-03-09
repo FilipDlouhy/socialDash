@@ -6,13 +6,15 @@ interface like{
 
 interface props{
   likes:like[]  
+  userId:string
+
 }
 
-function ModalShowLikes({likes}:props) {
+function ModalShowLikes({userId,likes}:props) {
   return (
     <div className='w-full py-1 flex justify-start items-start flex-wrap h-full'>
       { likes?.map((like)=>{
-        return <ModalLike like={like}/>
+        return <ModalLike userId={userId} like={like}/>
       })}
     </div>
   )

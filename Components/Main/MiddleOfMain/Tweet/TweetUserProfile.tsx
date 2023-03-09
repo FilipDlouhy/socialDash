@@ -17,7 +17,7 @@ function TweetUserProfile({tweet,userId}:props) {
         {tweet.user.img &&  <img src={tweet.user.img} className= 'cursor-pointer rounded-full w-10 h-10'></img>}
         <div className=' ml-3 flex    w-36 flex-col justify-center items-center'>
             <p className= 'w-full cursor-pointer text-start text-white font-semibold text-lg'>{tweet.user.userName}</p>
-            <p className= 'w-full text-white  text-start text-sm font-light'>Tweet from {tweet.tweet.historicalPeriod}</p>
+            <p className= 'w-full text-white  text-start text-sm font-light'>Tweet from {tweet.tweet.theme}</p>
         </div>
     </Link>
   )

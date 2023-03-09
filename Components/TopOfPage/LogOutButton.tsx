@@ -8,7 +8,10 @@ import { useRouter } from 'next/navigation'
 function LogOutButton() {
   const router = useRouter()
   return (
-     <button onClick={()=>{signOut()
+     <button onClick={(e)=>{
+
+
+                    signOut()
                     router.push("/Login")
     }}  ><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faRightFromBracket} /></button>
 

@@ -19,7 +19,7 @@ interface props{
 function TweetPageUpdateContainer({userId,tweetData}:props) {
 
     const [Title, setTitle] = useState<string>(tweetData.tweet.title)
-    const [Category, setCategory] = useState<string>(tweetData.tweet.historicalPeriod)
+    const [Category, setCategory] = useState<string>(tweetData.tweet.theme)
     const [Text, setText] = useState<string>(tweetData.tweet.description)
     
 

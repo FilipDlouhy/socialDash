@@ -13,12 +13,12 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
     const prisma = new PrismaClient()
-    const {description,historicalPeriod,title,userId} = req.body
+    const {description,theme,title,userId} = req.body
     const id = uuid()
     try {
       const data = await prisma.tweet.create({
         data:{
-            description:description, historicalPeriod:historicalPeriod, title:title, userId:userId,id:id
+            description:description, theme:theme, title:title, userId:userId,id:id
         }
     })
     res.status(200).json({ message: 'OK' })

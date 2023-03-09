@@ -1,5 +1,6 @@
 "use client"
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
 import React from 'react'
 
 interface FollowModalUser
@@ -23,25 +24,34 @@ interface props
 }
 
 function ShowFollowModalUnfollowBtn({followData,  followerId, setFollowData,userId}:props) {
-  return (
-    <button onClick={(e)=>{
-      axios.post("http://localhost:3000/api/removeFollow",{ userId:userId, friendId:followerId }).then((res)=>{
-        if(res.data.message==="OK")
-        {
-          let arr:FollowModalUser[] =[]
-          followData.map((user)=>{
-            if(user.userId !== followerId)
-            {
-              arr.push(user)
-            }
-          })
+  const session = useSession()
+  if(session.data?.user?.name !== userId)
+  {
+    return null
+  }
+  else
+  {
+    return (
+      <button onClick={(e)=>{
+        axios.post("http://localhost:3000/api/removeFollow",{ userId:userId, friendId:followerId }).then((res)=>{
+          if(res.data.message==="OK")
+          {
+            let arr:FollowModalUser[] =[]
+            followData.map((user)=>{
+              if(user.userId !== followerId)
+              {
+                arr.push(user)
+              }
+            })
+  
+            setFollowData(arr)
+          }
+        })
+        
+      }} className='postCommentShadow w-1/2 h-7 bg-red-500 hover:shadow-none  text-white font-semibold  hover:bg-red-700 duration-300 cursor-pointer '>UnFollow</button>
+    )
+  }
 
-          setFollowData(arr)
-        }
-      })
-      
-    }} className='postCommentShadow w-1/2 h-7 bg-red-500 hover:shadow-none  text-white font-semibold  hover:bg-red-700 duration-300 cursor-pointer '>UnFollow</button>
-  )
 }
 
 export default ShowFollowModalUnfollowBtn

@@ -35,7 +35,7 @@ model Tweet {
   id          String   @id @db.Uuid
   created_at  DateTime @default(now()) @db.Timestamptz(6)
   description String 
-  historicalPeriod String
+  theme       String
   title       String
   userId      String
   likes       String[] 

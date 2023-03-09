@@ -33,6 +33,7 @@ export default async function handler(
         ids.push(id)
       }
     })
+    ids.push(userId)
     tweets.map((tweet)=>{
       users.map(user=>{
           if(user.id === tweet.userId)
@@ -53,7 +54,7 @@ export default async function handler(
 
     ids.map((id)=>{
       Tweets.map((tweet)=>{
-      if(tweet.user.id===id|| tweet.user.id===userId)
+      if(tweet.user.id===id)
       {
         FinalTweets.push(tweet)
       }

@@ -93,7 +93,6 @@ async function page({ params: { friendId,userId } }: Props) {
   const friendAndData: UserAndData = await getUser(friendId);
   let isFriend:boolean = false
   const friends:User[] = await getFriends(friendId)
-  const totalFriends:number = friends.length
   const posts:post[] = await getPosts(friendId)
   const tweets:tweet[] = await getTweets(friendId)
   const mostLikedPOSTS:POST[] = await mostLikedPosts(friendId)
@@ -130,7 +129,7 @@ async function page({ params: { friendId,userId } }: Props) {
   }
 
   return (
-    <UserPageContainer totalFollows={friendAndData.user.followers.length} isFollowing={isFollowing} displayData={displayData} friendAndData={friendAndData} friendId={friendId}  friends={friends}  isFriend={isFriend} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS} totalFriends={totalFriends}  userId={userId} />
+    <UserPageContainer isFollowing={isFollowing} displayData={displayData} friendAndData={friendAndData} friendId={friendId}  friends={friends}  isFriend={isFriend} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}   userId={userId} />
   );
 }
 

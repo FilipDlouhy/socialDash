@@ -81,7 +81,7 @@ function TweetModal({user}:props) {
                                     </Link>
 
                                     <div className='w-16 flex items-center justify-center h-full'>
-                                      <p className='text-xs font-semibold'>{Tweet?.tweet.tweet.historicalPeriod} Period</p>
+                                      <p className='text-xs font-semibold'>{Tweet?.tweet.tweet.theme} Theme</p>
                                     </div>
 
                                     <div className='w-16 flex items-center justify-between h-full'>

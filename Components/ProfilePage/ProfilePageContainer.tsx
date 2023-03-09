@@ -63,7 +63,7 @@ function ProfilePageContainer({UserAndData,displayData,friends,mostLikedPOSTS,mo
         <LeftSideOfProfilePage friends={friends} totalFriends={totalFriends}  UserAndData={UserAndData} />
         <MiddleOfPRofilePage userId={userId} displayData={displayData} />
         <RightSideOfProfilePage  userId={userId} possibleFriends={possibleFriends} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
-        <ModalShowCommentsOrLikes/> 
+        <ModalShowCommentsOrLikes userId={userId}/> 
         <AllFriendsModal userId={userId}/>
         <ShowFollowsModal userId={userId}/>
         <ShowFollowersModal userId={userId}/>

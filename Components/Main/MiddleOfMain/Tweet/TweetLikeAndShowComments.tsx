@@ -39,7 +39,7 @@ function TweetLikeAndShowComments({setLiked,userId,totalLikes,setTotalLikes,twee
               description:   Tweet.tweet.tweet.description,
               title: Tweet.tweet.tweet.title,
               userId: Tweet.tweet.tweet.userId,
-              historicalPeriod:  Tweet.tweet.tweet.historicalPeriod,
+              theme:  Tweet.tweet.tweet.theme,
               likes: allLikes
             }
             setTweet({ tweet:{tweet:newTweet,user:Tweet.tweet.user},tweetComments:Tweet.tweetComments })         
@@ -67,7 +67,7 @@ function unLikeComment ()
                 description:   Tweet.tweet.tweet.description,
                 title: Tweet.tweet.tweet.title,
                 userId: Tweet.tweet.tweet.userId,
-                historicalPeriod:  Tweet.tweet.tweet.historicalPeriod,
+                theme:  Tweet.tweet.tweet.theme,
                 likes: allLikes
               }
               setTweet({ tweet:{tweet:newTweet,user:Tweet.tweet.user},tweetComments:Tweet.tweetComments })             

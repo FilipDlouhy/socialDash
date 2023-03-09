@@ -90,7 +90,15 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
     const j = Math.floor(Math.random() * (i + 1));
     [stories[i], stories[j]] = [stories[j], stories[i]];
   }
-  return stories;
+
+  if(stories.length === 0)
+  {
+    return []
+  }else
+  {
+    return stories;
+
+  }
 }
 
   async function page(props:props) {
@@ -113,13 +121,15 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
     return new Date('post' in b ? b.post.created_at: b.tweet.created_at).getTime()  -  new Date('post' in a ? a.post.created_at: a.tweet.created_at).getTime()
     });
 
+
+
     return (
       <div className='w-full h-full'>
 
         <MainContainer displayData={displayData} numberOfUserPosts={numberOfUserPosts} numberOfUserTweets={numberOfUserTweets} stories={stories} user={user} users={users}/>
         <PostModal user={user}/>
         <TweetModal  user={user}/>
-        <ModalShowCommentsOrLikes/> 
+        <ModalShowCommentsOrLikes  userId={user.id}/> 
         <ShowFollowsModal userId={user.id}/>
         <ShowFollowersModal userId={user.id}/>
       </div>

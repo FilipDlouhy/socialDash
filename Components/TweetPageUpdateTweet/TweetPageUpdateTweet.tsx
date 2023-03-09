@@ -23,8 +23,8 @@ function TweetPageUpdateTweet({TotalLikes,TotalComments,Category,Text,Title}:pro
 
         <div className='h-1/6 flex items-center justify-around'>
                 <p className='text-lg font-semibold text-white'>Total Comments {TotalComments} </p>
-                <p className='text-lg font-semibold text-white'>Category: {Category}</p>
-                <p className='text-lg font-semibold text-white'>Total Likes:{TotalLikes}</p>
+                <p className='text-lg font-semibold text-white'>Theme: {Category}</p>
+                <p className='text-lg font-semibold text-white'>Total Likes: {TotalLikes}</p>
         </div>
 
     </div>

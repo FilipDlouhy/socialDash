@@ -13,13 +13,16 @@ export default async function handler(
   if (typeof query.userId === 'string') {
     userId = query.userId;
   }
+  const user = await prisma.user.findUnique({where:{id:userId}})
   const users = await prisma.user.findMany()
   const friends:User[] = []
-  users.map((user)=>{
-    if(userId&& user.friends.includes(userId))
-    {
-      friends.push(user)
-    }
+  user?.friends.map((id)=>{
+    users.map((user)=>{
+      if(user.id === id)
+      {
+        friends.push(user)
+      }
+    })
   })
 
   res.send(friends)

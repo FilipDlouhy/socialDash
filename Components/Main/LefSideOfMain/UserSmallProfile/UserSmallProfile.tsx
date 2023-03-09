@@ -32,7 +32,7 @@ interface props{
               <p className='text-white text-sm font-medium'>Member since {date}  </p>
           </div>
 
-          <Link href={"/ProfilePage"}><FontAwesomeIcon className='w-9 h-9 text-blue-100 hvr-shrink cursor-pointer'  icon={faIdCard} /></Link>
+          <Link href={`/ProfilePage/${user.id}`}><FontAwesomeIcon className='w-9 h-9 text-blue-100 hvr-shrink cursor-pointer'  icon={faIdCard} /></Link>
 
       </div>
 

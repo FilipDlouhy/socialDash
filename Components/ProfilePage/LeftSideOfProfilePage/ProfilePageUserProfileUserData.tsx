@@ -20,8 +20,8 @@ function ProfilePageUserProfileUserData({UserAndData,totalFriends}:props) {
     <div className='w-72 h-full '>
         <div className='w-full h-1/2 flex items-center justify-between px-3'>
 
-            <p className='font-medium text-sm text-white'>Name: {UserAndData?.user.userName}</p>
-            <p className='font-medium text-sm text-white'>From: {UserAndData?.user.placeToLive}</p>
+            <p className='font-medium text-sm text-white'>Name: {UserAndData?.user?.userName}</p>
+            <p className='font-medium text-sm text-white'>From: {UserAndData?.user?.placeToLive}</p>
 
         </div>
         <div className='w-full h-1/2 flex items-center justify-between px-3'>
@@ -33,8 +33,8 @@ function ProfilePageUserProfileUserData({UserAndData,totalFriends}:props) {
 
             <div className='w-44 flex-col justify-center'>
               <p className='font-medium text-sm text-white my-2  text-center '>Friends: {totalFriends}</p>
-              <p className='font-medium text-sm text-white  my-2 text-center '>Followers: {UserAndData.user.followers.length}</p>
-              <p className='font-medium text-sm text-white  my-2 text-center '>Following: {UserAndData.user.following.length}</p>
+              <p className='font-medium text-sm text-white  my-2 text-center '>Followers: {UserAndData?.user?.followers.length}</p>
+              <p className='font-medium text-sm text-white  my-2 text-center '>Following: {UserAndData?.user?.following.length}</p>
             </div>
 
 

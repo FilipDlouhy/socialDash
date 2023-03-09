@@ -2,7 +2,6 @@ import { Post, Tweet, User } from '@prisma/client'
 import React from 'react'
 import UserPageFavoritePostsAndTweets from './UserPageFavoritePostsAndTweets'
 import ProfilePageFavoritePostsAndTweets from './UserPageFavoritePostsAndTweets'
-import UserPageFollows from './UserPageFollows'
 interface POST{
   user: User, post: Post 
 }
@@ -22,7 +21,6 @@ function RightSideOfUserPage({userName,userId,mostLikedPOSTS,mostLikedTWEETS}:pr
 
         <UserPageFavoritePostsAndTweets userName={userName} userId={userId} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
 
-        <UserPageFollows/>
 
     </div>
   )

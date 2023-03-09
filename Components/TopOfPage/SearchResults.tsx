@@ -8,7 +8,7 @@ interface props{
 }
 function SearchResults({userId,search,searchResults}:props) {
   return (
-    <div className='SearchResults'>
+    <div className='SearchResults modalCommentScroll'>
             {searchResults?.map((searchedUser)=>{
                 if(search&& searchedUser.userName.toLocaleLowerCase().includes(search?.toLocaleLowerCase()))
                 {

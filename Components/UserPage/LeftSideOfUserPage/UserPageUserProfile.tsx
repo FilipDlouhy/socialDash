@@ -1,6 +1,6 @@
 import { User } from '@prisma/client';
 import Link from 'next/link';
-import React from 'react'
+import React, { useState } from 'react'
 import ProfilePageUserProfileLinks from './UserPageUserProfileLinks';
 import ProfilePageUserProfileUserData from './UserPageUserProfileUserData';
 
@@ -14,28 +14,27 @@ interface UserAndData {
 
 interface props {
   UserAndData:UserAndData
-  totalFriends:number
   isFriend:boolean
   isFollowing:boolean
-  totalFollows:number
-  setTotalFriends: React.Dispatch<React.SetStateAction<number>>
-  setTotalFollows: React.Dispatch<React.SetStateAction<number>>
-  TotalFriends:number
-  TotalFollows:number
+  Friend:UserAndData
   userId:string
+  setRender: React.Dispatch<React.SetStateAction<string>>
+
 }
 
-function UserPageUserProfile({userId,TotalFriends,TotalFollows,setTotalFriends,setTotalFollows,totalFollows,isFollowing,isFriend,totalFriends,UserAndData}:props) {
+function UserPageUserProfile({ setRender,Friend,userId,isFollowing,isFriend,UserAndData}:props) {
+    const [totalFollowers,setTotalFollowers] = useState<number>(Friend.user.followers.length)
+    const [totalFriends,setTotalFriends] = useState<number>(Friend.user.friends.length)
   return (
     <div className='ProfilePageUserProfile  p-3'>
       
       <div className='w-full h-1/2 flex justify-around items-center'>
         { UserAndData.user.img   &&<img src={UserAndData.user.img} className='w-28 h-28 rounded-full'></img>}
-        <ProfilePageUserProfileUserData totalFollows={totalFollows} UserAndData={UserAndData} totalFriends={totalFriends}/>
+        <ProfilePageUserProfileUserData  totalFollowers={totalFollowers} totalFriends={totalFriends} UserAndData={UserAndData}/>
 
        </div>
 
-        <ProfilePageUserProfileLinks TotalFriends={TotalFriends} TotalFollows={TotalFollows} setTotalFriends={setTotalFriends} setTotalFollows={setTotalFollows} isFollowing={isFollowing} friendId={UserAndData.user.id} isFriend={isFriend} userId={userId}/>
+        <ProfilePageUserProfileLinks setRender={setRender}  userName={UserAndData.user.userName} totalFollowers={totalFollowers} setTotalFollowers={setTotalFollowers} totalFriends={totalFriends} setTotalFriends={setTotalFriends} isFollowing={isFollowing} friendId={UserAndData.user.id} isFriend={isFriend} userId={userId}/>
 
     </div>
   )

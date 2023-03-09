@@ -15,7 +15,7 @@ export default async function handler(
     const {tweetId,Category,Text,Title} = req.body
     try {
        await prisma.tweet.update({where:{id:tweetId},data:{
-            description:Text,title:Title,historicalPeriod:Category
+            description:Text,title:Title,theme:Category
         }})
 
 

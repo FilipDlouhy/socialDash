@@ -1,7 +1,7 @@
 "use client"
 import axios from 'axios'
-import React,{useState} from 'react'
-import {signIn} from "next-auth/react"
+import React,{useState,useEffect} from 'react'
+import {signIn, signOut} from "next-auth/react"
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 function LoginForm() {
@@ -30,7 +30,7 @@ function LoginForm() {
 
   return (
     <form className='LoginForm flex justify-center items-center flex-col '>
-        <h1 className='text-2xl font-bold'>Login to Historia pro omnibus ubique </h1>
+        <h1 className='text-2xl font-bold'>Login to Social Dash </h1>
 
         <div className='w-2/3 h-32 my-11 flex justify-around items-center flex-col' >
             <label className='text-2xl font-semibold' >Email</label>

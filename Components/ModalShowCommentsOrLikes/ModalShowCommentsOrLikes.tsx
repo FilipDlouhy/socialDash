@@ -16,10 +16,13 @@ interface like{
     userName: string,userId:string,userImg:string 
 }
 
+interface props
+{
+    userId:string
+}
 
 
-
-function ModalShowCommentsOrLikes() {  
+function ModalShowCommentsOrLikes({userId}:props) {  
     const {showModalLikesAndComments} = useContext(mainContext)
     const {showLikesAndCommentsData} = useContext(mainContext)
     const {setShowModalLikesAndComments} = useContext(mainContext)
@@ -31,15 +34,15 @@ function ModalShowCommentsOrLikes() {
     };
     function renderLikesAndComments() {
         if (showLikesAndCommentsData?.LikesOrComments) {
-          return <ModalShowLikes likes={likes} />;
+          return <ModalShowLikes  userId={userId} likes={likes} />;
         } else {
             if(showLikesAndCommentsData?.type === "post")
             {
-                return <ModalShowPostComments comments={Postcomments} />;
+                return <ModalShowPostComments userId={userId} comments={Postcomments} />;
             }
             else
             {
-                return <ModalShowTweetComments  comments={TweetComments} />;
+                return <ModalShowTweetComments userId={userId}  comments={TweetComments} />;
             }
         }
       }
