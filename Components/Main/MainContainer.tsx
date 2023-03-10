@@ -54,7 +54,7 @@ function MainContainer({users,user,numberOfUserTweets,numberOfUserPosts,stories,
     }
    } 
   return (
-    <div onClick={(e)=>{handleShowSearch(e)}} className='w-full h-full '>
+    <div onClick={(e)=>{handleShowSearch(e)}} className='w-full px-8 h-full '>
          <TopOfPage userId={user.id} showSearch={showSearch}/>
         <div className='flex'> 
           <LeftSideOfMainPage  friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />

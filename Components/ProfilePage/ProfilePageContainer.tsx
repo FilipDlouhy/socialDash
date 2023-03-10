@@ -57,7 +57,7 @@ function ProfilePageContainer({UserAndData,displayData,friends,mostLikedPOSTS,mo
     }
    } 
   return (
-    <div onClick={(e)=>{handleShowSearch(e)}} className='w-full h-full'>
+    <div onClick={(e)=>{handleShowSearch(e)}} className='w-full px-8 h-full'>
         <TopOfPage showSearch={showSearch} userId={userId} />
         <div className='w-full h-full flex'>
         <LeftSideOfProfilePage friends={friends} totalFriends={totalFriends}  UserAndData={UserAndData} />

@@ -7,7 +7,7 @@ import CreatePostForm from './CreatePostForm';
 
 function CreatePost() {
   return (
-    <div className='w-full  pt-8 h-full'>
+    <div className='w-full px-8  pt-8 h-full'>
 
         <Link href={"/Main"} className='hvr-backward bg-[#318CE7] text-center pt-1 w-64 h-8 font-bold text-blue-50 rounded-sm'>Go Back</Link>
         

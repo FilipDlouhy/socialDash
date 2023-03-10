@@ -35,7 +35,7 @@ function TweetPageContainer({tweet,user,tweetComments}:props) {
 
     },[])
   return (
-    <div className='w-full h-screen flex items-center flex-col justify-center'> 
+    <div className='w-full px-8 h-screen flex items-center flex-col justify-center'> 
             <div className='w-full h-14'>
                 <Link className='mr-72' href={`/ProfilePage/${user.id}`}><FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faArrowCircleLeft} /></Link>
             </div>

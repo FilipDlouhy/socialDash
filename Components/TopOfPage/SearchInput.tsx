@@ -31,10 +31,12 @@ function SearchInput({userId,showSearch}:props) {
     <div id="search" className="search-box">
         <button id="search" className="btn-search"> <FontAwesomeIcon className='w-7 mx-auto'  icon={faSearch} /></button>
         <input id="search" onChange={(e)=>{setSearch(e.target.value)}} type="text" className="input-search" placeholder="Type to Search..."></input>
-        {  showSearch&&      <SearchResults userId={userId} search={search} searchResults={searchResults}/>}
+     
 
     </div>
   )
 }
 
 export default SearchInput
+
+/*   {  showSearch&&      <SearchResults  userId={userId} search={search} searchResults={searchResults}/>}*/ 
