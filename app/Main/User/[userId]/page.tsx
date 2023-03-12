@@ -13,6 +13,7 @@ import { useSession } from 'next-auth/react'
 import React,{useEffect} from 'react'
 import ShowFollowsModal from '@/Components/SeeFollows/ShowFollowsModal'
 import ShowFollowersModal from '@/Components/SeeFollowers/ShowFollowersModal'
+import SendPostToFriendsOrTweetsModal from '@/Components/SendPostToFriendsOrTweets/SendPostToFriendsOrTweetsModal'
 
 interface props{
   params:{
@@ -34,11 +35,20 @@ interface storyData
   id:string,
   createdAt:Date
 }
-
+interface friendWithImg{
+  id: string;
+  userName: string; 
+  img: string  | null
+}
 async function getUser(userId:string) {
  const user = await axios.get(`http://localhost:3000/api/getUser/${userId}`)
  return user.data
 }
+async function getFriendsToChat(userId:string) {
+  const friends = await axios.post("http://localhost:3000/api/getFriendsToChat",{userId:userId})
+  return friends.data    
+}
+
 
 async function getPosts(userId:string) {
   const posts = await axios.post(`http://localhost:3000/api/getPostsMain`,{userId:userId})
@@ -109,6 +119,7 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
    const tweets:tweet[] = await getTweets(props.params.userId)
    const numberOfUserPosts = getNumberUserPosts(posts,props.params.userId)
    const numberOfUserTweets = getNumberUseTweets(tweets,props.params.userId)
+   const friendsToChat:friendWithImg[] = await getFriendsToChat(props.params.userId)
    const displayData:(tweet | post )[] =[] 
    const stories:storyData[] = getStoriesData(posts,tweets)
    posts.map((post)=>{
@@ -132,6 +143,7 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
         <ModalShowCommentsOrLikes  userId={user.id}/> 
         <ShowFollowsModal userId={user.id}/>
         <ShowFollowersModal userId={user.id}/>
+        <SendPostToFriendsOrTweetsModal userId={user.id} friendsToChat={friendsToChat}/>
       </div>
   )
 }

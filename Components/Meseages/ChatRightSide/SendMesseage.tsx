@@ -17,6 +17,7 @@ function SendMesseage({chatId,userId}:props) {
         await addDoc( collection(db,"chats",chatId,"messeages"), {
           text: input,
           sender: userId,
+          type:"message",
           timestamp: serverTimestamp()
         })
         setInput("");

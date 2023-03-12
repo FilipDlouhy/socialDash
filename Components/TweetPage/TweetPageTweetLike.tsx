@@ -1,7 +1,8 @@
+import { mainContext } from '@/models'
 import { faHeart, faPaperPlane, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import React from 'react'
+import React,{useContext} from 'react'
 
 
 
@@ -16,7 +17,9 @@ interface props{
 
 
 function TweetPageTweetLike({liked,setLiked,userId,tweetId}:props) {
-    
+    const {setShowSendPostTweet} =  useContext(mainContext)
+    const {setLink} =  useContext(mainContext)
+
     function like() {
         axios.post(`/api/likeTweet/${userId}`, { tweetId: tweetId }).then((res)=>{ 
           if(res.data.message==="OK")
@@ -42,9 +45,12 @@ function unLike()
     <div className='w-full h-16 flex items-center justify-around'>
       <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-10 h-10 text-red-600 hvr-shrink cursor-pointer'  :'w-10 h-10 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
 
-        <FontAwesomeIcon  className='w-10 h-10 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
+        <FontAwesomeIcon  onClick={()=>{
+        setShowSendPostTweet(true)
+        setLink(`/TweetPage/${tweetId}/`)
+    }} className='w-10 h-10 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
     </div>
   )
 }
 
-export default TweetPageTweetLike
+export default TweetPageTweetLike  

@@ -27,7 +27,7 @@ function ChatContainer({friends,userId}:props) {
     <div className='w-full ChatsShadow  flex h-full'>
         <ChatLeftSide setChat={setChat} friends={friends} userId={userId} />
         {
-            chat ? <ChatRightSide userId={userId} chat={chat}/>: <ChatRightSideEmpty/>
+            chat ? <ChatRightSide setChat={setChat} userId={userId} chat={chat}/>: <ChatRightSideEmpty/>
         }
         
     </div>   

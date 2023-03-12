@@ -15,9 +15,9 @@ function TopOfPageLinks({userId}:props) {
   return (
 
     <div className='w-2/5 pl-48 h-full flex items-center justify-around'>
-                 <Link href={"/Main"}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faHome} /></Link>
-                 <Link href={`/Messeages/${userId}`}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} /></Link>
-                <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faVideo} />
+                <Link href={"/Main"}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faHome} /></Link>
+                <Link href={`/Messeages/${userId}`}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} /></Link>
+                <Link href={`/Videos/${userId}`}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faVideo} /></Link>
                 <ProfilePageLink/>
                 <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faBell} />
                 <LogOutButton/>

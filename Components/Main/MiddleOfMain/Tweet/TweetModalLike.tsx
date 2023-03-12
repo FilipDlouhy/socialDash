@@ -13,6 +13,8 @@ function TweetModalLike() {
   const {Tweet} = useContext(mainContext)
   const {setTweet} = useContext(mainContext)
   const [liked,setLiked] = useState<boolean>(false)
+  const {setShowSendPostTweet} =  useContext(mainContext)
+  const {setLink} =  useContext(mainContext)
   useEffect(()=>{
       if(session.data?.user?.name && Tweet?.tweet.tweet.likes.includes(session.data?.user?.name))
       {
@@ -30,7 +32,7 @@ function TweetModalLike() {
                     id: Tweet.tweet.tweet.id,
                     created_at: Tweet.tweet.tweet.created_at,
                     description: Tweet.tweet.tweet.description,
-                    historicalPeriod: Tweet.tweet.tweet.historicalPeriod,
+                    theme: Tweet.tweet.tweet.theme,
                     title: Tweet.tweet.tweet.title,
                     userId: Tweet.tweet.tweet.userId,
                     likes: allLikes,
@@ -57,7 +59,7 @@ function TweetModalLike() {
                   id: Tweet.tweet.tweet.id,
                   created_at: Tweet.tweet.tweet.created_at,
                   description: Tweet.tweet.tweet.description,
-                  historicalPeriod: Tweet.tweet.tweet.historicalPeriod,
+                  theme: Tweet.tweet.tweet.theme,
                   title: Tweet.tweet.tweet.title,
                   userId: Tweet.tweet.tweet.userId,
                   likes: allLikes
@@ -71,7 +73,10 @@ function TweetModalLike() {
   return (
     <div className=' w-full flex justify-around items-center'>
         <FontAwesomeIcon onClick={()=>{liked ?unLikeComment() : likeComment()}} className={liked ?'duration-200 w-8 h-8 text-red-600 mx-5 hvr-pop cursor-pointer':'duration-200 w-8 h-8 text-black mx-5 hvr-pop cursor-pointer'}  icon={ liked ?faHeart :faThumbsUp} />
-        <FontAwesomeIcon className='w-6 h-6 text-black mx-5 hvr-pop cursor-pointer'  icon={faPaperPlane} />
+        <FontAwesomeIcon onClick={()=>{
+        setShowSendPostTweet(true)
+        setLink(`/TweetPage/${Tweet?.tweet.tweet.id}/`)
+    }} className='w-6 h-6 text-black mx-5 hvr-pop cursor-pointer'  icon={faPaperPlane} />
     </div>
   )
 }

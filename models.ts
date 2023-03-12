@@ -52,6 +52,10 @@ export type MainContext = {
     setShowFollowers: React.Dispatch<React.SetStateAction<boolean>>
     showCreateChat:boolean
     setShowCreateChat: React.Dispatch<React.SetStateAction<boolean>>
+    showSendPostTweet:boolean
+    setShowSendPostTweet: React.Dispatch<React.SetStateAction<boolean>>
+    link:string
+    setLink: React.Dispatch<React.SetStateAction<string>>
   }
   export const mainContext = createContext<MainContext>({
     setShowModalPost:()=>{},
@@ -84,5 +88,9 @@ export type MainContext = {
     showFollowers:false,
     setShowFollowers:()=>{},
     showCreateChat:false,
-    setShowCreateChat:()=>{}
+    setShowCreateChat:()=>{},
+    showSendPostTweet:false,
+    setShowSendPostTweet:()=>{},
+    link:"",
+    setLink:()=>{}
   })

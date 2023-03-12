@@ -6,6 +6,7 @@ import { Tweet, User } from '@prisma/client'
 import axios from 'axios'
 import { useSession } from 'next-auth/react'
 import React,{useEffect, useState,useContext} from 'react'
+import TweetSendLinl from './TweetSendLinl'
 
 interface props{
     liked:boolean,
@@ -80,7 +81,7 @@ function unLikeComment ()
     <div className='w-52 flex items-center justify-around'>            
         <FontAwesomeIcon onClick={()=>{liked ?unLikeComment() : likeComment()}} className={liked ?'duration-200 w-6 h-8 text-red-600 mx-5 hvr-pop cursor-pointer':'duration-200 w-6 h-8 text-blue-100 mx-5 hvr-pop cursor-pointer'}  icon={ liked ?faHeart :faThumbsUp} />
         <FontAwesomeIcon className='w-6 h-8 text-blue-100 hvr-shrink cursor-pointer' onClick={()=>{handleOpenModalTweet(false,userId.toString(),tweetId.toString(),totalComments)}}  icon={faEye} />
-        <FontAwesomeIcon className='w-6 h-8 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
+        <TweetSendLinl tweetId={tweetId}/>
     </div>
   )
 }

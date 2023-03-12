@@ -51,6 +51,8 @@ export default function RootLayout({
   const [showFollows,setShowFollows]= useState<boolean>(false)
   const [showFollowers,setShowFollowers]= useState<boolean>(false)
   const [showCreateChat,setShowCreateChat]= useState<boolean>(false)
+  const [showSendPostTweet,setShowSendPostTweet]= useState<boolean>(false)
+  const [link,setLink] = useState<string>("")
   const handleOpenModalPost = (story:boolean,userId:string,id:string,commentLength:number | undefined) => {
 
     if(post)
@@ -155,7 +157,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <mainContext.Provider value={{showCreateChat,setShowCreateChat,showFollowers,setShowFollowers,showFollows,setShowFollows,color,setColor,seeAllFriends,setSeeAllFriends,friend,setFriend,showModalFriend,setShowModalFriend,story,setStory,showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
+      <mainContext.Provider value={{link,setLink,showSendPostTweet,setShowSendPostTweet,showCreateChat,setShowCreateChat,showFollowers,setShowFollowers,showFollows,setShowFollows,color,setColor,seeAllFriends,setSeeAllFriends,friend,setFriend,showModalFriend,setShowModalFriend,story,setStory,showModalLikesAndComments,setShowModalLikesAndComments,showLikesAndCommentsData,setShowModalLikesAndCommentsData,handleOpenShowLikesOrComments,Tweet,setTweet,post,setPost,showModalTweet,showModalPost, handleOpenModalTweet,setShowModalTweet,setShowModalPost ,handleOpenModalPost }}>
         <SessionProvider>
           <body style={{ background: `${color}`}} className='background'>
             {children}

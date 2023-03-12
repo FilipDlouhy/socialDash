@@ -28,6 +28,14 @@
      border-radius: 20px;
      box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
+.VideoForm{
+    width: 600px;
+    height: 750px;
+    margin: 30px auto;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
 /* Pop */
  @-webkit-keyframes hvr-pop {
      50% {
@@ -849,4 +857,116 @@
 {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
+.ChatDeleteBtn
+{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.ShowSendPostTweet
+{
+    width: 60%;
+    height: 85%;
+}
+.VideoHeight
+{
+    height: 92.3%;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  }
+  
+  .current-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .nav-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+  }
+  
+  .prev-button,
+  .next-button {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .prev-button:before,
+  .next-button:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 6px 0 0 6px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .prev-button:before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+  }
+  
+  .next-button:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  
+  .prev-button:hover,
+  .next-button:hover {
+    transform: scale(1.2);
+  }
+  
+  .prev-button:hover:before,
+  .next-button:hover:before {
+    border-color: #fff;
+  }
+  
+  .prev-button:active:before,
+  .next-button:active:before {
+    border-color: #000;
+  }
+  
+  .next-button {
+    transform: scaleX(-1);
+  }
 
+  .video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .video.active {
+    transform: translateX(0%);
+  }
+.videoProfile
+{
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+.videoProfile.active {
+    transform: translateX(0%);
+  }

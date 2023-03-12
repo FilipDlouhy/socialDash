@@ -57,3 +57,22 @@ model TweetComment {
   tweetId   String
   userName  String
   }
+model Video {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  description String
+  video       String
+  userId      String
+  Category    String
+  likes       String[]
+}
+
+model VideoComment {
+  id          String   @id @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  text      String 
+  userId    String 
+  userImg   String 
+  postId    String
+  userName  String
+  }

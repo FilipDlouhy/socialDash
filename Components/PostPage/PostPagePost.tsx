@@ -50,7 +50,7 @@ function PostPagePost({user,post,postComments}:props) {
                 <div className=' modalCommentScroll w-full h-3/5  border-b-2 border-white'>
 
                         {comments&& comments.map((coment)=>{
-                            return <PostPageComment comment={coment}/>
+                            return <PostPageComment  comment={coment}/>
                         })}
 
                 </div>

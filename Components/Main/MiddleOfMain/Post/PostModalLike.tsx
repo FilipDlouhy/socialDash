@@ -16,6 +16,8 @@ function PostModalLike() {
         const {post} = useContext(mainContext)
         const {setPost} = useContext(mainContext)
         const [liked,setLiked] = useState<boolean>(false)
+        const {setShowSendPostTweet} =  useContext(mainContext)
+        const {setLink} =  useContext(mainContext)
         useEffect(()=>{
             if(session.data?.user?.name && post?.post.post.likes.includes(session.data?.user?.name))
             {
@@ -75,7 +77,10 @@ function PostModalLike() {
   return (
     <div className='w-full h-1/2 flex items-center justify-around'>
         <FontAwesomeIcon onClick={()=>{liked ?unLikeComment() : likeComment()}} className={liked ?'duration-200 w-8 h-8 text-red-600 mx-5 hvr-pop cursor-pointer':'duration-200 w-8 h-8 text-black mx-5 hvr-pop cursor-pointer'}  icon={ liked ?faHeart :faThumbsUp} />
-        <FontAwesomeIcon className='w-6 h-6 text-black mx-5 hvr-pop cursor-pointer'  icon={faPaperPlane} />
+        <FontAwesomeIcon  onClick={()=>{
+        setShowSendPostTweet(true)
+        setLink(`/PostPage/${post?.post.post.id}/`)
+    }}  className='w-6 h-6 text-black mx-5 hvr-pop cursor-pointer'  icon={faPaperPlane} />
 
     </div>
   )

@@ -1,7 +1,8 @@
+import { mainContext } from '@/models'
 import { faHeart, faPaperPlane, faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
-import React from 'react'
+import React,{useContext} from 'react'
 
 interface props{
     liked:boolean
@@ -12,7 +13,8 @@ interface props{
 
 function PostPageLike({postId,userId,liked,setLiked}:props) {
 
-
+  const {setShowSendPostTweet} =  useContext(mainContext)
+  const {setLink} =  useContext(mainContext)
 
     function like() {
           axios.post(`/api/likePost/${userId}`, { postId: postId }).then((res)=>{ 
@@ -42,7 +44,10 @@ function unLike()
     <div className='w-full flex items-center justify-around h-1/2'>
         <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-12 h-12 text-red-600 hvr-shrink cursor-pointer'  :'w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
 
-        <FontAwesomeIcon  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
+        <FontAwesomeIcon onClick={()=>{
+        setShowSendPostTweet(true)
+        setLink(`/PostPage/${postId}/`)
+    }}  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
 
     </div>
   )
