@@ -14,6 +14,7 @@ export default async function handler(
     const {postId} = req.body
     try {
         await prisma.post.delete({where:{id:postId}})
+        await prisma.postComment.deleteMany({where:{postId:postId}})
     res.status(200).json({ message: 'OK' })
 
     } catch (error) {

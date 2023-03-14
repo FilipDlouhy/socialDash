@@ -1,11 +1,12 @@
 "use client"
-import { Post, Tweet, User } from '@prisma/client'
+import { Post, Tweet, User, Video } from '@prisma/client'
 import React,{useState} from 'react'
 import ModalShowCommentsOrLikes from '../ModalShowCommentsOrLikes/ModalShowCommentsOrLikes'
 import ShowFollowersModal from '../SeeFollowers/ShowFollowersModal'
 import ShowFollowsModal from '../SeeFollows/ShowFollowsModal'
 import AllFriendsModal from '../ShowAllFriendsProfilePage/AllFriendsModal'
 import TopOfPage from '../TopOfPage/TopOfPage'
+import VideoModalLikesComments from '../VideoModalLikesComments/VideoModalLikesComments'
 import LeftSideOfUserPage from './LeftSideOfUserPage/LeftSideOfUserPage'
 import MiddleOfPUserPage from './MiddleOfUserPage/MiddleOfPUserPage'
 import RightSideOfUserPage from './RightSideOfUserPage/RightSideOfUserPage'
@@ -15,6 +16,9 @@ interface UserAndData {
 user: User;
 tweetLength: number;
 postLength: number;
+}
+interface video {
+  video:Video
 }
 
 interface post{
@@ -37,7 +41,7 @@ interface props{
     isFriend:boolean
     friendAndData: UserAndData
     friends:User[]
-    displayData:(post | tweet )[]
+    displayData:(post | tweet | video)[]
     mostLikedPOSTS:POST[]
     mostLikedTWEETS:TWEET[]
     friendId: string
@@ -60,6 +64,7 @@ function UserPageContainer({isFollowing,displayData,friendAndData,friendId,frien
        setShowSearch(false)
      }
     } 
+
   return (
     <div onClick={(e)=>{handleShowSearch(e)}}className='w-full h-full'>
         <TopOfPage userId={userId} showSearch={showSearch} />
@@ -72,6 +77,7 @@ function UserPageContainer({isFollowing,displayData,friendAndData,friendId,frien
     </div>
     <ShowFollowsModal userId={friendId}/>
     <ShowFollowersModal userId={friendId}/>
+    <VideoModalLikesComments userId={userId}/>
   </div>
   )
 }

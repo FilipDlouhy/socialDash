@@ -54,6 +54,8 @@ export type MainContext = {
     setShowCreateChat: React.Dispatch<React.SetStateAction<boolean>>
     showSendPostTweet:boolean
     setShowSendPostTweet: React.Dispatch<React.SetStateAction<boolean>>
+    showVideoLikesComments:boolean
+    setShowVideoLikesComments: React.Dispatch<React.SetStateAction<boolean>>
     link:string
     setLink: React.Dispatch<React.SetStateAction<string>>
   }
@@ -92,5 +94,7 @@ export type MainContext = {
     showSendPostTweet:false,
     setShowSendPostTweet:()=>{},
     link:"",
-    setLink:()=>{}
+    setLink:()=>{},
+    showVideoLikesComments:false,
+    setShowVideoLikesComments:()=>{}
   })

@@ -1,3 +1,4 @@
+
 import React,{useEffect} from 'react'
 import "../../../../lib/fontawsome"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,10 +19,12 @@ interface props{
     numberOfUserPosts:number,
     numberOfUserTweets:number,
     friends:User[]| undefined
+    numberOfUserVideos:number
   }
 
- function UserSmallProfile({friends,numberOfUserTweets,user,numberOfUserPosts}:props) {
+ function UserSmallProfile({numberOfUserVideos,friends,numberOfUserTweets,user,numberOfUserPosts}:props) {
     const date = user?.created_at?.toString().slice(0,10)
+    console.log(numberOfUserVideos)
   return (
     <div className='UserSmallProfile p-1'>
                 <div className='w-full h-24 flex items-center justify-around' >
@@ -53,7 +56,7 @@ interface props{
 
           <div className='flex flex-col justify-center items-center'>
               <p className='font-semibold text-xl text-white'>Videos</p>
-              <p className='font-medium text-white'>555</p>
+              <p className='font-medium text-white'>{numberOfUserVideos}</p>
           </div>
 
           <div className='flex flex-col justify-center items-center'>

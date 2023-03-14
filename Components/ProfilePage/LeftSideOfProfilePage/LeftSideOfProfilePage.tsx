@@ -7,9 +7,8 @@ interface UserAndData {
   user: User;
   tweetLength: number;
   postLength: number;
+  numberOfUserVideos:number
 }
-
-
 interface props {
   UserAndData:UserAndData
   totalFriends:number

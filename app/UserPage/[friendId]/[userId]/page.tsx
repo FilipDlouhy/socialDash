@@ -1,7 +1,7 @@
 import TopOfPage from '@/Components/TopOfPage/TopOfPage';
 import React from 'react';
 import axios from 'axios';
-import { Post, Tweet, User } from '@prisma/client';
+import { Post, Tweet, User, Video } from '@prisma/client';
 import LeftSideOfUserPage from '@/Components/UserPage/LeftSideOfUserPage/LeftSideOfUserPage';
 import MiddleOfPUserPage from '@/Components/UserPage/MiddleOfUserPage/MiddleOfPUserPage';
 import RightSideOfUserPage from '@/Components/UserPage/RightSideOfUserPage/RightSideOfUserPage';
@@ -28,6 +28,9 @@ interface post{
 
 interface tweet {
   tweet:Tweet
+}
+interface video{
+  video:Video
 }
 
 interface POST{
@@ -86,6 +89,10 @@ async function mostLikedTweets(userId:string) {
   return res.data
 }
 
+async function getVideos(friendId:string) {
+  const res = await axios.post("http://localhost:3000/api/getUserPageVideos",{userId:friendId})
+  return res.data
+}
 
 
 
@@ -95,21 +102,31 @@ async function page({ params: { friendId,userId } }: Props) {
   const friends:User[] = await getFriends(friendId)
   const posts:post[] = await getPosts(friendId)
   const tweets:tweet[] = await getTweets(friendId)
+  const videos:video[] = await getVideos(friendId)
+
   const mostLikedPOSTS:POST[] = await mostLikedPosts(friendId)
   let isFollowing:boolean = false 
   const mostLikedTWEETS:TWEET[] = await mostLikedTweets(friendId)
-  const displayData:(post | tweet )[] =[] 
+  const displayData:(post | tweet  | video )[] =[]
    posts.map((post)=>{
     displayData.push(post)
    })
    tweets.map((tweet)=>{
     displayData.push(tweet)
    })
-
-   displayData.sort((a, b) => { 
-    return new Date('post' in b ? b.post.created_at: b.tweet.created_at).getTime()  -  new Date('post' in a ? a.post.created_at: a.tweet.created_at).getTime()
-    });
+   
+   videos.map((video)=>{
+    // @ts-ignore
+    displayData.push({video:video})
+   })
+   
+   displayData.sort((a, b) => {
+    const dateA = 'post' in a ? a.post.created_at : 'tweet' in a ? a.tweet.created_at : a.video.created_at;
+    const dateB = 'post' in b ? b.post.created_at : 'tweet' in b ? b.tweet.created_at : b.video.created_at;
+    return new Date(dateB).getTime() - new Date(dateA).getTime();
+  });
   
+
   if(friendAndData.user.friends.includes(userId))
   {
     isFriend=true

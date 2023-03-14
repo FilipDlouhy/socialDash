@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React,{useState,useContext,useEffect,useRef} from 'react'
 import { mainContext } from '@/models';
 import axios from 'axios';
-import { Post, Tweet, User } from '@prisma/client';
+import { Post, Tweet, User, Video } from '@prisma/client';
 import FriendModalPost from './FriendModalPost';
 import FriendModalTweet from './FriendModalTweet';
 import { useSession } from 'next-auth/react';
@@ -13,8 +13,11 @@ import FriendModalFriend from './FriendModalFriend';
 import FriendModalAddRemoveFriendButton from './FriendModalAddRemoveFriendButton';
 import FriendModalFollowUnfollowButton from './FriendModalFollowUnfollowButton';
 import Link from 'next/link';
+import FriendModalVideo from './FriendModalVideo';
 
-
+interface video{
+  user: friendWithImg, video: Video 
+}
 
 interface friendWithImg{
   id: string;
@@ -32,6 +35,7 @@ interface tweet{
 interface numberStatsUser{
   tweets:number,
   posts:number,
+  videos:number
   friends:number
   followers:number
   following:number
@@ -49,7 +53,7 @@ function FriendModal({user,friends,setFriends}:props) {
   const {setShowModalFriend} = useContext(mainContext)
   const [Friend,setFriend] = useState<User>()
   const [userNumbers,setUserNumbers] = useState<numberStatsUser>()
-  const [data,setData] = useState< (tweet | post )[]>()
+  const [data,setData] = useState< (tweet | post  | video)[]>()
   const [renderCondition,setRenderCondition] = useState<string>("default")
   const [inFriendList,setInFriendList] = useState<boolean>(false)
   const session = useSession()
@@ -69,7 +73,13 @@ function FriendModal({user,friends,setFriends}:props) {
                   return <FriendModalPost userId={user.id}  post={data} key={data.post.id} />;
                 } else if ("tweet" in data) {
                   return <FriendModalTweet  userId={user.id} tweet={data} key={data.tweet.id} />;
-                } else {
+
+                } 
+                else if("video" in data)
+                {
+                  return <FriendModalVideo userId={user.id} video={data} />
+                }                
+                else {
                   return null;
                 }
               })}
@@ -102,6 +112,24 @@ function FriendModal({user,friends,setFriends}:props) {
                 } else if ("tweet" in data) {
                   return <FriendModalTweet userId={user.id} tweet={data} key={data.tweet.id} />;
                 } else {
+                  return null;
+                }
+              })}
+            </>
+          );
+    }
+    else if (renderCondition === "videos")
+    {
+        return (
+            <>
+                {data?.map((data) => {
+                if ("post" in data) {
+                    return null;
+                } else if("video" in data)
+                  {
+                    return <FriendModalVideo userId={user.id} video={data} />
+                  } 
+                  else {
                   return null;
                 }
               })}

@@ -1,5 +1,6 @@
 "use client"
 import { mainContext } from '@/models'
+import axios from 'axios'
 import Link from 'next/link'
 import React,{useContext} from 'react'
 
@@ -25,7 +26,16 @@ function ProfilePageTweetButtons({tweetId,userId}:props) {
                 
                 <div className='w-full  flex items-center justify-around h-11 p-2'>
                     <Link href={`/TweetPageUpdateTweet/${tweetId}/${userId}`} className='w-32 text-white font-medium hover:scale-105 duration-200 cursor-pointer  h-6 shadow-md flex items-center justify-center'>Update</Link>
-                    <button className='w-32 text-white font-medium hover:scale-105 duration-200 cursor-pointer  h-6 shadow-md flex items-center justify-center'>Delete</button>                    
+                    <button onClick={(e)=>{
+               // @ts-ignore
+            const parentElement = e.target.parentElement.parentElement.parentElement.parentElement;
+            axios.post(`http://localhost:3000/api/deleteTweet`,{tweetId:tweetId}).then((res)=>{
+              if(res.data.message=== "OK")
+              {
+                parentElement.remove();
+              }
+            })
+            }} className='w-32 text-white font-medium hover:scale-105 duration-200 cursor-pointer  h-6 shadow-md flex items-center justify-center'>Delete</button>                    
                 </div>
 
             </div>    

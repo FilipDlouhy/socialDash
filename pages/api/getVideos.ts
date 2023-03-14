@@ -52,9 +52,7 @@ export default async function handler(
           }
       })
     })
-    Videos.sort((a:video,b:video)=>{
-        return   new Date(b.video.created_at).getTime()- new Date(a.video.created_at).getTime()
-    })
+
 
     
     let FinalVideos: video[] = [];
@@ -67,7 +65,9 @@ export default async function handler(
       }
       })
     })
-
+    FinalVideos.sort((a:video,b:video)=>{
+      return   new Date(b.video.created_at).getTime()- new Date(a.video.created_at).getTime()
+  })
     res.send(FinalVideos)
   } catch (error) {
     

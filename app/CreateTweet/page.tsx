@@ -5,7 +5,6 @@ import React from 'react'
 function page() {
   return (
     <div>
-        <TopOfPage/>
         <CreateTweet/>
     </div>
   )

@@ -7,10 +7,11 @@ import React from 'react'
 interface numberStatsUser{
     tweets:number,
     posts:number,
+    videos:number
     friends:number
     followers:number
     following:number
-  }
+}
 interface friendWithImg{
     id: string;
     userName: string; 

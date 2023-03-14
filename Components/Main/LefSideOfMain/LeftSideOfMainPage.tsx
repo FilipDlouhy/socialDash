@@ -8,12 +8,13 @@ import UserSmallProfile from './UserSmallProfile/UserSmallProfile'
     numberOfUserPosts:number,
     numberOfUserTweets:number,
     friends:User[]| undefined
+    numberOfUserVideos:number
 
   }
- function LeftSideOfMainPage({friends,numberOfUserTweets,user,numberOfUserPosts}:props) {
+ function LeftSideOfMainPage({numberOfUserVideos,friends,numberOfUserTweets,user,numberOfUserPosts}:props) {
   return (
     <div className='h-full w-1/4 flex justify-center items-start'>
-        <UserSmallProfile friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts}/>
+        <UserSmallProfile numberOfUserVideos={numberOfUserVideos} friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts}/>
     </div>
   )
 }

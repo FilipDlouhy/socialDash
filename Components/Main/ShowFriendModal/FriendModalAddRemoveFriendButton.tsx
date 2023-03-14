@@ -12,6 +12,7 @@ interface friendWithImg{
 interface numberStatsUser{
   tweets:number,
   posts:number,
+  videos:number
   friends:number
   followers:number
   following:number

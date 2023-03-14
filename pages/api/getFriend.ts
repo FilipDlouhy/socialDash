@@ -1,7 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import bcrypt from "bcryptjs"
 import prisma from "../..//prisma/prisma"
-import { Post, PrismaClient, Tweet, User } from '@prisma/client'
+import { Post, PrismaClient, Tweet, User, Video } from '@prisma/client'
+
+interface video{
+    user: friendWithImg, video: Video 
+}
 
 interface friendWithImg{
     id: string;
@@ -18,6 +22,7 @@ interface tweet{
 interface numberStatsUser{
     tweets:number,
     posts:number,
+    videos:number
     friends:number
     followers:number
     following:number
@@ -37,11 +42,11 @@ export default async function handler(
         const tweets = await prisma.tweet.findMany({where:{userId:userId}})
         const posts = await prisma.post.findMany({where:{userId:userId}})
         const users = await prisma.user.findMany()
-    
-        let Data: (tweet | post )[] = [];
+        const videos = await prisma.video.findMany({where:{userId:userId}})
+        let Data: (tweet | post | video )[] = [];
         let Posts: post[] = [];
         let Tweets: tweet[] = [];
-      
+        let Videos:video[] = []
 
         posts.map((post)=>{
           users.map(user=>{
@@ -68,6 +73,20 @@ export default async function handler(
                 }
             })
           })
+
+              
+        videos.map((video)=>{
+            users.map(user=>{
+                if(user.id === video.userId)
+                {
+                    let videoUser = {
+                        user:user,video:video
+                    }
+                    Videos.push(videoUser)
+                }
+            })
+          })
+    
     
         Tweets.map((tweet)=>{
             Data.push(tweet)
@@ -75,12 +94,18 @@ export default async function handler(
         Posts.map((post)=>{
             Data.push(post)
         })    
+        Videos.map((video)=>{
+            Data.push(video)
+        })  
     
-        Data.sort((a, b) => { 
-            return new Date('post' in b ? b.post.created_at: b.tweet.created_at).getTime()  -  new Date('post' in a ? a.post.created_at: a.tweet.created_at).getTime()
-            });
-    
-        const numbersData:numberStatsUser ={following:user.following.length,followers:user.followers.length,friends:user.friends.length,posts:posts.length,tweets:tweets.length}
+
+
+            Data.sort((a, b) => {
+                const dateA = 'post' in a ? a.post.created_at : 'tweet' in a ? a.tweet.created_at : a.video.created_at;
+                const dateB = 'post' in b ? b.post.created_at : 'tweet' in b ? b.tweet.created_at : b.video.created_at;
+                return new Date(dateB).getTime() - new Date(dateA).getTime();
+              });
+        const numbersData:numberStatsUser ={videos:videos.length,following:user.following.length,followers:user.followers.length,friends:user.friends.length,posts:posts.length,tweets:tweets.length}
     
     
         const friendsWithImg:friendWithImg[] =[];

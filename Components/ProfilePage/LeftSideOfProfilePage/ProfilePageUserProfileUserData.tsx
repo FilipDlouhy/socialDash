@@ -1,12 +1,12 @@
 import { User } from '@prisma/client';
+import { userAgent } from 'next/server';
 import React from 'react'
-
 interface UserAndData {
-    user: User;
-    tweetLength: number;
-    postLength: number;
-  }
-  
+  user: User;
+  tweetLength: number;
+  postLength: number;
+  numberOfUserVideos:number
+}
   
   interface props {
     UserAndData:UserAndData
@@ -28,7 +28,7 @@ function ProfilePageUserProfileUserData({UserAndData,totalFriends}:props) {
             <div className='w-1/2 h-full flex items-start justify-around flex-col'>
             <p className='font-medium text-sm text-white'>Posts: {UserAndData?.postLength}</p>
             <p className='font-medium text-sm text-white'>Tweets: {UserAndData?.tweetLength}</p>
-            <p className='font-medium text-sm text-white'>Videos: 666</p>
+            <p className='font-medium text-sm text-white'>Videos: {UserAndData.numberOfUserVideos}</p>
             </div>
 
             <div className='w-44 flex-col justify-center'>

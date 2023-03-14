@@ -6,9 +6,9 @@ import LoginForm from './LoginForm';
 import Link from 'next/link';
 function Login() {
   return (
-    <div className='w-full pt-8 h-full'>
+    <div className='w-full pt-8  h-full'>
 
-      <Link href={"/"} className='hvr-backward bg-[#318CE7] text-center pt-1 w-64 h-8 font-bold text-blue-50 rounded-sm'>Go Back</Link>
+      <Link href={"/"} className=' ml-24 hvr-backward bg-[#318CE7] text-center pt-1 w-64 h-8 font-bold text-blue-50 rounded-sm'>Go Back</Link>
 
       <div className='w-1/2 mx-auto h-40 flex justify-around items-center'>
         <h1 className='text-3xl font-bold text-center text-white ml-52'>Welcome to Social Dash </h1>

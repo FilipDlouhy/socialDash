@@ -60,9 +60,18 @@ async function getPosts(userId:string) {
  }
 
  async function getUsers(userId:string) {
-  const users = await axios.post(`http://localhost:3000/api/getUsers`,{userId:userId})
-  return users.data
+  const number = await axios.post(`http://localhost:3000/api/getUsers`,{userId:userId})
+  return number.data
  }
+
+ async function  getNumberUsevideo (userId:string)
+ { 
+  
+  const users = await axios.post(`http://localhost:3000/api/getNumberUsevideos`,{userId:userId})
+ return users.data.number
+
+ }
+
 
 function getNumberUserPosts(posts:post[],userId:string)
 {
@@ -119,6 +128,7 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
    const tweets:tweet[] = await getTweets(props.params.userId)
    const numberOfUserPosts = getNumberUserPosts(posts,props.params.userId)
    const numberOfUserTweets = getNumberUseTweets(tweets,props.params.userId)
+   const numberOfUserVideos =  await getNumberUsevideo(props.params.userId)
    const friendsToChat:friendWithImg[] = await getFriendsToChat(props.params.userId)
    const displayData:(tweet | post )[] =[] 
    const stories:storyData[] = getStoriesData(posts,tweets)
@@ -137,7 +147,7 @@ function getStoriesData(posts: post[], tweets: tweet[]) {
     return (
       <div className='w-full h-full'>
 
-        <MainContainer displayData={displayData} numberOfUserPosts={numberOfUserPosts} numberOfUserTweets={numberOfUserTweets} stories={stories} user={user} users={users}/>
+        <MainContainer numberOfUserVideos={numberOfUserVideos}  displayData={displayData} numberOfUserPosts={numberOfUserPosts} numberOfUserTweets={numberOfUserTweets} stories={stories} user={user} users={users}/>
         <PostModal user={user}/>
         <TweetModal  user={user}/>
         <ModalShowCommentsOrLikes  userId={user.id}/> 

@@ -33,10 +33,11 @@ interface props
     numberOfUserPosts: number
     stories:storyData[]
     displayData:(tweet | post )[]
+    numberOfUserVideos:number
 }
 
 
-function MainContainer({users,user,numberOfUserTweets,numberOfUserPosts,stories,displayData}:props) {
+function MainContainer({numberOfUserVideos,users,user,numberOfUserTweets,numberOfUserPosts,stories,displayData}:props) {
     const [friends,setFriends]= useState<User [] >()
     const [showSearch,setShowSearch] = useState<boolean>(false)
     useEffect(()=>{
@@ -57,7 +58,7 @@ function MainContainer({users,user,numberOfUserTweets,numberOfUserPosts,stories,
     <div onClick={(e)=>{handleShowSearch(e)}} className='w-full px-8 h-full '>
          <TopOfPage userId={user.id} showSearch={showSearch}/>
         <div className='flex'> 
-          <LeftSideOfMainPage  friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />
+          <LeftSideOfMainPage numberOfUserVideos={numberOfUserVideos}  friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />
           <MiddleOfMain stories={stories} displayData={displayData} user={user}  />
           <RightSideOfMain   userId={user.id} friends={friends}/>
           <FriendModal user={user} friends={friends} setFriends={setFriends}/>

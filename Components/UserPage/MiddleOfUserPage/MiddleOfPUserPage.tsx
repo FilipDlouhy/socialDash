@@ -1,7 +1,7 @@
-import { Post, Tweet } from '@prisma/client'
+import { Post, Tweet, Video } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import React from 'react'
-import ProfileUserVideo from './ProfileUserVideo'
+import ProfileUserVideo from './RightSideOfUserPage/ProfileUserVideo'
 import UserPagePost from './UserPagePost/UserPagePost'
 import UserPageTweet from './UserPageTweet/UserPageTweet'
 
@@ -13,8 +13,12 @@ interface tweet {
   tweet:Tweet
 }
 
+interface video {
+  video:Video
+}
+
 interface props{
-  displayData:(post | tweet )[]
+  displayData:(post | tweet  | video)[]
   userId:string
   render:string
 }
@@ -28,6 +32,9 @@ function MiddleOfPUserPage({render, userId, displayData }: props) {
         } else if ("tweet" in data) {
           return <UserPageTweet userId={userId} tweet={data.tweet} />;
         }
+        else if ("video" in data){
+          return <ProfileUserVideo userId={userId} video={data.video}/>
+        }
       });
     } else if (render === "post") {
       return displayData.map((data) => {
@@ -40,6 +47,16 @@ function MiddleOfPUserPage({render, userId, displayData }: props) {
            if ("tweet" in data) {
           return <UserPageTweet userId={userId} tweet={data.tweet} />;
         }
+        
+      });
+    }
+
+    else if (render === "video") {
+      return displayData.map((data) => {
+        if ("video" in data){
+          return <ProfileUserVideo userId={userId} video={data.video}/>
+        }
+        
       });
     }
     return null;
@@ -48,7 +65,6 @@ function MiddleOfPUserPage({render, userId, displayData }: props) {
   return (
     <div className="w-2/4 h-full flex justify-around items-center flex-wrap  px-4">
       {renderData(render)}
-      <ProfileUserVideo />
     </div>
   );
 }

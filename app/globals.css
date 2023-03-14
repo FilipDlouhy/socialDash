@@ -296,6 +296,28 @@
      cursor: pointer;
      font-weight: 500;
 }
+
+.custom-file-input3 {
+    color: transparent;
+}
+.custom-file-input3::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.custom-file-input3::before {
+    content: 'Select Video';
+    width: 320px;
+    color: black;
+    display: inline-block;
+    --tw-bg-opacity: 1;
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 500;
+}
  .ProfilePageUserProfile{
      width:450px;
      height: 380px;
@@ -868,7 +890,7 @@
 }
 .VideoHeight
 {
-    height: 92.3%;
+    height: 91.5%;
 }
 .video-container {
     position: relative;
@@ -969,4 +991,9 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 .videoProfile.active {
     transform: translateX(0%);
+  }
+  .VideoModal
+  {
+    width:60%;
+    height:70%;
   }

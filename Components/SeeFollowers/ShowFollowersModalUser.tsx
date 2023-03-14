@@ -42,7 +42,7 @@ function ShowFollowersModalUser({setFollowData,followData,user,userId}:props) {
         {
           router.push(`/UserPage/${user.userId}/${userId}`)
         }
-      }} > <img src={user.img} className='w-full cursor-pointer h-1/2'></img>  </div>        }
+      }} > <img src={user.img} className='w-full cursor-pointer h-full'></img>  </div>        }
         <div className='w-full h-1/2'>
 
             <div className='w-full h-1/2 '>
