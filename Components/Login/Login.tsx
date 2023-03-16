@@ -10,9 +10,9 @@ function Login() {
 
       <Link href={"/"} className=' ml-24 hvr-backward bg-[#318CE7] text-center pt-1 w-64 h-8 font-bold text-blue-50 rounded-sm'>Go Back</Link>
 
-      <div className='w-1/2 mx-auto h-40 flex justify-around items-center'>
-        <h1 className='text-3xl font-bold text-center text-white ml-52'>Welcome to Social Dash </h1>
-        <FontAwesomeIcon className='w-20 h-20 text-white' icon={faDroplet} />
+      <div className='w-full lg:w-1/2 ml-0 lg:ml-40 xl:mx-auto h-52 flex justify-around items-center'>
+        <h1 className=' text-xl sm:text-3xl font-bold text-center text-white ml-11 md:ml-52'>Welcome to Social Dash </h1>
+        <FontAwesomeIcon className='w-16 h-16 sm:w-20 sm:h-20 text-white' icon={faDroplet} />
       </div>
         <LoginForm/>
     </div>

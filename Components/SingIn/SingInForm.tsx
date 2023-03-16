@@ -29,33 +29,40 @@ function SingInForm() {
 
     }
     async function handleOnSubmit(e:React.MouseEvent) {
-      e.preventDefault()
-      let id = uuid()
+      if( userName&&email&&password&&palcetoLive&&pprofileImg)
+      {
+        e.preventDefault()
+        let id = uuid()
+  
+  
+    
+        const formData = new FormData();
+    
+     
+        formData.append('file', pprofileImg);
+    
+        formData.append('upload_preset', 'historia-invicta');
+  
+        console.log(formData)
+        const data = await fetch('https://api.cloudinary.com/v1_1/dnhqwtuev/image/upload', {
+          method: 'POST',
+          body: formData
+        }).then(r => r.json())
+    
+        let img =data.secure_url;
+        axios.post("/api/createUser",{img:img,userName:userName,email:email,password:password,palcetoLive:palcetoLive,id:id}).then((res)=>{
+          if(res.data.message!== "OK"){
+            setHeader(res.data.message)
+          }
+        }).then(()=>{
+          Login()
+          router.push("/Login")
+        })
+      }else{
+        e.preventDefault()
+       setHeader("Fill all Fields")
+      }
 
-
-  
-      const formData = new FormData();
-  
-   
-      formData.append('file', pprofileImg);
-  
-      formData.append('upload_preset', 'historia-invicta');
-
-      console.log(formData)
-      const data = await fetch('https://api.cloudinary.com/v1_1/dnhqwtuev/image/upload', {
-        method: 'POST',
-        body: formData
-      }).then(r => r.json())
-  
-      let img =data.secure_url;
-      axios.post("/api/createUser",{img:img,userName:userName,email:email,password:password,palcetoLive:palcetoLive,id:id}).then((res)=>{
-        if(res.data.message!== "OK"){
-          setHeader(res.data.message)
-        }
-      }).then(()=>{
-        Login()
-        router.push("/Login")
-      })
     }
   useEffect(()=>{
     setHeader("Login to Social Dash")

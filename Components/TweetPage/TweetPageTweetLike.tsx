@@ -42,13 +42,13 @@ function unLike()
   }
 
   return (
-    <div className='w-full h-16 flex items-center justify-around'>
-      <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-10 h-10 text-red-600 hvr-shrink cursor-pointer'  :'w-10 h-10 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
+    <div className='w-full h-9 md:h-16 flex items-center justify-around'>
+      <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-7 h-7 lg:w-10 lg:h-10 text-red-600 hvr-shrink cursor-pointer'  :'lg:w-10 w-7 h-7  lg:h-10 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
 
         <FontAwesomeIcon  onClick={()=>{
         setShowSendPostTweet(true)
         setLink(`/TweetPage/${tweetId}/`)
-    }} className='w-10 h-10 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
+    }} className='lg:w-10 w-7 h-7  lg:h-10 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
     </div>
   )
 }

@@ -11,7 +11,7 @@ interface props{
 
 function TweetPageUpdateForm({Category,Text,Title,setCategory,setText,setTitle}:props) {
   return (
-    <div className='TweetUpdateForm flex items-center justify-around p-2 flex-col'>
+    <div className='TweetUpdateForm my-20 lg:my-0 flex items-center justify-around p-2 flex-col'>
 
 
             <div className='w-2/3 h-32 my-9 flex justify-around items-center flex-col' >
@@ -35,7 +35,7 @@ function TweetPageUpdateForm({Category,Text,Title,setCategory,setText,setTitle}:
 
         <div className='w-2/3 my-9 flex  items-center flex-col' >
             <label  className='text-lg  text-white  my-4 font-semibold'>Content of Tweet</label>
-            <textarea  value={Text} onChange={(e)=>{setText(e.target.value)}}  maxLength={1110} className='rounded-md  text-center   font-medium px-3 border-2 w-96 h-48 resize-none '></textarea>
+            <textarea  value={Text} onChange={(e)=>{setText(e.target.value)}}  maxLength={1110} className='rounded-md  text-center   font-medium px-3 border-2 w-72 2xl:w-96 h-48 resize-none '></textarea>
         </div>  
 
 

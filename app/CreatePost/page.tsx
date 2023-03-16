@@ -6,7 +6,6 @@ import React from 'react'
 function page() {
   return (
     <div>
-        <TopOfPage showSearch userId=''/>
         <CreatePost/>
     </div>
   )

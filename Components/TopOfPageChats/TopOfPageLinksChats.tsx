@@ -16,12 +16,12 @@ interface props
 function TopOfPageLinksChats({userId}:props) {
   return (
 
-    <div className='w-2/5 pl-48 h-full flex items-center justify-around'>
-                 <Link href={"/Main"}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faHome} /></Link>
-                 <Link href={`/Messeages/${userId}`}><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} /></Link>
-                <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faVideo} />
+    <div className='w-4/5 pl-10 lg:pl-48 h-full flex items-center justify-around'>
+                 <Link href={"/Main"}><FontAwesomeIcon className='w-7 h-9 xl:w-9 xl:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faHome} /></Link>
+                 <Link href={`/Messeages/${userId}`}><FontAwesomeIcon className='w-7 h-9 xl:w-9 xl:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faMessage} /></Link>
+                 <Link   href={`/Videos/${userId}`}> <FontAwesomeIcon  className='w-7 h-9 xl:w-9 xl:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faVideo} /></Link>
                 <ProfilePageLinkChats/>
-                <FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faBell} />
+                <FontAwesomeIcon className='w-7 h-9 xl:w-9 xl:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faBell} />
                 <LogOutButtonChats/>
     </div>
 

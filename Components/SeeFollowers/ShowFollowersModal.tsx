@@ -25,6 +25,8 @@ interface FollowModalUser
     posts:number
     tweets:number
     userName:string
+    videos:number
+
 }
 
 

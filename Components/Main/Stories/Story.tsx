@@ -36,7 +36,7 @@ function Story({story}:props) {
 
 
   return (
-    <div onClick={()=>{loadStory()}} className={loading ? ' hvr-pop cursor-pointer  h-24 w-24 rounded-full':' border-4 border-white hvr-pop cursor-pointer  h-24 w-24 rounded-full' }>
+    <div onClick={()=>{loadStory()}} className={loading ? ' hvr-pop cursor-pointer w-16 h-16  2xl:h-24 2xl:w-24 rounded-full':' border-4 border-white hvr-pop cursor-pointer w-16 h-16  2xl:h-24  2xl:w-24 rounded-full' }>
         <div className={loading ? 'load  w-full h-full absolute' : '  w-full h-full absolute'}>
         </div>
         {story?.user.img &&   <img src={story?.user.img} className='w-full h-full rounded-full'></img>}

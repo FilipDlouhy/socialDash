@@ -22,7 +22,7 @@ function PostPageCommentImgLink({img,imgUserId}:props) {
           router.push(`/UserPage/${imgUserId}/${session.data?.user?.name}`)
         }
       }} className='h-full w-1/4 flex items-center justify-center'>
-        {img &&<img src={img} className='w-16 h-16 hover:scale-105 duration-200 cursor-pointer rounded-full'></img>}
+        {img &&<img src={img} className='md:w-16 w-9 h-9 md:h-16 hover:scale-105 duration-200 cursor-pointer rounded-full'></img>}
 </div>
   )
 }

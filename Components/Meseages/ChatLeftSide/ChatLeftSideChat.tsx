@@ -22,9 +22,9 @@ interface CHAT
 }
 function ChatLeftSideChat({setChat,friend,chatId,userId}:props) {
   return (
-    <div className='w-full h-24 ChatShadow flex my-2 hover:shadow-none duration-200 '>
+    <div className='w-full h-36 flex-col items-center md:flex-row md:h-24 ChatShadow flex my-2 hover:shadow-none duration-200 '>
         <div className='h-full w-3/4 flex items-center justify-center '>
-            <p className='text-xl font-medium text-white'>Chat with {friend.userName}</p>
+            <p className='text-lg sm:text-xl font-medium text-white'>Chat with {friend.userName}</p>
         </div>
         <div className='h-full w-1/4 flex items-center justify-center'>
             <FontAwesomeIcon onClick={()=>{

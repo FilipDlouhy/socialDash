@@ -18,7 +18,7 @@ interface props
 }
 function ProfilePageVideo({ video,userId }: props) {
   return (
-    <div className='ProfilePageTweet ProfilePageTweetShadow my-4 h-full'>
+    <div style={{ width: '400px', height: '500px' }} className=' ProfilePageTweetShadow my-4 h-full'>
       <div className='w-full h-5/6'>
         <video src={video.video.video} loop autoPlay style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
       </div>

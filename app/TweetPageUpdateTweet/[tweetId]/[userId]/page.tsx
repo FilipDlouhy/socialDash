@@ -30,7 +30,7 @@ async function getTweet(tweetId:string) {
 async function page({params:{tweetId,userId}}:Props) {
     const  tweetData = await getTweet(tweetId)
   return (
-    <div className='w-full h-screen'>
+    <div className='w-full pageHeight lg:h-screen'>
         <TweetPageUpdateContainer userId={userId} tweetData={tweetData}/>
 
     </div>

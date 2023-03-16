@@ -84,11 +84,11 @@ function unLikeComment ()
   return (
     <div className='w-1/2 h-full flex justify-around items-center'>
         <FontAwesomeIcon onClick={()=>{liked ?unLikeComment() : likeComment()}} className={liked ?'duration-200 w-8 h-8 text-red-600 mx-5 hvr-pop cursor-pointer':'duration-200 w-8 h-8 text-blue-100 mx-5 hvr-pop cursor-pointer'}  icon={ liked ?faHeart :faThumbsUp} />
-        <FontAwesomeIcon className='w-8 h-8 text-blue-100 mx-5 hvr-pop cursor-pointer'onClick={()=>{handleOpenModalPost( false,userId,postId,totalComments) 
+        <FontAwesomeIcon className='w-8 h-8 hidden xl:block text-blue-100 mx-5 hvr-pop cursor-pointer'onClick={()=>{handleOpenModalPost( false,userId,postId,totalComments) 
            }}  icon={faEye} />
         <PostSendLink postId={postId}/>
     </div>
   )
 }
 
-export default PostLikeAndShowComments
+export default PostLikeAndShowComments 

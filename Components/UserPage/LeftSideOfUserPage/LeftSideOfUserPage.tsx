@@ -24,7 +24,7 @@ interface props {
 }
 function LeftSideOfUserPage({setRender,setFriend,Friend,isFollowing,userId,isFriend,friends,UserAndData}:props) {
   return (
-    <div className='w-1/4 flex flex-col items-center  mt-10 '>
+    <div className=' w-full xl:w-1/4 flex flex-col items-center  mt-10 '>
         <UserPageUserProfile setRender={setRender} Friend={Friend}  userId={userId}  isFollowing={isFollowing} isFriend={isFriend}  UserAndData={UserAndData} />
         <UserPageFriends userId={userId} userName={UserAndData.user.userName}  friends={friends}/>
     </div>

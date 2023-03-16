@@ -41,13 +41,13 @@ function unLike()
 
 
   return (
-    <div className='w-full flex items-center justify-around h-1/2'>
-        <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-12 h-12 text-red-600 hvr-shrink cursor-pointer'  :'w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
+    <div className='w-full flex items-center justify-around  h-1/3 md:h-1/2'>
+        <FontAwesomeIcon onClick={()=>{liked  ? unLike():like() }} className={liked ?'w-8 h-8  lg:w-12 lg:h-12 text-red-600 hvr-shrink cursor-pointer'  :' w-8 h-8  lg:w-12 lg:h-12 text-blue-100 hvr-shrink cursor-pointer'  } icon={liked ?faHeart: faThumbsUp} />
 
         <FontAwesomeIcon onClick={()=>{
         setShowSendPostTweet(true)
         setLink(`/PostPage/${postId}/`)
-    }}  className='w-12 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
+    }}  className='w-8 h-8  lg:w-12 lg:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faPaperPlane} />
 
     </div>
   )

@@ -18,8 +18,8 @@ interface props{
   return (
     <div className='w-full h-20   '>
         <div className='w-full h-20 flex justify-between '>
-            <div className='w-2/5 h-full flex items-center'>
-                <p className='font-bold text-3xl text-white ml-11'>Social Dash <FontAwesomeIcon className='w-9 mx-10 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faDroplet} /></p>
+            <div className=' w-1/5lg:w-2/5 h-full flex items-center'>
+                <p className='font-bold text-xl lg:text-3xl text-white ml-11'>Social Dash <FontAwesomeIcon className='w-9 h-9 mx-auto xs:mx-5 lg:mx-11 lg:h-10 text-blue-100 hvr-shrink cursor-pointer'  icon={faDroplet} /></p>
             </div>
 
             <TopOfPageLinksChats userId={userId}/>

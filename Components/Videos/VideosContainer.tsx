@@ -52,6 +52,19 @@ import VideoProfiels from "./VideoProfiels";
         const [Play,setPlay] = useState<boolean>(false)
         const videoRefs = useRef<VideoElement[]>([]);
         const [AddingComment,setAddingComment] = useState<boolean>(false)
+
+        const [showSearch,setShowSearch] = useState<boolean>(false)
+        function handleShowSearch(e: React.MouseEvent<HTMLDivElement, MouseEvent>)
+        {
+         if((e.target as HTMLDivElement).id=== "search")
+         {
+           setShowSearch(true)
+         }
+         else
+         {
+           setShowSearch(false)
+         }
+        } 
         useEffect(() => {
             setVideos(videos);
             axios.post("http://localhost:3000/api/getVideoComments",{videoId:videos[0].video.id}).then((res)=>
@@ -289,23 +302,23 @@ import VideoProfiels from "./VideoProfiels";
 
 
         return (
-            <div className="w-full h-screen ">
-             <TopOfPage showSearch userId="" />
+            <div onClick={(e)=>{handleShowSearch(e)}}  className="  w-full h-screen ">
+             <TopOfPage showSearch={showSearch} userId={userId} />
 
-            <div className="w-full VideoHeight flex ">
-                <div className="h-full w-1/5 flex-col pb-5 justify-between overflow-y-hidden  overflow-x-hidden">
+            <div className="w-full  flex VideoHeight  ">
+                <div className="h-full w-1/3 lg:w-1/4 2xl:w-1/5 flex-col pb-5 justify-between overflow-y-hidden  overflow-x-hidden">
 
                     <div className="w-full h-5/6 ">
-                        <VideoProfiels Videos={Videos} currentVideoIndex={currentVideoIndex} slideshowWidth={slideshowWidth}/>
+                        <VideoProfiels userId={userId} Videos={Videos} currentVideoIndex={currentVideoIndex} slideshowWidth={slideshowWidth}/>
 
                         <div className="w-full flex flex-col items-center justify-center h-1/4">
-                            <p className="text-3xl font-semibold text-white">Video Description</p>
+                            <p className="text-lg lg:text-3xl font-semibold text-white">Video Description</p>
                         <p  className="bg-transparent  text-white font-semibold text-2xl focus:border-none focus:outline-none  text-center   w-8/12 h-36 rounded flex items-center justify-center resize-none ">{videoDescription}</p>
 
                         </div>
                         <div className="w-full flex flex-col items-center justify-center h-1/4">
-                            <p className="text-3xl font-semibold text-white">Category</p>
-                            <p className="bg-transparent  text-white font-semibold text-2xl focus:border-none focus:outline-none  text-center   w-8/12 h-36 rounded flex items-center justify-center resize-none ">{videoCategory}</p>
+                            <p className="text-lg lg:text-3xl font-semibold text-white">Category</p>
+                            <p className="bg-transparent  text-white font-semibold text-lg lg:text-2xl focus:border-none focus:outline-none  text-center   w-8/12 h-36 rounded flex items-center justify-center resize-none ">{videoCategory}</p>
 
                         </div>
 
@@ -316,18 +329,18 @@ import VideoProfiels from "./VideoProfiels";
                     
                 </div>
 
-                <div className="h-full w-3/5 relative overflow-hidden">
+                <div className="h-full w-2/4 lg:w-2/4 2xl:w-3/5 relative overflow-hidden">
                 {Videos && Videos.map((video, index) => (
                         <VideoComponent currentVideoIndex={currentVideoIndex} index={index} video={video.video.video} videoRefs={videoRefs} />
                         ))}
                 </div>
-                <div className="h-full w-1/5">
+                <div className="h-full w-1/3 lg:w-1/4 2xl:w-1/5">
                      <VideoPlayBTNS setPlay={setPlay} Play={Play} currentVideoIndex={currentVideoIndex} playNextVideo={playNextVideo} playPreviousVideo={playPreviousVideo}/> 
          
                     <div className="w-full border-t-2 overflow-x-hidden  overflow-y-auto;  border-b-2  border-white h-4/5">
                         {
                             videoComments?.map((comment)=>{
-                                return <VideoCommentComponent comment={comment}/>
+                                return <VideoCommentComponent userId={userId} comment={comment}/>
 
                             })
                         }
@@ -335,6 +348,11 @@ import VideoProfiels from "./VideoProfiels";
                     </div>    
                 </div>
                 </div>
+
+
+
+
+                
             </div>
         );
         }

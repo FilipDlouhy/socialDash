@@ -12,6 +12,7 @@ interface FollowModalUser
     followers:number
     posts:number
     tweets:number
+    videos:number
     userName:string
 }
 
@@ -28,12 +29,14 @@ export default async function handler(
         const users = await prisma.user.findMany()
         const tweets = await prisma.tweet.findMany()
         const posts = await prisma.post.findMany()
+        const videos = await prisma.video.findMany()
         User?.followers.map((id)=>{
             users.map((user)=>{
                 if(id === user.id &&user.img)
                 {
                     let totalPosts = 0
                     let totalTweets = 0
+                    let totalVideos = 0
                     tweets.map((data)=>{
                         if(data.userId=== user.id)
                         {
@@ -46,8 +49,14 @@ export default async function handler(
                             totalPosts++
                         }
                     })
+                    videos.map((data)=>{
+                        if(data.userId === user.id)
+                        {
+                            totalVideos++
+                        }
+                    })
                 
-                    followers.push({followers:user.followers.length,follows:user.following.length,img:user.img,friends:user.friends.length,posts:totalPosts,tweets:totalTweets,userId:user.id,userName:user.userName})
+                    followers.push({followers:user.followers.length,follows:user.following.length,img:user.img,friends:user.friends.length,posts:totalPosts,tweets:totalTweets,userId:user.id,userName:user.userName,videos:totalVideos})
                 }
             })
         })

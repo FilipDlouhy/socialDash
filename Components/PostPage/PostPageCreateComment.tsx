@@ -43,10 +43,10 @@ function PostPageCreateComment({postId,user,comments,setComments}:props) {
 
     }
   return (
-    <div className='w-full h-1/2 flex items-center justify-around'>
+    <div className='w-full flex-col md:flex-row h-2/3 md:h-1/2 flex items-center justify-around'>
         <input value={Comment} maxLength={252} onChange={(e)=>{setComment(e.target.value)
-        }}   className='w-64 bg-transparent modalCommentShadow  font-medium text-center  hover:shadow-lg text-xl text-white h-10 duration-200 focus:shadow-xl  focus:outline-none' placeholder='Send a comment....'></input>
-        <FontAwesomeIcon  onClick={()=>{addComment()}} className='w-12 h-12 text-blue-100 mx-5 hvr-pop cursor-pointer'  icon={faArrowRight} />
+        }}   className='w-32 md:w-40 lg:w-64 bg-transparent modalCommentShadow  font-medium text-center  hover:shadow-lg text-sm  lg:text-xl text-white h-10 duration-200 focus:shadow-xl  focus:outline-none' placeholder='Send a comment....'></input>
+        <FontAwesomeIcon  onClick={()=>{addComment()}} className='w-8 h-8  lg:w-12 lg:h-12 text-blue-100 mx-5 hvr-pop cursor-pointer'  icon={faArrowRight} />
     </div>
   )
 }

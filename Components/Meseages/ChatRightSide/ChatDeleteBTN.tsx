@@ -36,7 +36,7 @@ function ChatDeleteBTN({setChat,chatId}:props) {
 
 
   return (
-    <div className='w-56 h-full mr-10 flex items-center justify-center'>
+    <div className='w-36 md:w-56 h-full mr-10 flex items-center justify-center'>
         <button onClick={()=>{deleteChat()}} className='cursor-pointer rounded text-xl text-white font-medium hover:shadow-none duration-200 w-full  h-12 ChatDeleteBtn'>Delete Chat</button>
     </div>
   )

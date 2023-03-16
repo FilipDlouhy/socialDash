@@ -80,7 +80,7 @@ function unLikeComment ()
   return (
     <div className='w-52 flex items-center justify-around'>            
         <FontAwesomeIcon onClick={()=>{liked ?unLikeComment() : likeComment()}} className={liked ?'duration-200 w-6 h-8 text-red-600 mx-5 hvr-pop cursor-pointer':'duration-200 w-6 h-8 text-blue-100 mx-5 hvr-pop cursor-pointer'}  icon={ liked ?faHeart :faThumbsUp} />
-        <FontAwesomeIcon className='w-6 h-8 text-blue-100 hvr-shrink cursor-pointer' onClick={()=>{handleOpenModalTweet(false,userId.toString(),tweetId.toString(),totalComments)}}  icon={faEye} />
+        <FontAwesomeIcon className= '  hidden xl:block w-6 h-8 text-blue-100  hvr-shrink cursor-pointer' onClick={()=>{handleOpenModalTweet(false,userId.toString(),tweetId.toString(),totalComments)}}  icon={faEye} />
         <TweetSendLinl tweetId={tweetId}/>
     </div>
   )

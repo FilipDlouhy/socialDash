@@ -75,7 +75,7 @@ function Modal({user}:props) {
 
                                                  <Link href={user.id === post?.post.post.userId ?`/ProfilePage/${user.id}`:`/UserPage/${post?.post.post.userId}/${user.id}`} className='w-48 hover:shadow-none duration-200 cursor-pointer modalCommentShadow flex items-center justify-around h-full'>
                                                   {post?.post.user?.img && <img src={post?.post.user.img} className='w-11  h-11 rounded-full'></img>}
-                                                  <p className='text-sm font-semibold'>{post?.post.user?.userName}</p>
+                                                  <p className='text-xs lg:text-sm font-semibold'>{post?.post.user?.userName}</p>
                                                 </Link>
 
                                                 <div className='w-16 flex items-center justify-center h-full'>

@@ -65,7 +65,7 @@ function DisplayStories({stories}:props) {
   else{
 
   return (
-    <div className='w-full flex px-32'>
+    <div className='w-full hidden xl:flex px-32'>
 
     <FontAwesomeIcon onClick={()=>{
       if(number -3  < 0 )
@@ -76,7 +76,7 @@ function DisplayStories({stories}:props) {
       {
         setNumber(number -1)
       }
-    }} className='w-8 h-12 text-blue-100 mx-5 hvr-pop cursor-pointer'  icon={faArrowLeft} />
+    }} className='w-8 h-12 text-blue-100 mx-1 xl:mx-5 hvr-pop cursor-pointer'  icon={faArrowLeft} />
 
           <div className={animate ? 'w-5/6  opacity-0' :'story-animation w-5/6 justify-around flex px-4'}>
                   {

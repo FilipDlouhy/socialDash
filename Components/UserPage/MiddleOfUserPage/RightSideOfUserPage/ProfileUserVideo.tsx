@@ -10,7 +10,7 @@ interface props{
 function ProfileUserVideo({video,userId}:props) {
 
   return (
-    <div className='ProfilePageTweet ProfilePageTweetShadow my-4'>
+    <div style={{ width: '400px', height: '500px' }}  className=' ProfilePageTweetShadow my-4'>
         <div className='w-full h-5/6'>
           <video src={video.video}  style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
         </div>

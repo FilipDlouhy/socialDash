@@ -24,8 +24,8 @@ function TweetPageUpdateContainer({userId,tweetData}:props) {
     
 
   return (
-    <div className='w-full h-full'>
-            <div className='w-full h-5/6 flex items-center justify-around'>
+    <div className='w-full pageHeight lg:h-full'>
+            <div className='w-full h-5/6 flex-col lg:flex-row flex items-center justify-around'>
 
             <TweetPageUpdateForm Title={Title} setTitle={setTitle} Category={Category} setCategory={setCategory} Text={Text} setText={setText}/>
 

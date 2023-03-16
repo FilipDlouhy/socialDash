@@ -17,11 +17,11 @@ function UserProfilePageVideoButtons({video,userId}:props) {
         <div className='w-full flex justify-around items-start h-1/6'>
             <button   onClick={()=>{
                 setShowVideoLikesComments(true)
-                setShowModalLikesAndCommentsData({id:video.id,type:"video",LikesOrComments:false})}}className='w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium   h-full'>Comments</button>
-            <Link href={`/VideoPage/${video.id}/${userId}`} className='w-2/4 flex items-center justify-center shadow-md hover:scale-90 duration-200 text-white font-medium  h-full'>See Whole Video</Link>
+                setShowModalLikesAndCommentsData({id:video.id,type:"video",LikesOrComments:false})}}className='w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium text-xs sm:text-base   h-full'>Comments</button>
+            <Link href={`/VideoPage/${video.id}/${userId}`} className='w-2/4 flex items-center justify-center shadow-md hover:scale-90 duration-200 text-white font-medium  text-xs sm:text-base h-full'>See Whole Video</Link>
             <button onClick={()=>{
                 setShowVideoLikesComments(true)
-                setShowModalLikesAndCommentsData({id:video.id,type:"video",LikesOrComments:true})}} className='w-1/4  shadow-md hover:scale-90 duration-200 text-white font-medium  h-full'>Likes</button>
+                setShowModalLikesAndCommentsData({id:video.id,type:"video",LikesOrComments:true})}} className='w-1/4  text-xs sm:text-base  shadow-md hover:scale-90 duration-200 text-white font-medium  h-full'>Likes</button>
     </div>
   )
 }

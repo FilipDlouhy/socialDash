@@ -31,7 +31,7 @@ interface props{
 
 function MiddleOfPRofilePage({userId,displayData}:props) {
   return (
-    <div className='w-2/4 h-full flex justify-around items-center flex-wrap  px-4'>
+    <div className='w-full xl:w-2/4 h-full flex justify-around items-center flex-wrap  px-4'>
 
 
 

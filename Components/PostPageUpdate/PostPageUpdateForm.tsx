@@ -14,7 +14,7 @@ interface props{
 
 function PostPageUpdateForm({Category,Title,setTitle ,setCategory ,setImgOld,setImgNew}:props) {
   return (
-    <div className='UpdatePostForm flex flex-col justify-around items-center'>
+    <div className='UpdatePostForm my-20 flex flex-col justify-around items-center'>
     <div className='w-full h-24 flex items-center justify-around flex-col '>
 
             <label className='text-2xl font-semibold text-white' >Title</label>

@@ -11,6 +11,8 @@ interface  props{
     video:videoUpdate
     userId:string
     VideoNewFile:any
+    setUpdating: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 interface videoUpdate {
     video:Video
@@ -23,12 +25,15 @@ interface videoUpdate {
     api_secret: "zH62LWXRlbtthQvB0ng4A8QQMSA",
   });
 
- function  UpdateVideoBTN({VideoNewFile,userId,Category,Description,VideoNew,video}:props) {
+ function  UpdateVideoBTN({setUpdating,VideoNewFile,userId,Category,Description,VideoNew,video}:props) {
     const router = useRouter()
     async function update()
     {
-        if(VideoNew&& VideoNewFile)
+      setUpdating(true)
+
+        if(VideoNewFile)
         {
+
             const formData = new FormData();
             formData.append("file", VideoNewFile);
 
@@ -40,8 +45,9 @@ interface videoUpdate {
                     body: formData,
                   }
                 );
-                const data = await response.json();
                 console.log("Upload success");
+
+                const data = await response.json();
                 let videoUrl = data.secure_url;
                 await axios.post("http://localhost:3000/api/updateVideo",{Category:Category,Description:Description,video:videoUrl,videoId:video.video.id})
                 router.push(`/ProfilePage/${userId}`)

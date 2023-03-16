@@ -158,7 +158,7 @@ function removeFriend()
             addFriend()
             setInFriendList(true)
         }
-    }} className={inFriendList?'w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out2':'w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out' }>{inFriendList?"Remove Friend":"Add Friend"}</button>
+    }} className={inFriendList?'tw-20 text-xs md:text-base md:w-44 xl:w-64 h-11 xl:text-xl   font-semibold text-slate-50 hvr-radial-out2':'w-20 text-xs md:text-base md:w-44 xl:w-64 h-11 xl:text-xl   font-semibold text-slate-50 hvr-radial-out' }>{inFriendList?"Remove Friend":"Add Friend"}</button>
   )
 }
 

@@ -56,12 +56,12 @@ function ChatLeftSide({setChat,friends,userId}:props) {
     };
     return (
         <div className='w-1/4 ChatsShadow h-full'>
-            <div className='w-full h-32 flex border-b-2 border-white'>
+            <div className='w-full h-32  flex-col  sm:flex-row items-center flex border-b-2 border-white'>
                 <div className='h-full w-3/4 flex items-center justify-center'>
-                    <p className='text-3xl font-semibold text-white'>Your Chats</p>
+                    <p className='text:lg sm:text-xl lg:text-3xl font-semibold text-white'>Your Chats</p>
                 </div>
-                <div className='h-full w-1/4 flex items-center justify-center'>
-                    <FontAwesomeIcon onClick={()=>{setShowCreateChat(true)}} className='w-12 h-12 cursor-pointer hover:scale-90 duration-300 text-white' icon={faPenSquare}/>
+                <div className='h-full w-1/4  flex items-center justify-center'>
+                    <FontAwesomeIcon onClick={()=>{setShowCreateChat(true)}} className=  ' w-10 h-10  lg:w-12     lg:h-12 cursor-pointer hover:scale-90 duration-300 text-white' icon={faPenSquare}/>
                 </div>
             </div>
             <div className='w-full overflow-x-hidden overflow-y-auto h-full flex flex-col'>

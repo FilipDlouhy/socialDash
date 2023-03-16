@@ -18,7 +18,7 @@ WehereYouLive:string | undefined
 
 function UpdateProfileForm({WehereYouLive,UserName,Email,setConfrimPassword,setEmail,setPassword ,setProfileImgOld,setProfileImgNew ,setUserName,setWehereYouLive}:props) {
   return (
-    <div className='UpdateProfileForm flex items-center justify-around flex-col'>
+    <div className='UpdateProfileForm flex items-center my-10 justify-around flex-col'>
          
          <div className='w-full h-24 flex items-center justify-around flex-col '>
 

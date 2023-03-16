@@ -17,15 +17,15 @@ function ProfilePageVideoButtons({  userId,videoId}:props) {
     <div className='w-full flex justify-around items-start h-1/6'>
         <button onClick={()=>{
         setShowVideoLikesComments(true)
-        setShowModalLikesAndCommentsData({id:videoId,type:"video",LikesOrComments:false})}} className='w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Comments</button>
+        setShowModalLikesAndCommentsData({id:videoId,type:"video",LikesOrComments:false})}} className=' text-xs sm:text-base w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Comments</button>
         <button onClick={()=>{
         setShowVideoLikesComments(true)
-        setShowModalLikesAndCommentsData({id:videoId,type:"video",LikesOrComments:true})}} className='w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Likes</button>
-        <Link href={`/UpdateVideo/${videoId}/${userId}`} className='flex items-center justify-center w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Update</Link>
+        setShowModalLikesAndCommentsData({id:videoId,type:"video",LikesOrComments:true})}} className=' text-xs sm:text-base w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Likes</button>
+        <Link href={`/UpdateVideo/${videoId}/${userId}`} className='flex items-center text-xs sm:text-base justify-center w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Update</Link>
         <button onClick={(e)=>{
             (e.target as HTMLElement).parentElement?.parentElement?.remove();
             axios.post("http://localhost:3000/api/videoDelete",{videoId:videoId});
-        }} className='w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Delete</button>
+        }} className='  text-xs sm:text-base w-1/4 shadow-md hover:scale-90 duration-200 text-white font-medium h-full'>Delete</button>
   </div>
   )
 }

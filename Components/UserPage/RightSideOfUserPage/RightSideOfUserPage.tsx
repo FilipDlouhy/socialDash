@@ -17,7 +17,7 @@ interface props{
 
 function RightSideOfUserPage({userName,userId,mostLikedPOSTS,mostLikedTWEETS}:props) {
   return (
-    <div className='w-1/4 h-full'>
+    <div className='w-full flex items-center justify-center xl:w-1/4 h-full'>
 
         <UserPageFavoritePostsAndTweets userName={userName} userId={userId} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>
 

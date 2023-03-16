@@ -15,7 +15,9 @@ interface FollowModalUser
     posts:number
     tweets:number
     userName:string
+    videos:number
 }
+
 
 interface props
 {
@@ -61,7 +63,7 @@ function ShowFollowModalUser({setFollowData,followData,user,userId}:props) {
             <div className='w-full h-1/2'>
     
                     <div className='w-full h-1/2 flex items-center justify-around'>
-                        <p className=' font-semibold'>Videos</p>
+                        <p className=' font-semibold'>Videos: {user.videos}</p>
                         <p className=' font-semibold'>Posts: {user.posts}</p>
                         <p className=' font-semibold'>Tweets: {user.tweets}</p>
                   </div>

@@ -8,8 +8,8 @@ function LoginForm() {
 
   const [password,setPassword] = useState<string>()
   const [email,setEmail] = useState<String>()
+  const [heading,setHeading] = useState<string>("Login to Social Dash")
   const router = useRouter()
-  const session = useSession()
   async function Login(){
     try {
       const user = await signIn("credentials",{
@@ -17,20 +17,26 @@ function LoginForm() {
         email,
         password
       })
-      console.log(user)
-      console.log(session)
-      router.push(`/Main`)
+      if(user){
+        router.push(`/Main`)
+      }
+      else
+      {
+        setHeading("something went wrong")
+      }
 
     } 
     catch (error) {
       console.log(error)
+      setHeading("something went wrong")
+
     }
 
     }
 
   return (
     <form className='LoginForm flex justify-center items-center flex-col '>
-        <h1 className='text-2xl font-bold'>Login to Social Dash </h1>
+        <h1 className='text-2xl font-bold'>{heading}</h1>
 
         <div className='w-2/3 h-32 my-11 flex justify-around items-center flex-col' >
             <label className='text-2xl font-semibold' >Email</label>

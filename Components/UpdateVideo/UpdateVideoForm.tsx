@@ -7,7 +7,6 @@ interface props{
     Category:string
     setCategory: React.Dispatch<React.SetStateAction<string>>
     setVideoNewFile: React.Dispatch<React.SetStateAction<any>>
-
 }
 
 function UpdateVideoForm({setVideoNewFile,Category,Description,setCategory,setDescription,setVideoNew}:props) {

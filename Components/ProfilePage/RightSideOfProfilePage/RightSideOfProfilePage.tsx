@@ -18,7 +18,7 @@ interface props{
 
 function RightSideOfProfilePage({userId,possibleFriends,mostLikedPOSTS,mostLikedTWEETS}:props) {
   return (
-    <div className='w-1/4 h-full'>
+    <div className='w-full flex flex-col items-center justify-center md:block md:w-1/4 h-full pl-4'>
 
         <ProfilePagePossibleNewFriends userId={userId} possibleFriends={possibleFriends}/>
         <ProfilePageFavoritePostsAndTweets userId={userId} mostLikedPOSTS={mostLikedPOSTS} mostLikedTWEETS={mostLikedTWEETS}/>

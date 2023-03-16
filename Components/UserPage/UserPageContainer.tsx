@@ -68,13 +68,40 @@ function UserPageContainer({isFollowing,displayData,friendAndData,friendId,frien
   return (
     <div onClick={(e)=>{handleShowSearch(e)}}className='w-full h-full'>
         <TopOfPage userId={userId} showSearch={showSearch} />
-        <div className='w-full h-full flex'>
+        <div className='w-full h-full hidden xl:flex'>
         <LeftSideOfUserPage setRender={setRender}  Friend={Friend} setFriend={setFriend}     isFollowing={isFollowing} userId={userId} isFriend={isFriend} UserAndData={friendAndData} friends={friends}  />
         <MiddleOfPUserPage render={render} displayData={displayData}  userId={userId}/>
         <RightSideOfUserPage userName={friendAndData.user.userName} mostLikedPOSTS={mostLikedPOSTS}  mostLikedTWEETS={mostLikedTWEETS} userId={userId} />
         <ModalShowCommentsOrLikes userId={userId}/> 
         <AllFriendsModal userId={friendId}/>
     </div>
+
+
+
+    <div className='w-full h-full  flex flex-col xl:hidden'>
+
+          <div className='w-full flex justify-center md:justify-around flex-col md:flex-row px-5 md:px-20 h-1/2'>
+          <LeftSideOfUserPage setRender={setRender}  Friend={Friend} setFriend={setFriend}     isFollowing={isFollowing} userId={userId} isFriend={isFriend} UserAndData={friendAndData} friends={friends}  />
+          <RightSideOfUserPage userName={friendAndData.user.userName} mostLikedPOSTS={mostLikedPOSTS}  mostLikedTWEETS={mostLikedTWEETS} userId={userId} />
+
+          </div>
+
+
+          <div className='w-full flex justify-center   h-1/2 '>
+          <MiddleOfPUserPage render={render} displayData={displayData}  userId={userId}/>
+
+          </div>
+
+
+
+          <ModalShowCommentsOrLikes userId={userId}/> 
+          <VideoModalLikesComments userId={userId}/>
+          <AllFriendsModal userId={userId}/>
+          <ShowFollowsModal userId={userId}/>
+          <ShowFollowersModal userId={userId}/>
+          </div>
+
+
     <ShowFollowsModal userId={friendId}/>
     <ShowFollowersModal userId={friendId}/>
     <VideoModalLikesComments userId={userId}/>

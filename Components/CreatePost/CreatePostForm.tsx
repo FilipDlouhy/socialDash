@@ -18,16 +18,14 @@ interface Post {
 
 function CreatePostForm() {
 
-  const[header,setHeader] =useState<string>()
+  const[header,setHeader] =useState<string>("")
   const [description,setDescription] = useState<String>()
   const [title,seTtitle] = useState<String>()
   const [img,setImg] = useState<any>()
   const [placeFrom ,setPlaceFrom] = useState<String>() 
   const session = useSession()
   const router = useRouter()
-  useEffect(()=>{
-    setHeader("Login to Historia pro omnibus ubique ")
-  },[])
+
   
   async function formSumbit (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault()

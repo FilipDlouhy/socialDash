@@ -16,7 +16,7 @@ interface props {
 }
 function LeftSideOfProfilePage({friends,totalFriends,UserAndData}:props) {
   return (
-    <div className='w-1/4 flex flex-col items-center  mt-10 '>
+    <div className='w-full md:w-1/4 flex flex-col items-center justify-center  mt-10 '>
         <ProfilePageUserProfile totalFriends={totalFriends} UserAndData={UserAndData} />
         <ProfilePageFriends userId={UserAndData.user?.id} friends={friends}/>
     </div>

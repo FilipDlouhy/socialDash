@@ -91,7 +91,7 @@ function VideoPageContainer({user,videoComments,userId,video}:props) {
 
         </div>
 
-    <div className='w-3/5 h-3/4 mx-auto ChatDeleteBtn flex'>
+    <div className='w-11/12 2xl:w-3/5 h-3/4 mx-auto ChatDeleteBtn flex'>
         <div className='w-2/3 h-full'>
 
             <video src={video.video.video} autoPlay controls loop style={{ width: '100%', height: '100%', objectFit: 'cover' }}></video>
@@ -99,13 +99,13 @@ function VideoPageContainer({user,videoComments,userId,video}:props) {
 
         <div className='w-1/3 h-full border-l-2 border-white'>
 
-            <div className='w-full h-1/6 flex'>
+            <div className='w-full h-1/6 md:flex-row  flex-col items-center flex'>
                 <div className='w-1/2 h-full flex items-center justify-center'>
-                    {video.user.img&& <img  src={video.user.img} className='w-24 h-24 rounded-full'></img>}
+                    {video.user.img&& <img  src={video.user.img} className='lg:w-24 w-12 h-12 md:w-16 md:h-16 lg:h-24 rounded-full'></img>}
                 </div>
 
                 <div className='w-1/2 h-full flex items-center justify-center '>
-                    <p className='text-lg font-medium text-white'>{video.user.userName}</p>
+                    <p className='text-xs md:text-sm lg:text-lg font-medium text-white'>{video.user.userName}</p>
                 </div>
             </div>
 

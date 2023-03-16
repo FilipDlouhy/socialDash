@@ -29,8 +29,8 @@ function UpdateProfileContainer({user}:props) {
   },[])
 
   return (
-    <div className='w-full h-screen '>
-        <div className='w-full h-5/6 flex  items-center justify-around'>
+    <div className='w-full pageHeight2 xl:h-screen '>
+        <div className='w-full h-5/6 flex-col xl:flex-row flex  items-center justify-center xl:justify-around'>
             <UpdateProfileForm  UserName={UserName} Email={Email} WehereYouLive={WehereYouLive} setUserName={setUserName} setEmail={setEmail} setPassword={setPassword} setConfrimPassword={setConfrimPassword} setWehereYouLive={setWehereYouLive} setProfileImgOld={setProfileImgOld} setProfileImgNew={setProfileImgNew} />
 
 

@@ -57,12 +57,28 @@ function MainContainer({numberOfUserVideos,users,user,numberOfUserTweets,numberO
   return (
     <div onClick={(e)=>{handleShowSearch(e)}} className='w-full px-8 h-full '>
          <TopOfPage userId={user.id} showSearch={showSearch}/>
-        <div className='flex'> 
+        <div className='hidden xl:flex'> 
           <LeftSideOfMainPage numberOfUserVideos={numberOfUserVideos}  friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />
           <MiddleOfMain stories={stories} displayData={displayData} user={user}  />
           <RightSideOfMain   userId={user.id} friends={friends}/>
           <FriendModal user={user} friends={friends} setFriends={setFriends}/>
         </div>
+
+        <div className=' xl:hidden'> 
+          
+          <div className='h-1/3 flex-col  md:flex-row flex justify-around items-center '>
+              <LeftSideOfMainPage numberOfUserVideos={numberOfUserVideos}  friends={friends} user={user} numberOfUserTweets={numberOfUserTweets} numberOfUserPosts={numberOfUserPosts} />
+
+              <RightSideOfMain   userId={user.id} friends={friends}/>
+          </div>
+
+          <div className='h-2/3 w-full flex justify-center '>
+          <MiddleOfMain stories={stories} displayData={displayData} user={user}  />
+          </div>
+            <FriendModal user={user} friends={friends} setFriends={setFriends}/>
+        </div>
+
+
 
 
   </div>

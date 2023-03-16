@@ -13,7 +13,7 @@ function LogOutButtonChats() {
 
                     signOut()
                     router.push("/Login")
-    }}  ><FontAwesomeIcon className='w-9 h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faRightFromBracket} /></button>
+    }}  ><FontAwesomeIcon className='w-7 h-9 xl:w-9 xl:h-12 text-blue-100 hvr-shrink cursor-pointer'  icon={faRightFromBracket} /></button>
 
   )
 }

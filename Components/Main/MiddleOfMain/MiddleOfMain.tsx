@@ -37,7 +37,7 @@ interface post{
     <div className='w-2/4 h-full flex-col flex items-start justify-center'>
 
         <div className='w-full h-44 flex flex-col mt-10'>
-            <p className='text-center my-5 text-lg font-medium text-white'> Recent Posts and Tweets</p>
+            <p className='text-center hidden xl:block my-5 text-lg font-medium text-white'> Recent Posts and Tweets</p>
 
             <DisplayStories stories={stories}/>
         </div>

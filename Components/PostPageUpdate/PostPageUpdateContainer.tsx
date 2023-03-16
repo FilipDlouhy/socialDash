@@ -32,13 +32,13 @@ function PostPageUpdateContainer({userId,post}:props) {
         setTotalComments(post.totalComents)
     },[])
   return (
-    <div className='w-full h-screen'>
+    <div className='w-full pageHeight2 xl:h-screen'>
 
         <PostPageUpdateButtons setErrorText={setErrorText} postId={post.post.id} userId={userId} Title={Title} Category={Category} ImgNew={ImgNew}/>
         <div className='w-full h-11 flex items-center justify-center'>
             <p className='text-2xl text-red-500 font-bold'>{ErrorText}</p>
         </div>
-      <div className='w-full h-5/6 flex items-center justify-around'>
+      <div className='w-full h-5/6 flex-col xl:flex-row flex items-center justify-around'>
 
 
         <PostPageUpdateForm Category={Category} Title={Title} setImgOld={setImgOld} setTitle={setTitle} setCategory={setCategory} setImgNew={setImgNew}/>

@@ -220,7 +220,7 @@ function FriendModal({user,friends,setFriends}:props) {
             <div className="modal-overlay" onClick={handleCloseModal}>
 
                     <div className="ModalFriend " onClick={(e) => e.stopPropagation()}>
-                        <div className='w-full flex h-2/5 shadow-xl'>
+                        <div className='w-full flex h-3/5 lg:h-2/5 shadow-xl'>
                             
 
                             <FriendModalFriendData userNumbers={userNumbers} setRenderCondition={setRenderCondition} user={Friend}/>
@@ -228,12 +228,12 @@ function FriendModal({user,friends,setFriends}:props) {
                             <div className='w-1/3 flex flex-col items-center  justify-around   h-full'>
                               <FriendModalAddRemoveFriendButton user={user} userNumbers={userNumbers} setUserNumbers={setUserNumbers} setFriend={setFriend}   FriendFriends={FriendFriends} setFriendFriends={setFriendFriends} User={Friend} friends={friends} inFriendList={inFriendList} setFriends={setFriends} setInFriendList={setInFriendList}/>
                               <FriendModalFollowUnfollowButton userNumbers={userNumbers} setUserNumbers={setUserNumbers} setFriend={setFriend} isFollowing={isFollowing} setIsFollowing={setIsFollowing}  FriendFriends={FriendFriends} setFriendFriends={setFriendFriends} user={user} Friend={Friend}/>
-                              <Link href={`/UserPage/${Friend?.id}/${user.id}`} className=' py-2 text-center w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out3'>Go to Profile Page</Link>
+                              <Link href={`/UserPage/${Friend?.id}/${user.id}`} className=' py-2 text-center w-20 text-xs md:text-base md:w-44 xl:w-64 h-11 xl:text-xl   font-semibold text-slate-50 hvr-radial-out3'>Go to Profile Page</Link>
                             </div>
 
                         </div>    
                         
-                        <div className='w-full h-3/5 modalCommentScroll p-2 flex items-start flex-wrap justify-start'>
+                        <div className='w-full h-2/5 lg:h-3/5 modalCommentScroll p-2 flex items-start flex-wrap justify-start'>
                         {renderModalData()}            
                         </div>  
                 

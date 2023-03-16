@@ -31,7 +31,7 @@ interface friendWithImg{
     const friends:friendWithImg[] = await getFriendsToChat(userId)
     
   return (
-    <div className='w-full h-screen overflow-y-hidden'>
+    <div className='w-full h-screen overflow-x-hidden overflow-y-hidden'>
         <TopOfPageChats showSearch   userId={userId}/> 
         <ChatContainer friends={friends} userId={userId}/>
         <CreateChatModal userId={userId} friends={friends}/>

@@ -13,9 +13,11 @@ interface  props{
     video:videoUpdate
     userId:string
     VideoNewFile:any
+    setUpdating: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
-function UpdateVideoVideo({VideoNewFile,userId,Category,Description,VideoNew,video}:props) {
+function UpdateVideoVideo({setUpdating,VideoNewFile,userId,Category,Description,VideoNew,video}:props) {
   return (
     <div className='w-1/2 h-full flex flex-col items-center justify-center'>
         <div className='w-4/6 h-5/6  ChatDeleteBtn'>
@@ -33,7 +35,7 @@ function UpdateVideoVideo({VideoNewFile,userId,Category,Description,VideoNew,vid
             </div>
         </div>
         </div>
-        <UpdateVideoBTN VideoNewFile={VideoNewFile} userId={userId} Category={Category} Description={Description} VideoNew={VideoNew} video={video}/>
+        <UpdateVideoBTN setUpdating={setUpdating} VideoNewFile={VideoNewFile} userId={userId} Category={Category} Description={Description} VideoNew={VideoNew} video={video}/>
  </div>
   )
 }

@@ -997,3 +997,158 @@
     width:60%;
     height:70%;
   }
+
+
+
+
+@media only screen and (max-width: 1600px){
+    .ModalFriend {
+        width: 80%;
+        height: 90%;
+   }
+   .TweetPageTweet{
+    width: 80%;
+}
+  .UserSmallProfile{
+    width: 400px ;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.Post{
+    width: 500px;
+}
+.Tweet{
+    width: 500px;
+}
+    }
+    @media only screen and (max-width: 1250px){
+        .UpdatePostForm{
+            width:50%;
+       }
+        .UpdatePostPost{
+            width:50%;
+       }
+        .pageHeight2{
+            height: 200vh;
+        }
+        .TweetPageTweet{
+            width: 100%;
+        }
+        .UserSmallProfile{
+            position: relative; 
+            width: 500px ;
+        }
+        .SuggestedFriends{
+            width: 500px;
+       }
+       .PostPagePost {
+        width: 90%;
+        height: 80%;
+   }
+
+   .UpdateProfileForm{
+    width:40%;
+}
+.UpdateProfileUserProfile{
+    width:60%;
+    height: 100%;
+}
+          }
+  @media only screen and (max-width: 1000px){
+    .UpdatePostForm{
+        width:80%;
+   }
+    .UpdatePostPost{
+        width:80%;
+   }
+    .UpdateProfileForm{
+        width:80%;
+    }
+    .UpdateProfileUserProfile{
+        width:90%;
+    }
+
+    .TweetUpdateForm{
+        width: 60%;
+   }
+    .TweetUpdateTweer{
+        width: 60%;
+   }
+    .pageHeight{
+        height: 200vh;
+    }
+    .PostPagePost {
+        width: 100%;
+   }
+    .content h2 {
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+   }
+
+.content2 h2 {
+    top: 50%;
+    left: 25%;
+    font-size: 1.25rem;
+}
+
+.SearchResults{
+    width: 200px;
+}
+.btn-search:focus ~ .input-search{
+    width: 200px;
+}
+.input-search:focus{
+    width: 200px;
+}
+    }
+
+    @media only screen and (max-width:600px){
+  
+        .content h2 {
+            top: 50%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            font-weight: 900;
+       }
+
+
+       .content2 h2 {
+        top: 50%;
+        left: 10%;
+        font-size: 1rem;
+    }
+    .LoginForm{
+        width: 500px;
+        height: 600px;
+   }
+   .SingInForm{
+    width: 500px;
+}
+.SearchResults{
+    width: 150px;
+}
+.btn-search:focus ~ .input-search{
+    width: 150px;
+}
+.input-search:focus{
+    width: 150px;
+}
+        }
+        @media only screen and (max-width:600px){
+        .LoginForm{
+            width: 430px;
+     margin: 0 auto;
+       }
+       .SingInForm{
+        width: 430px;
+    }
+    .TweetUpdateForm{
+        width: 90%;
+   }
+    .TweetUpdateTweer{
+        width: 90%;
+   }
+    
+            }

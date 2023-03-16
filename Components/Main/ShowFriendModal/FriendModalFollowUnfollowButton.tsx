@@ -117,7 +117,7 @@ function FriendModalFollowUnfollowButton({setFriend,setUserNumbers,userNumbers,F
 
 
   return (
-   <button onClick={()=>{follow()}} className={isFollowing?'w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out2':'w-64 h-11 text-xl font-semibold text-slate-50 hvr-radial-out' }>{isFollowing?"Un Follow":"Follow"}</button>
+   <button onClick={()=>{follow()}} className={isFollowing?' w-20 text-xs md:text-base md:w-44 xl:w-64 h-11 xl:text-xl  font-semibold text-slate-50 hvr-radial-out2':'w-20 text-xs md:text-base md:w-44 xl:w-64 h-11 xl:text-xl   font-semibold text-slate-50 hvr-radial-out' }>{isFollowing?"Un Follow":"Follow"}</button>
   )
 }
 
