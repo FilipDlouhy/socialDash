@@ -29,8 +29,7 @@ function CreateVideoForm({setLoading}:props) {
     const formData = new FormData();
     formData.append("file", video);
     formData.append("upload_preset", "social-videos");
-    console.log("Upload success");
-    console.log(session.data?.user?.name);
+
 
     try {
         const response = await fetch(
